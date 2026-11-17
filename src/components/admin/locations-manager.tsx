@@ -6,10 +6,13 @@ import { Modal, FormField, inputClass } from "@/components/admin/modal";
 import { upsertLocation, deleteLocation } from "@/app/(admin)/admin/(dashboard)/locations/actions";
 import { cn } from "@/lib/utils";
 import type { Location, Property } from "@/lib/types";
+import { toast } from "sonner";
+import { useConfirm } from "@/components/ui/confirm";
 
 type LocationRow = Location & { property_count: number; propertyIds: string[] };
 
 export function LocationsManager({ locations, properties }: { locations: LocationRow[]; properties: Property[] }) {
+  const confirm = useConfirm();
   const [editing, setEditing] = useState<LocationRow | "new" | null>(null);
   const [, startTransition] = useTransition();
 
@@ -47,7 +50,7 @@ export function LocationsManager({ locations, properties }: { locations: Locatio
               <Pencil size={15} />
             </button>
             <button
-              onClick={() => confirm(`Delete "${l.name}"?`) && startTransition(() => deleteLocation(l.id))}
+              onClick={async () => { if (await confirm(`Delete "${l.name}"?`)) startTransition(async () => { await deleteLocation(l.id); toast.success("Deleted"); }); }}
               className="text-neutral-400 hover:text-red-600"
             >
               <Trash2 size={15} />

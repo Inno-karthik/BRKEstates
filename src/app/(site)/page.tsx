@@ -8,6 +8,7 @@ import { RecentlyViewed } from "@/components/recently-viewed";
 import { FeatureMarquee } from "@/components/feature-marquee";
 import { LocationMapView } from "@/components/location-map-view";
 import { AuthorSpotlight } from "@/components/author-spotlight";
+import { AnimatedNumber } from "@/components/ui/animated-number";
 import {
   getActiveLocations,
   getActivePropertyTypes,
@@ -75,10 +76,10 @@ export default async function HomePage() {
             Listed pulled live from the DB instead of hand-typed. */}
         <div className="relative mx-auto max-w-sm px-4 pb-14 sm:max-w-2xl md:pb-20">
           <div className="grid grid-cols-2 divide-x divide-y divide-white/10 rounded-2xl border border-white/10 bg-white/[0.06] backdrop-blur sm:grid-cols-4 sm:divide-y-0">
-            <HeroStat value="100%" label="Verified Listings" />
-            <HeroStat value="115" label="Ventures Associated" />
-            <HeroStat value={`${propertiesCount}+`} label="Properties Live" />
-            <HeroStat value="20+" label="Years with Prakruti" />
+            <HeroStat value={100} suffix="%" label="Verified Listings" />
+            <HeroStat value={115} label="Ventures Associated" />
+            <HeroStat value={propertiesCount} suffix="+" label="Properties Live" />
+            <HeroStat value={20} suffix="+" label="Years with Prakruti" />
           </div>
         </div>
       </section>
@@ -184,10 +185,12 @@ export default async function HomePage() {
   );
 }
 
-function HeroStat({ value, label }: { value: string; label: string }) {
+function HeroStat({ value, suffix, label }: { value: number; suffix?: string; label: string }) {
   return (
     <div className="px-4 py-5 text-center first:pl-5 last:pr-5">
-      <p className="font-[family-name:var(--font-display)] text-2xl font-bold text-white md:text-3xl">{value}</p>
+      <p className="font-[family-name:var(--font-display)] text-2xl font-bold text-white md:text-3xl">
+        <AnimatedNumber value={value} suffix={suffix} />
+      </p>
       <p className="mt-0.5 text-[11px] text-white/60 md:text-xs">{label}</p>
     </div>
   );

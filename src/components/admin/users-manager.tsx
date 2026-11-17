@@ -5,6 +5,8 @@ import { Plus, Trash2, Pencil, UserCog } from "lucide-react";
 import { Modal, FormField, inputClass } from "@/components/admin/modal";
 import { createStaffUser, updateStaffAccess, deleteStaffUser } from "@/app/(admin)/admin/(dashboard)/users/actions";
 import { CMS_AREAS, STAFF_SECTIONS, type CmsArea, type Profile, type StaffSection } from "@/lib/types";
+import { toast } from "sonner";
+import { useConfirm } from "@/components/ui/confirm";
 
 const SECTION_LABELS: Record<StaffSection, string> = { cms: "CMS", crm: "CRM", vault: "Vault" };
 const AREA_LABELS: Record<CmsArea, string> = {
@@ -18,6 +20,7 @@ const AREA_LABELS: Record<CmsArea, string> = {
 };
 
 export function UsersManager({ profiles }: { profiles: Profile[] }) {
+  const confirm = useConfirm();
   const [editing, setEditing] = useState<Profile | "new" | null>(null);
   const [, startTransition] = useTransition();
   const staff = profiles.filter((p) => p.role === "staff");
@@ -51,7 +54,7 @@ export function UsersManager({ profiles }: { profiles: Profile[] }) {
               <Pencil size={15} />
             </button>
             <button
-              onClick={() => confirm(`Remove ${p.email}'s access?`) && startTransition(() => deleteStaffUser(p.id))}
+              onClick={async () => { if (await confirm(`Remove ${p.email}'s access?`)) startTransition(async () => { await deleteStaffUser(p.id); toast.success("Deleted"); }); }}
               className="text-neutral-400 hover:text-red-600"
             >
               <Trash2 size={15} />

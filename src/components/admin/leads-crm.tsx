@@ -7,8 +7,11 @@ import { updateLeadStatus, deleteLead } from "@/app/crm/leads/actions";
 import { NotesModal } from "@/components/admin/lead-notes";
 import { STATUS_COLORS } from "@/lib/lead-status";
 import { LEAD_STATUSES, type Lead, type LeadStatus } from "@/lib/types";
+import { toast } from "sonner";
+import { useConfirm } from "@/components/ui/confirm";
 
 export function LeadsCrm({ leads }: { leads: Lead[] }) {
+  const confirm = useConfirm();
   const [statusFilter, setStatusFilter] = useState("");
   const [, startTransition] = useTransition();
   const [notesLead, setNotesLead] = useState<Lead | null>(null);
@@ -147,7 +150,7 @@ export function LeadsCrm({ leads }: { leads: Lead[] }) {
                       )}
                     </button>
                     <button
-                      onClick={() => confirm("Delete this lead?") && startTransition(() => deleteLead(lead.id))}
+                      onClick={async () => { if (await confirm("Delete this lead?")) startTransition(async () => { await deleteLead(lead.id); toast.success("Deleted"); }); }}
                       className="text-neutral-400 hover:text-red-600"
                     >
                       <Trash2 size={14} />

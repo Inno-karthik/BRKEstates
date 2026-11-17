@@ -32,6 +32,11 @@ html {
   scroll-behavior: smooth;
 }
 
+/* base-ui portals (dialogs, menus) stack correctly against app content */
+body {
+  isolation: isolate;
+}
+
 ::selection {
   background: color-mix(in srgb, var(--color-primary) 25%, transparent);
 }

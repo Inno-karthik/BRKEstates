@@ -14,6 +14,8 @@ import {
   deleteAttributeDefinition,
   updatePropertyTypeImage,
 } from "@/app/(admin)/admin/(dashboard)/property-types/actions";
+import { toast } from "sonner";
+import { useConfirm } from "@/components/ui/confirm";
 
 const FIELD_TYPES: FieldType[] = ["number", "text", "select", "multiselect", "boolean"];
 
@@ -85,6 +87,7 @@ export function PropertyTypesManager({
 }
 
 function AttributeFieldsEditor({ propertyTypeId, fields }: { propertyTypeId: string; fields: AttributeDefinition[] }) {
+  const confirm = useConfirm();
   const [editingField, setEditingField] = useState<AttributeDefinition | "new" | null>(null);
 
   return (
@@ -113,7 +116,7 @@ function AttributeFieldsEditor({ propertyTypeId, fields }: { propertyTypeId: str
                 <Pencil size={13} />
               </button>
               <button
-                onClick={() => confirm(`Delete field "${f.label}"?`) && deleteAttributeDefinition(f.id)}
+                onClick={async () => { if (await confirm(`Delete field "${f.label}"?`)) { await deleteAttributeDefinition(f.id); toast.success("Deleted"); } }}
                 className="text-neutral-400 hover:text-red-600"
               >
                 <Trash2 size={13} />

@@ -7,6 +7,8 @@ import { Pencil, Trash2, Search, Star } from "lucide-react";
 import { deleteProperty } from "@/app/(admin)/admin/(dashboard)/properties/actions";
 import { formatPrice } from "@/lib/utils";
 import type { Property } from "@/lib/types";
+import { toast } from "sonner";
+import { useConfirm } from "@/components/ui/confirm";
 
 const STATUS_COLORS: Record<string, string> = {
   draft: "bg-neutral-100 text-neutral-600",
@@ -17,6 +19,7 @@ const STATUS_COLORS: Record<string, string> = {
 };
 
 export function PropertiesList({ properties }: { properties: Property[] }) {
+  const confirm = useConfirm();
   const [q, setQ] = useState("");
   const [status, setStatus] = useState("");
   const [, startTransition] = useTransition();
@@ -74,7 +77,7 @@ export function PropertiesList({ properties }: { properties: Property[] }) {
               <Pencil size={15} />
             </Link>
             <button
-              onClick={() => confirm(`Delete "${p.title}"?`) && startTransition(() => deleteProperty(p.id))}
+              onClick={async () => { if (await confirm(`Delete "${p.title}"?`)) startTransition(async () => { await deleteProperty(p.id); toast.success("Deleted"); }); }}
               className="text-neutral-400 hover:text-red-600"
             >
               <Trash2 size={15} />

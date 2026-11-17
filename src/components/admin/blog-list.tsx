@@ -5,8 +5,11 @@ import { useTransition } from "react";
 import { Pencil, Trash2 } from "lucide-react";
 import { deleteBlogPost } from "@/app/(admin)/admin/(dashboard)/blog/actions";
 import type { BlogPost } from "@/lib/types";
+import { toast } from "sonner";
+import { useConfirm } from "@/components/ui/confirm";
 
 export function BlogList({ posts }: { posts: BlogPost[] }) {
+  const confirm = useConfirm();
   const [, startTransition] = useTransition();
 
   if (posts.length === 0) {
@@ -36,7 +39,7 @@ export function BlogList({ posts }: { posts: BlogPost[] }) {
             <Pencil size={15} />
           </Link>
           <button
-            onClick={() => confirm(`Delete "${post.title}"?`) && startTransition(() => deleteBlogPost(post.id))}
+            onClick={async () => { if (await confirm(`Delete "${post.title}"?`)) startTransition(async () => { await deleteBlogPost(post.id); toast.success("Deleted"); }); }}
             className="text-neutral-400 hover:text-red-600"
           >
             <Trash2 size={15} />

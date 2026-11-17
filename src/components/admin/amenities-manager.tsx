@@ -8,8 +8,11 @@ import { Modal, FormField, inputClass } from "@/components/admin/modal";
 import { cn } from "@/lib/utils";
 import type { Amenity, PropertyType } from "@/lib/types";
 import { upsertAmenity, deleteAmenity, toggleAmenityActive } from "@/app/(admin)/admin/(dashboard)/amenities/actions";
+import { toast } from "sonner";
+import { useConfirm } from "@/components/ui/confirm";
 
 export function AmenitiesManager({ amenities, types }: { amenities: Amenity[]; types: PropertyType[] }) {
+  const confirm = useConfirm();
   const [editing, setEditing] = useState<Amenity | "new" | null>(null);
   const [, startTransition] = useTransition();
 
@@ -46,7 +49,7 @@ export function AmenitiesManager({ amenities, types }: { amenities: Amenity[]; t
               <Pencil size={15} />
             </button>
             <button
-              onClick={() => confirm(`Delete "${a.name}"?`) && startTransition(() => deleteAmenity(a.id))}
+              onClick={async () => { if (await confirm(`Delete "${a.name}"?`)) startTransition(async () => { await deleteAmenity(a.id); toast.success("Deleted"); }); }}
               className="shrink-0 text-neutral-400 hover:text-red-600"
             >
               <Trash2 size={15} />

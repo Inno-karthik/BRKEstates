@@ -6,6 +6,8 @@ import { FileText, Lock, Unlock, Link2, Trash2, Loader2, Upload, Check } from "l
 import { uploadFile } from "@/lib/upload-client";
 import { addDocument, deleteDocument, updateDocument } from "@/app/vault-admin/actions";
 import type { PropertyDocument } from "@/lib/types";
+import { toast } from "sonner";
+import { useConfirm } from "@/components/ui/confirm";
 
 export function VaultDocumentManager({
   propertyId,
@@ -147,6 +149,7 @@ function DocumentRow({
   onCopy: (text: string, id: string) => void;
   copiedId: string | null;
 }) {
+  const confirm = useConfirm();
   const router = useRouter();
   const [keyInput, setKeyInput] = useState(doc.access_key ?? "");
   const [busy, setBusy] = useState(false);
@@ -167,7 +170,7 @@ function DocumentRow({
   }
 
   async function remove() {
-    if (!confirm(`Delete "${doc.title}"?`)) return;
+    if (!(await confirm(`Delete "${doc.title}"?`))) return;
     setBusy(true);
     try {
       await deleteDocument(doc.id, propertyId, doc.file_url);

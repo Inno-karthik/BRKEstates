@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { ShieldCheck, Users, TrendingUp, Award, Compass, Handshake, LineChart, CheckCircle2 } from "lucide-react";
 import { AUTHOR } from "@/lib/author";
+import { AnimatedNumber } from "@/components/ui/animated-number";
 import { PageTheme } from "@/components/theme-style";
 import { getPublishedPropertiesCount, getSiteSettings } from "@/lib/queries";
 import type { Metadata } from "next";
@@ -55,10 +56,10 @@ export default async function AboutPage() {
             </p>
           </div>
           <div className="grid grid-cols-2 gap-4">
-            <Stat icon={ShieldCheck} label="Verified Listings" value="100%" />
-            <Stat icon={Users} label="Ventures Associated" value="115" />
-            <Stat icon={TrendingUp} label="Properties Live" value={`${propertiesCount}+`} />
-            <Stat icon={Award} label="Years with Prakruti" value="20+" />
+            <Stat icon={ShieldCheck} label="Verified Listings" value={100} suffix="%" />
+            <Stat icon={Users} label="Ventures Associated" value={115} />
+            <Stat icon={TrendingUp} label="Properties Live" value={propertiesCount} suffix="+" />
+            <Stat icon={Award} label="Years with Prakruti" value={20} suffix="+" />
           </div>
         </div>
       </section>
@@ -130,11 +131,13 @@ export default async function AboutPage() {
   );
 }
 
-function Stat({ icon: IconC, label, value }: { icon: typeof ShieldCheck; label: string; value: string }) {
+function Stat({ icon: IconC, label, value, suffix }: { icon: typeof ShieldCheck; label: string; value: number; suffix?: string }) {
   return (
     <div className="rounded-2xl border border-black/5 bg-white p-5 text-center shadow-sm">
       <IconC className="mx-auto mb-2 text-[var(--color-primary,#9b1c1c)]" size={24} />
-      <p className="text-xl font-bold text-neutral-900">{value}</p>
+      <p className="text-xl font-bold text-neutral-900">
+        <AnimatedNumber value={value} suffix={suffix} />
+      </p>
       <p className="text-xs text-neutral-500">{label}</p>
     </div>
   );

@@ -8,8 +8,11 @@ import { updateLeadStatus, deleteLead } from "@/app/crm/leads/actions";
 import { LeadNotesContent } from "@/components/admin/lead-notes";
 import { STATUS_COLORS } from "@/lib/lead-status";
 import { LEAD_STATUSES, type Lead, type LeadStatus } from "@/lib/types";
+import { toast } from "sonner";
+import { useConfirm } from "@/components/ui/confirm";
 
 export function LeadDetailView({ lead }: { lead: Lead }) {
+  const confirm = useConfirm();
   const router = useRouter();
   const [status, setStatus] = useState(lead.status);
   const [, startTransition] = useTransition();
@@ -21,7 +24,7 @@ export function LeadDetailView({ lead }: { lead: Lead }) {
   }
 
   async function remove() {
-    if (!confirm("Delete this lead?")) return;
+    if (!(await confirm("Delete this lead?"))) return;
     setDeleting(true);
     await deleteLead(lead.id);
     router.push("/crm/leads");

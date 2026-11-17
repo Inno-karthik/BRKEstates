@@ -7,6 +7,8 @@ import { ImageUploader } from "@/components/admin/image-uploader";
 import { Modal, FormField, inputClass } from "@/components/admin/modal";
 import { upsertPopup, deletePopup, togglePopupActive } from "@/app/(admin)/admin/(dashboard)/popups/actions";
 import type { Popup, PopupPage, Property } from "@/lib/types";
+import { toast } from "sonner";
+import { useConfirm } from "@/components/ui/confirm";
 
 const PAGE_LABELS: Record<PopupPage, string> = {
   home: "Home",
@@ -25,6 +27,7 @@ function toLocalInput(iso: string | null) {
 }
 
 export function PopupsManager({ popups, properties }: { popups: Popup[]; properties: Property[] }) {
+  const confirm = useConfirm();
   const [editing, setEditing] = useState<Popup | "new" | null>(null);
   const [, startTransition] = useTransition();
 
@@ -73,7 +76,7 @@ export function PopupsManager({ popups, properties }: { popups: Popup[]; propert
               <Pencil size={15} />
             </button>
             <button
-              onClick={() => confirm(`Delete "${p.title}"?`) && startTransition(() => deletePopup(p.id))}
+              onClick={async () => { if (await confirm(`Delete "${p.title}"?`)) startTransition(async () => { await deletePopup(p.id); toast.success("Deleted"); }); }}
               className="text-neutral-400 hover:text-red-600"
             >
               <Trash2 size={15} />
