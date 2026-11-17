@@ -1,0 +1,148 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+:root {
+  /* Brand defaults — overridden per-page via inline vars from page_themes (see ThemeStyle). */
+  --color-primary: #1b5e3a;
+  --color-secondary: #0f3d26;
+  --color-accent: #d4af37;
+  --color-bg: #ffffff;
+  --color-text: #14241c;
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@theme inline {
+  --color-brand-primary: var(--color-primary);
+  --color-brand-secondary: var(--color-secondary);
+  --color-brand-accent: var(--color-accent);
+  --color-brand-bg: var(--color-bg);
+  --color-brand-text: var(--color-text);
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--color-primary) 25%, transparent);
+}
+
+/* 3D flipbook helpers */
+.flip-perspective {
+  perspective: 2400px;
+}
+.flip-page {
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+}
+
+/* thin, custom-styled scrollbars site-wide (Firefox) — .no-scrollbar below still wins
+   where a specific element needs no visible scrollbar at all. */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: color-mix(in srgb, var(--color-primary) 45%, transparent) transparent;
+}
+
+/* thin, custom-styled scrollbars site-wide (Chrome/Safari/Edge) */
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+*::-webkit-scrollbar-thumb {
+  background: color-mix(in srgb, var(--color-primary) 45%, transparent);
+  border-radius: 999px;
+}
+*::-webkit-scrollbar-thumb:hover {
+  background: color-mix(in srgb, var(--color-primary) 65%, transparent);
+}
+
+/* hide scrollbar for horizontal chip rows */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* visible but very thin scrollbar, for rows like horizontal status filters */
+.scrollbar-thin::-webkit-scrollbar {
+  height: 3px;
+}
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.15);
+  border-radius: 999px;
+}
+.scrollbar-thin {
+  scrollbar-width: thin;
+}
+
+/* modern hero: soft animated mesh blobs */
+@keyframes blob-float {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(4%, -6%) scale(1.08); }
+  66% { transform: translate(-3%, 4%) scale(0.95); }
+}
+.blob {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(80px);
+  animation: blob-float 16s ease-in-out infinite;
+  will-change: transform;
+}
+
+/* continuous horizontal scroll for the feature marquee strip */
+@keyframes marquee-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.animate-marquee {
+  animation: marquee-scroll 28s linear infinite;
+}
+
+/* subtle dot-grid texture overlay */
+.bg-dot-grid {
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.14) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+
+/* hide the default Ola/MapLibre attribution chrome — we show our own styled credit badge instead */
+.maplibregl-ctrl-attrib,
+.maplibregl-ctrl-logo {
+  display: none !important;
+}
+
+/* Property popup cards on the map fully own their own styling (card, shadow, close
+   button) — strip MapLibre's default white padded box + tip + close button so there's
+   one clean card instead of our card nested inside its box. */
+.maplibregl-popup-content {
+  padding: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+.maplibregl-popup-tip {
+  display: none !important;
+}
+.maplibregl-popup-close-button {
+  display: none !important;
+}
+
+.text-gradient-accent {
+  background: linear-gradient(90deg, var(--color-accent, #d4af37), #f3d98b);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}

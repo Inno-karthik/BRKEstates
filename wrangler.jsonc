@@ -1,0 +1,37 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "brk-estates",
+  "main": ".open-next/worker.js",
+  "compatibility_date": "2026-10-20",
+  "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
+  "workers_dev": true,
+  "assets": {
+    "directory": ".open-next/assets",
+    "binding": "ASSETS"
+  },
+  "r2_buckets": [
+    {
+      "binding": "MEDIA_BUCKET",
+      "bucket_name": "brk-estates-media"
+    },
+    {
+      "binding": "NEXT_INC_CACHE_R2_BUCKET",
+      "bucket_name": "brk-estates-cache"
+    }
+  ],
+  "services": [
+    {
+      "binding": "WORKER_SELF_REFERENCE",
+      "service": "brk-estates"
+    }
+  ],
+  // vars.R2_PUBLIC_URL and routes below are placeholders — fill in once the R2 bucket's
+  // public dev URL and the real domain exist (see TODO.md).
+  "vars": {
+    "R2_PUBLIC_URL": "https://REPLACE-ME.r2.dev"
+  },
+  "routes": [
+    { "pattern": "brkestates.com", "custom_domain": true },
+    { "pattern": "www.brkestates.com", "custom_domain": true }
+  ]
+}
