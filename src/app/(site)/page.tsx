@@ -46,7 +46,7 @@ export default async function HomePage() {
     <PageTheme page="home">
       {/* Hero */}
       <section className="relative overflow-hidden bg-[var(--color-secondary,#3b0b10)]">
-        <Image src={HERO_BG} alt="" fill priority sizes="100vw" className="object-cover object-center" />
+        <Image src={HERO_BG} alt="" fill priority sizes="100vw" className="object-cover object-[72%_50%] md:object-center" />
         <div
           className="absolute inset-0"
           style={{
@@ -64,13 +64,13 @@ export default async function HomePage() {
 
         <div className="relative mx-auto max-w-5xl px-4 pb-16 pt-20 text-center md:pb-24 md:pt-32">
           <span className="inline-flex items-center rounded-full border border-white/10 bg-white/10 px-4 py-1.5 text-xs font-medium text-white/80 backdrop-blur">
-            Powered by Prakruti · Visakhapatnam
+            Powered by{" "}<b className="font-bold text-white">Prakruti Avenues</b>
           </span>
           <h1 className="mt-6 font-[family-name:var(--font-display)] text-4xl font-bold leading-[1.1] tracking-tight text-white md:text-6xl">
             Find the Right Property in{" "}
             <span className="text-gradient-accent">Visakhapatnam</span> &amp; Around.
           </h1>
-          <p className="mx-auto mt-5 max-w-xl rounded-2xl bg-black/35 px-5 py-4 text-sm text-white/90 backdrop-blur-[2px] md:text-base">
+          <p className="mx-auto mt-5 w-full max-w-2xl rounded-2xl bg-black/35 px-5 py-4 text-sm text-white/90 backdrop-blur-[2px] md:text-base">
             From Madhurawada and Rushikonda to Dwaraka Nagar, Anandapuram and the Bheemili coast, BKR Estates brings you
             verified plots, apartments, villas and farm land — backed by 20+ years of Prakruti experience and
             honest guidance on where to invest.
@@ -84,8 +84,8 @@ export default async function HomePage() {
             Listed pulled live from the DB instead of hand-typed. */}
         <div className="relative mx-auto max-w-sm px-4 pb-14 sm:max-w-2xl md:pb-20">
           <div className="grid grid-cols-2 divide-x divide-y divide-white/10 rounded-2xl border border-white/10 bg-white/[0.06] backdrop-blur sm:grid-cols-4 sm:divide-y-0">
-            <HeroStat value={100} suffix="%" label="Verified Listings" />
-            <HeroStat value={115} label="Ventures Associated" />
+            <HeroStat value={100} suffix="%" label="Customer Satisfaction" />
+            <HeroStat value={115} suffix="+" label="Projects" />
             <HeroStat value={propertiesCount} suffix="+" label="Properties Live" />
             <HeroStat value={20} suffix="+" label="Years with Prakruti" />
           </div>

@@ -1,5 +1,7 @@
 "use client";
 
+import { logEvent } from "@/lib/track-event";
+
 const KEY = "bhk_compare";
 export const MAX_COMPARE = 3;
 
@@ -63,6 +65,7 @@ export function toggleCompare(id: string, typeId?: string): ToggleResult {
   }
   entries.push({ id, typeId });
   write(entries);
+  logEvent("compare_add", { propertyId: id });
   return { added: true, list: entries.map((e) => e.id) };
 }
 

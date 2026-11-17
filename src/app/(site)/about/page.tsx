@@ -17,7 +17,7 @@ export async function generateMetadata(): Promise<Metadata> {
     title: seo?.title || "About Us",
     description:
       seo?.description ||
-      "Learn about BKR Estates, powered by Prakruti — Visakhapatnam real estate guided by 20+ years of experience and 115 ventures.",
+      "Learn about BKR Estates, powered by Prakruti — Visakhapatnam real estate guided by 20+ years of experience and 115+ projects.",
     alternates: { canonical: "/about" },
   };
 }
@@ -56,8 +56,8 @@ export default async function AboutPage() {
             </p>
           </div>
           <div className="grid grid-cols-2 gap-4">
-            <Stat icon={ShieldCheck} label="Verified Listings" value={100} suffix="%" />
-            <Stat icon={Users} label="Ventures Associated" value={115} />
+            <Stat icon={ShieldCheck} label="Customer Satisfaction" value={100} suffix="%" />
+            <Stat icon={Users} label="Projects" value={115} suffix="+" />
             <Stat icon={TrendingUp} label="Properties Live" value={propertiesCount} suffix="+" />
             <Stat icon={Award} label="Years with Prakruti" value={20} suffix="+" />
           </div>

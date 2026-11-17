@@ -193,7 +193,23 @@ export type LeadNote = {
   created_at: string;
 };
 
-export type LeadEventType = "whatsapp_click" | "call_click" | "page_view";
+export type LeadEventType =
+  | "page_view"
+  | "property_view"
+  | "property_click"
+  | "whatsapp_click"
+  | "call_click"
+  | "email_click"
+  | "directions_click"
+  | "cta_click"
+  | "social_click"
+  | "brochure_download"
+  | "share_click"
+  | "search"
+  | "favorite_add"
+  | "compare_add"
+  | "chat_open"
+  | "chat_lead";
 
 export type PropertyDocument = {
   id: string;

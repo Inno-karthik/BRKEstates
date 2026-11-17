@@ -42,7 +42,7 @@ export default function AdminLoginPage() {
     <div className="flex min-h-screen items-center justify-center bg-[#3b0b10] px-4">
       <div className="w-full max-w-sm rounded-2xl bg-white p-8 shadow-2xl">
         <div className="mb-6 flex flex-col items-center">
-          <Image src="/brand/logo-mark.png" alt="BKR Estates" width={56} height={56} />
+          <Image src="/brand/logo.png" alt="BKR Estates" width={220} height={70} className="h-auto w-52" priority />
           <h1 className="mt-3 text-lg font-semibold text-neutral-900">Admin Sign In</h1>
           <p className="text-xs text-neutral-500">BKR Estates management console</p>
         </div>

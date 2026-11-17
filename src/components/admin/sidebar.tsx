@@ -58,11 +58,9 @@ export function AdminSidebar({ profile }: { profile?: Profile | null }) {
 
   const content = (
     <nav className="flex h-full flex-col">
-      <div className="flex items-center gap-2 px-5 py-5">
-        <Image src="/brand/logo-mark.png" alt="" width={36} height={36} className="h-9 w-9" />
-        <div>
-          <p className="text-sm font-semibold text-white">BKR Estates</p>
-          <p className="text-[11px] text-white/50">Admin Console</p>
+      <div className="px-4 py-5">
+        <div className="rounded-xl bg-white px-3 py-2 shadow-sm">
+          <Image src="/brand/logo.png" alt="BKR Estates" width={200} height={64} className="h-auto w-full object-contain" />
         </div>
       </div>
 
@@ -124,9 +122,8 @@ export function AdminSidebar({ profile }: { profile?: Profile | null }) {
       <aside className="sticky top-0 hidden h-screen w-64 shrink-0 overflow-y-auto bg-[#3b0b10] md:block">{content}</aside>
 
       <div className="flex items-center justify-between border-b border-black/5 bg-[#3b0b10] px-4 py-3 md:hidden">
-        <div className="flex items-center gap-2">
-          <Image src="/brand/logo-mark.png" alt="" width={28} height={28} className="h-7 w-7" />
-          <span className="text-sm font-semibold text-white">BKR Admin</span>
+        <div className="rounded-lg bg-white px-2 py-1">
+          <Image src="/brand/logo.png" alt="BKR Estates" width={120} height={38} className="h-8 w-auto object-contain" />
         </div>
         <button onClick={() => setMobileOpen(true)} className="text-white">
           <Menu size={22} />

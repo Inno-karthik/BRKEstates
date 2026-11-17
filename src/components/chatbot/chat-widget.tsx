@@ -15,6 +15,7 @@ import {
 } from "@/components/chatbot/actions";
 import { WhatsappIcon } from "@/components/social-icons";
 import { getCompareIds } from "@/lib/compare";
+import { trackClick } from "@/lib/track-event";
 import { cn } from "@/lib/utils";
 import type { Property, PropertyType, Location } from "@/lib/types";
 
@@ -208,6 +209,7 @@ export function ChatWidget() {
   function openWhatsapp(context?: string) {
     if (!whatsapp) return;
     const text = context ? `Hi, I'm interested in ${context}` : "Hi, I'd like to know more about your properties.";
+    trackClick("whatsapp_click", contextProperty?.id, "chatbot");
     window.open(`https://wa.me/${whatsapp.replace(/\D/g, "")}?text=${encodeURIComponent(text)}`, "_blank", "noreferrer");
   }
 
@@ -250,6 +252,11 @@ export function ChatWidget() {
   async function handleQuickReply(value: string, label: string) {
     pushUser(label);
     setInput("");
+
+    if (value === "skip_email") {
+      await finishLead(undefined);
+      return;
+    }
 
     if (value.startsWith("info:")) {
       await showPropertyInfo(value.replace("info:", "") as BotPropertyCategory);
@@ -353,6 +360,27 @@ export function ChatWidget() {
     }
   }
 
+  async function finishLead(email?: string) {
+    await withTyping(async () => {
+      const result = await submitBotLead({
+        name: draft.current.name ?? "",
+        phone: draft.current.phone ?? "",
+        email,
+        message: draft.current.typeName
+          ? `Interested in: ${draft.current.typeName}${draft.current.min || draft.current.max ? ` (budget: ${draft.current.min ? `₹${draft.current.min / 100000}L` : "0"}–${draft.current.max ? `₹${draft.current.max / 100000}L` : "no max"})` : ""}`
+          : undefined,
+      });
+      if (!result.ok) {
+        pushBot(result.error ?? "Something went wrong — please try again, or call us directly.");
+        return;
+      }
+      trackClick("chat_lead", contextProperty?.id);
+      setStage("idle");
+      pushBot(`Thanks, ${draft.current.name}! Our team will reach out to you shortly. Anything else I can help with?`, greetingQuickReplies());
+      draft.current = {};
+    });
+  }
+
   async function handleFreeText() {
     const text = input.trim();
     if (!text) return;
@@ -414,31 +442,18 @@ export function ChatWidget() {
     }
 
     if (stage === "lead_phone") {
+      if (text.replace(/\D/g, "").length < 10) {
+        await withTyping(() => pushBot("That doesn't look like a valid phone number — please enter a 10-digit mobile number."));
+        return;
+      }
       draft.current.phone = text;
       setStage("lead_email");
-      await withTyping(() => pushBot("Great — and an email address (optional, you can skip this by typing \"skip\")?"));
+      await withTyping(() => pushBot("Great — and an email address? It's optional.", [{ label: "Skip", value: "skip_email" }]));
       return;
     }
 
     if (stage === "lead_email") {
-      const email = /skip/i.test(text) ? undefined : text;
-      await withTyping(async () => {
-        const result = await submitBotLead({
-          name: draft.current.name ?? "",
-          phone: draft.current.phone ?? "",
-          email,
-          message: draft.current.typeName
-            ? `Interested in: ${draft.current.typeName}${draft.current.min || draft.current.max ? ` (budget: ${draft.current.min ? `₹${draft.current.min / 100000}L` : "0"}–${draft.current.max ? `₹${draft.current.max / 100000}L` : "no max"})` : ""}`
-            : undefined,
-        });
-        if (!result.ok) {
-          pushBot(result.error ?? "Something went wrong — please try again, or call us directly.");
-          return;
-        }
-        setStage("idle");
-        pushBot(`Thanks, ${draft.current.name}! Our team will reach out to you shortly. Anything else I can help with?`, greetingQuickReplies());
-        draft.current = {};
-      });
+      await finishLead(/skip/i.test(text) ? undefined : text);
       return;
     }
 
@@ -492,7 +507,10 @@ export function ChatWidget() {
   return (
     <>
       <button
-        onClick={() => setOpen((v) => !v)}
+        onClick={() => {
+          if (!open) trackClick("chat_open", contextProperty?.id);
+          setOpen((v) => !v);
+        }}
         aria-label={open ? "Close chat" : "Open chat assistant"}
         className={cn(
           "fixed right-4 z-[55] flex h-14 w-14 items-center justify-center rounded-full bg-[var(--color-primary,#7f1d1d)] text-white shadow-xl transition hover:scale-105 md:bottom-6",
@@ -548,27 +566,47 @@ export function ChatWidget() {
               )}
             </div>
 
-            <form
-              onSubmit={(e) => {
-                e.preventDefault();
-                handleFreeText();
-              }}
-              className="flex shrink-0 items-center gap-2 border-t border-black/5 bg-white p-3 pb-[calc(0.75rem+env(safe-area-inset-bottom))] md:pb-3"
-            >
-              <input
-                value={input}
-                onChange={(e) => setInput(e.target.value)}
-                placeholder="Type a message…"
-                className="w-full rounded-full border border-black/10 px-4 py-2.5 text-sm outline-none focus:border-[var(--color-primary,#7f1d1d)]"
-              />
-              <button
-                type="submit"
-                disabled={!input.trim()}
-                className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[var(--color-primary,#7f1d1d)] text-white disabled:opacity-40"
+            {stage === "lead_name" || stage === "lead_phone" || stage === "lead_email" ? (
+              <form
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  handleFreeText();
+                }}
+                className="flex shrink-0 items-center gap-2 border-t border-black/5 bg-white p-3 pb-[calc(0.75rem+env(safe-area-inset-bottom))] md:pb-3"
               >
-                <Send size={16} />
-              </button>
-            </form>
+                <input
+                  key={stage}
+                  autoFocus
+                  value={input}
+                  onChange={(e) => setInput(e.target.value)}
+                  type={stage === "lead_phone" ? "tel" : stage === "lead_email" ? "email" : "text"}
+                  inputMode={stage === "lead_phone" ? "tel" : stage === "lead_email" ? "email" : "text"}
+                  autoComplete={stage === "lead_phone" ? "tel" : stage === "lead_email" ? "email" : "name"}
+                  placeholder={
+                    stage === "lead_phone" ? "Your mobile number" : stage === "lead_email" ? "Your email (optional)" : "Your name"
+                  }
+                  className="w-full rounded-full border border-black/10 px-4 py-2.5 text-base outline-none focus:border-[var(--color-primary,#7f1d1d)] md:text-sm"
+                />
+                <button
+                  type="submit"
+                  disabled={!input.trim()}
+                  aria-label="Send"
+                  className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[var(--color-primary,#7f1d1d)] text-white disabled:opacity-40"
+                >
+                  <Send size={16} />
+                </button>
+              </form>
+            ) : (
+              <div className="flex shrink-0 items-center justify-between gap-2 border-t border-black/5 bg-white px-3 py-2.5 pb-[calc(0.625rem+env(safe-area-inset-bottom))] md:pb-2.5">
+                <p className="text-[11px] text-neutral-400">Tap an option above to continue</p>
+                <button
+                  onClick={resetToGreeting}
+                  className="rounded-full border border-black/10 px-3 py-1.5 text-xs font-medium text-neutral-600 hover:bg-neutral-50"
+                >
+                  Main menu
+                </button>
+              </div>
+            )}
           </motion.div>
         )}
       </AnimatePresence>

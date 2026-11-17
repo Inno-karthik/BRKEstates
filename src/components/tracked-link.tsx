@@ -22,6 +22,7 @@ export function TrackedLink({
       href={href}
       target={href.startsWith("http") ? "_blank" : undefined}
       rel="noreferrer"
+      data-tracked="1"
       onClick={() => trackClick(event, propertyId)}
       className={className}
     >

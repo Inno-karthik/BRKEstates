@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import { UIProviders } from "@/components/ui/providers";
+import { AnalyticsTracker } from "@/components/analytics-tracker";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -87,6 +88,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       </head>
       <body className="min-h-full flex flex-col bg-white">
         <UIProviders>{children}</UIProviders>
+        <AnalyticsTracker />
       </body>
     </html>
   );

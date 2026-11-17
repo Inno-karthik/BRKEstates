@@ -2,13 +2,14 @@
 
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { LayoutDashboard, Users, LogOut, Menu, X, ArrowLeft, ArrowUpRight, Megaphone } from "lucide-react";
+import { LayoutDashboard, Users, LogOut, Menu, X, ArrowLeft, ArrowUpRight, Megaphone, BarChart3 } from "lucide-react";
 import { useState } from "react";
 import { createClient } from "@/lib/supabase/client";
 import { cn } from "@/lib/utils";
 
 const links = [
   { href: "/crm", label: "Overview", icon: LayoutDashboard },
+  { href: "/crm/analytics", label: "Analytics", icon: BarChart3 },
   { href: "/crm/leads", label: "Leads", icon: Users },
   { href: "/crm/marketing", label: "Marketing Settings", icon: Megaphone },
 ];

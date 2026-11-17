@@ -1,9 +1,10 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { getAllLeads, getDashboardStats, getLeadsBySource } from "@/lib/admin-queries";
+import { getAnalytics } from "@/lib/analytics-queries";
 
 export default async function CrmOverviewPage() {
-  const [leads, stats, bySource] = await Promise.all([getAllLeads(), getDashboardStats(), getLeadsBySource()]);
+  const [leads, stats, bySource, web] = await Promise.all([getAllLeads(), getDashboardStats(), getLeadsBySource(), getAnalytics(7)]);
   const recentLeads = leads.slice(0, 6);
 
   return (
@@ -24,6 +25,25 @@ export default async function CrmOverviewPage() {
         <StatCard label="This Week" value={stats.leadsThisWeek} />
         <StatCard label="WhatsApp/Call Clicks (7d)" value={stats.whatsappClicks + stats.callClicks} />
       </div>
+
+      {web && (
+        <div className="mt-6 rounded-2xl border border-black/5 bg-white p-5">
+          <div className="mb-3 flex items-center justify-between">
+            <p className="text-xs font-semibold uppercase tracking-wide text-neutral-500">Website activity · last 7 days</p>
+            <Link href="/crm/analytics" className="flex items-center gap-1 text-xs font-semibold text-indigo-600">
+              Full analytics <ArrowRight size={13} />
+            </Link>
+          </div>
+          <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
+            <MiniStat label="Visitors" value={web.visitors} />
+            <MiniStat label="Page views" value={web.by_type.page_view ?? 0} />
+            <MiniStat label="Property views" value={web.by_type.property_view ?? 0} />
+            <MiniStat label="Phone calls" value={web.by_type.call_click ?? 0} />
+            <MiniStat label="WhatsApp" value={web.by_type.whatsapp_click ?? 0} />
+            <MiniStat label="Chatbot opens" value={web.by_type.chat_open ?? 0} />
+          </div>
+        </div>
+      )}
 
       <div className="mt-6 grid grid-cols-1 gap-6 lg:grid-cols-2">
         {bySource.length > 0 && (
@@ -64,6 +84,15 @@ export default async function CrmOverviewPage() {
           </div>
         </div>
       </div>
+    </div>
+  );
+}
+
+function MiniStat({ label, value }: { label: string; value: number }) {
+  return (
+    <div className="rounded-xl bg-neutral-50 p-3">
+      <p className="text-lg font-bold text-neutral-900">{value.toLocaleString("en-IN")}</p>
+      <p className="text-[11px] text-neutral-500">{label}</p>
     </div>
   );
 }

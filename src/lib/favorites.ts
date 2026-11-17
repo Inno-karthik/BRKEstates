@@ -1,5 +1,7 @@
 "use client";
 
+import { logEvent } from "@/lib/track-event";
+
 const KEY = "bhk_favorites";
 
 function read(): string[] {
@@ -38,5 +40,6 @@ export function toggleFavorite(id: string): boolean {
   }
   ids.push(id);
   write(ids);
+  logEvent("favorite_add", { propertyId: id });
   return true;
 }

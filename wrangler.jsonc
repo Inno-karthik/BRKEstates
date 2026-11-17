@@ -31,7 +31,8 @@
   "vars": {
     "R2_PUBLIC_URL": "https://pub-b6bfd758709a42bbbcceb22b5a972143.r2.dev"
   },
-  // bkrestates.com is a Cloudflare zone but still has externally managed (Wix) DNS records, so the
-  // custom domain can't attach yet. Once those records are removed, add:
-  // "routes": [{ "pattern": "bkrestates.com", "custom_domain": true }, { "pattern": "www.bkrestates.com", "custom_domain": true }]
+  "routes": [
+    { "pattern": "bkrestates.com", "custom_domain": true },
+    { "pattern": "www.bkrestates.com", "custom_domain": true }
+  ]
 }
