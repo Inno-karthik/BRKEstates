@@ -37,7 +37,7 @@ export function ShowMoreGrid({
         <button
           type="button"
           onClick={() => setExpanded((v) => !v)}
-          className="mt-3 flex items-center gap-1 text-xs font-semibold text-[var(--color-primary,#1b5e3a)]"
+          className="mt-3 flex items-center gap-1 text-xs font-semibold text-[var(--color-primary,#9b1c1c)]"
         >
           {expanded ? "Show less" : `Show ${items.length - activeLimit} more`}
           <ChevronDown size={13} className={expanded ? "rotate-180 transition-transform" : "transition-transform"} />

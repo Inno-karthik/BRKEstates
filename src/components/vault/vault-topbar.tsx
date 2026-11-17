@@ -19,7 +19,7 @@ export function VaultTopbar() {
     <header className="flex items-center justify-between border-b border-black/5 bg-amber-950 px-4 py-3 md:px-6">
       <Link href="/vault-admin" className="flex items-center gap-2 text-white">
         <Lock size={18} />
-        <span className="text-sm font-semibold">BRK Estates Vault</span>
+        <span className="text-sm font-semibold">BKR Estates Vault</span>
       </Link>
       <nav className="flex items-center gap-1">
         <Link

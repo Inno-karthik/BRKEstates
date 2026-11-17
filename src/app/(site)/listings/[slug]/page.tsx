@@ -54,7 +54,7 @@ export async function generateMetadata({
   // AEO-friendly: a factual one-line answer to "what is this, where, how much" up front.
   const autoDescription =
     descriptionText?.slice(0, 155) ||
-    `${property.property_type?.name ?? "Property"} for sale${locationStr ? ` in ${locationStr}` : ""} — ${priceStr}${areaStr ? `, ${areaStr}` : ""}. Listed by BRK Estates.`;
+    `${property.property_type?.name ?? "Property"} for sale${locationStr ? ` in ${locationStr}` : ""} — ${priceStr}${areaStr ? `, ${areaStr}` : ""}. Listed by BKR Estates.`;
   const title = property.meta_title || property.title;
   const description = property.meta_description || autoDescription;
   const cover = property.cover_image || property.images?.[0]?.url;
@@ -143,8 +143,8 @@ export default async function PropertyDetailPage({ params }: { params: Promise<{
                 <span
                   className="inline-block rounded-full px-3 py-1 text-xs font-semibold"
                   style={{
-                    background: `${property.property_type.accent_color ?? "#1b5e3a"}1a`,
-                    color: property.property_type.accent_color ?? "#1b5e3a",
+                    background: `${property.property_type.accent_color ?? "#9b1c1c"}1a`,
+                    color: property.property_type.accent_color ?? "#9b1c1c",
                   }}
                 >
                   {property.property_type.name}
@@ -170,7 +170,7 @@ export default async function PropertyDetailPage({ params }: { params: Promise<{
                   {priceParts.prefix && (
                     <p className="text-xs font-medium uppercase tracking-wide text-neutral-400">{priceParts.prefix}</p>
                   )}
-                  <p className="text-2xl font-extrabold tracking-tight text-[var(--color-primary,#1b5e3a)] md:text-3xl">
+                  <p className="text-2xl font-extrabold tracking-tight text-[var(--color-primary,#9b1c1c)] md:text-3xl">
                     {priceParts.amount}
                     {priceParts.suffix && <span className="text-base font-normal text-neutral-500 md:text-lg">{priceParts.suffix}</span>}
                   </p>
@@ -240,7 +240,7 @@ export default async function PropertyDetailPage({ params }: { params: Promise<{
                   <p className="mt-3 text-[11px] leading-relaxed text-neutral-400">
                     Disclaimer: The certifications, approvals, registration numbers and related documents displayed
                     on this page are based on information provided by the respective property developer, owner or
-                    venture management. BRK Estates does not independently certify or guarantee the accuracy,
+                    venture management. BKR Estates does not independently certify or guarantee the accuracy,
                     authenticity, validity or current status of such information. Buyers are advised to verify all
                     relevant approvals and documents directly at the time of site visit or any decision making
                     meetings — before making any purchase decision.
@@ -256,9 +256,9 @@ export default async function PropertyDetailPage({ params }: { params: Promise<{
                   {property.growth_highlights.map((g, i) => (
                     <div
                       key={i}
-                      className="flex items-start gap-3 rounded-xl border border-black/5 bg-gradient-to-br from-[var(--color-primary,#1b5e3a)]/[0.05] to-transparent p-3.5"
+                      className="flex items-start gap-3 rounded-xl border border-black/5 bg-gradient-to-br from-[var(--color-primary,#9b1c1c)]/[0.05] to-transparent p-3.5"
                     >
-                      <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[var(--color-primary,#1b5e3a)]/10 text-[var(--color-primary,#1b5e3a)]">
+                      <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[var(--color-primary,#9b1c1c)]/10 text-[var(--color-primary,#9b1c1c)]">
                         <Icon name={g.icon} fallback="trending-up" size={16} />
                       </span>
                       <div className="min-w-0">

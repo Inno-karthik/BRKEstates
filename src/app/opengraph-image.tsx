@@ -14,7 +14,7 @@ export default async function OpengraphImage() {
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
-          background: "linear-gradient(135deg, #0f3d26 0%, #1b5e3a 60%, #0f3d26 100%)",
+          background: "linear-gradient(135deg, #5c0f12 0%, #9b1c1c 60%, #5c0f12 100%)",
           color: "white",
           fontFamily: "sans-serif",
         }}
@@ -33,9 +33,9 @@ export default async function OpengraphImage() {
             marginBottom: 28,
           }}
         >
-          BRK
+          BKR
         </div>
-        <div style={{ fontSize: 56, fontWeight: 700, letterSpacing: -1 }}>BRK Estates</div>
+        <div style={{ fontSize: 56, fontWeight: 700, letterSpacing: -1 }}>BKR Estates</div>
         <div style={{ fontSize: 26, marginTop: 16, color: "#d4af37", fontWeight: 600 }}>
           Apartments · Villas · Open Plots · Farm Land
         </div>

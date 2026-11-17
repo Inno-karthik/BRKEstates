@@ -100,7 +100,7 @@ export function PropertyEditor({
   const [slug, setSlug] = useState(property.slug ?? "");
   const [status, setStatus] = useState<PropertyStatus>(property.status ?? "draft");
   const [featured, setFeatured] = useState(property.featured ?? false);
-  const [colorScheme, setColorScheme] = useState(property.color_scheme ?? "emerald");
+  const [colorScheme, setColorScheme] = useState(property.color_scheme ?? "bkr");
   const [price, setPrice] = useState<number | null>(property.price ?? null);
   const [priceLabel, setPriceLabel] = useState(property.price_label ?? "");
   const [location, setLocation] = useState(property.location ?? "");
@@ -294,7 +294,7 @@ export function PropertyEditor({
           </select>
         </FormField>
         <FormField label="Title">
-          <input value={title} onChange={(e) => setTitle(e.target.value)} className={inputClass} placeholder="e.g. 3BHK Luxury Villa in Gachibowli" />
+          <input value={title} onChange={(e) => setTitle(e.target.value)} className={inputClass} placeholder="e.g. 3BHK Luxury Villa in Madhurawada" />
         </FormField>
         <FormField label="URL Slug">
           <input value={slug} onChange={(e) => setSlug(e.target.value)} className={inputClass} placeholder="auto-generated-if-blank" />
@@ -513,7 +513,7 @@ export function PropertyEditor({
                           }
                           className={`rounded-full border px-3 py-1.5 text-xs font-medium ${
                             checked
-                              ? "border-[#1b5e3a] bg-[#1b5e3a]/10 text-[#1b5e3a]"
+                              ? "border-[#9b1c1c] bg-[#9b1c1c]/10 text-[#9b1c1c]"
                               : "border-black/10 text-neutral-600"
                           }`}
                         >
@@ -762,7 +762,7 @@ export function PropertyEditor({
                                   }
                                   className={cn(
                                     "rounded-full border px-3 py-1.5 text-xs font-medium",
-                                    checked ? "border-[#1b5e3a] bg-[#1b5e3a]/10 text-[#1b5e3a]" : "border-black/10 text-neutral-600"
+                                    checked ? "border-[#9b1c1c] bg-[#9b1c1c]/10 text-[#9b1c1c]" : "border-black/10 text-neutral-600"
                                   )}
                                 >
                                   {o}
@@ -815,7 +815,7 @@ export function PropertyEditor({
           <button
             type="button"
             onClick={addVariant}
-            className="mt-2 flex items-center gap-1.5 rounded-full border border-dashed border-black/10 px-3 py-1.5 text-xs font-medium text-neutral-600 hover:border-[#1b5e3a] hover:text-[#1b5e3a]"
+            className="mt-2 flex items-center gap-1.5 rounded-full border border-dashed border-black/10 px-3 py-1.5 text-xs font-medium text-neutral-600 hover:border-[#9b1c1c] hover:text-[#9b1c1c]"
           >
             <Plus size={13} /> Add Variant
           </button>
@@ -852,7 +852,7 @@ export function PropertyEditor({
                       }
                       className={`flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-xs font-medium ${
                         checked
-                          ? "border-[#1b5e3a] bg-[#1b5e3a]/10 text-[#1b5e3a]"
+                          ? "border-[#9b1c1c] bg-[#9b1c1c]/10 text-[#9b1c1c]"
                           : "border-black/10 text-neutral-600"
                       }`}
                     >
@@ -919,7 +919,7 @@ export function PropertyEditor({
           <button
             type="button"
             onClick={addVirtualTour}
-            className="mt-2 flex items-center gap-1.5 rounded-full border border-dashed border-black/10 px-3 py-1.5 text-xs font-medium text-neutral-600 hover:border-[#1b5e3a] hover:text-[#1b5e3a]"
+            className="mt-2 flex items-center gap-1.5 rounded-full border border-dashed border-black/10 px-3 py-1.5 text-xs font-medium text-neutral-600 hover:border-[#9b1c1c] hover:text-[#9b1c1c]"
           >
             <Plus size={13} /> Add 360° View / Embed
           </button>
@@ -934,7 +934,7 @@ export function PropertyEditor({
 
       <Section title="Certifications &amp; Approvals (optional)">
         <p className="-mt-1 mb-2 text-xs text-neutral-400">
-          e.g. RERA, HMDA, DTCP, Khata, Patta. Only entries with &quot;Show on website&quot; checked appear publicly, and the
+          e.g. RERA, VUDA, DTCP, Khata, Patta. Only entries with &quot;Show on website&quot; checked appear publicly, and the
           number is hidden if left blank. The section disappears entirely if nothing is marked public.
         </p>
         <div className="space-y-2">
@@ -980,7 +980,7 @@ export function PropertyEditor({
         <button
           type="button"
           onClick={addCertification}
-          className="mt-2 flex items-center gap-1.5 rounded-full border border-dashed border-black/10 px-3 py-1.5 text-xs font-medium text-neutral-600 hover:border-[#1b5e3a] hover:text-[#1b5e3a]"
+          className="mt-2 flex items-center gap-1.5 rounded-full border border-dashed border-black/10 px-3 py-1.5 text-xs font-medium text-neutral-600 hover:border-[#9b1c1c] hover:text-[#9b1c1c]"
         >
           <Plus size={13} /> Add Certification
         </button>
@@ -1021,7 +1021,7 @@ export function PropertyEditor({
         <button
           type="button"
           onClick={addGrowthHighlight}
-          className="mt-2 flex items-center gap-1.5 rounded-full border border-dashed border-black/10 px-3 py-1.5 text-xs font-medium text-neutral-600 hover:border-[#1b5e3a] hover:text-[#1b5e3a]"
+          className="mt-2 flex items-center gap-1.5 rounded-full border border-dashed border-black/10 px-3 py-1.5 text-xs font-medium text-neutral-600 hover:border-[#9b1c1c] hover:text-[#9b1c1c]"
         >
           <Plus size={13} /> Add Growth Highlight
         </button>
@@ -1080,7 +1080,7 @@ export function PropertyEditor({
         <button
           onClick={save}
           disabled={saving || !title || !typeId}
-          className="flex w-full items-center justify-center gap-2 rounded-full bg-[#1b5e3a] px-6 py-2.5 text-sm font-semibold text-white disabled:opacity-50"
+          className="flex w-full items-center justify-center gap-2 rounded-full bg-[#9b1c1c] px-6 py-2.5 text-sm font-semibold text-white disabled:opacity-50"
         >
           {saving ? <Loader2 size={15} className="animate-spin" /> : saved ? <Check size={15} /> : null}
           {saving ? "Saving…" : saved ? "Saved" : "Save Changes"}

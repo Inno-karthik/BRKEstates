@@ -38,4 +38,4 @@ export function FormField({ label, children }: { label: string; children: ReactN
 }
 
 export const inputClass =
-  "w-full rounded-lg border border-black/10 px-3 py-2 text-sm outline-none focus:border-[#1b5e3a]";
+  "w-full rounded-lg border border-black/10 px-3 py-2 text-sm outline-none focus:border-[#9b1c1c]";

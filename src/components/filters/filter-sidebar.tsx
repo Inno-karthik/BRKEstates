@@ -96,7 +96,7 @@ function FilterForm({
     <div className="space-y-6 rounded-2xl border border-black/5 bg-white p-5">
       <div className="flex items-center justify-between">
         <h3 className="text-sm font-semibold uppercase tracking-wide text-neutral-500">Filters</h3>
-        <button onClick={clearAll} className="text-xs font-medium text-[var(--color-primary,#1b5e3a)]">
+        <button onClick={clearAll} className="text-xs font-medium text-[var(--color-primary,#9b1c1c)]">
           Clear all
         </button>
       </div>
@@ -112,7 +112,7 @@ function FilterForm({
                   name="type"
                   checked={type === t.slug}
                   onChange={() => updateParam("type", t.slug)}
-                  className="accent-[var(--color-primary,#1b5e3a)]"
+                  className="accent-[var(--color-primary,#9b1c1c)]"
                 />
                 <Icon name={t.icon_name} url={t.icon_url} size={14} />
                 {t.name}
@@ -130,7 +130,7 @@ function FilterForm({
             placeholder="Min"
             defaultValue={minPrice}
             onBlur={(e) => updateParam("minPrice", e.target.value || null)}
-            className="w-full rounded-lg border border-black/10 px-2.5 py-1.5 text-sm outline-none focus:border-[var(--color-primary,#1b5e3a)]"
+            className="w-full rounded-lg border border-black/10 px-2.5 py-1.5 text-sm outline-none focus:border-[var(--color-primary,#9b1c1c)]"
           />
           <span className="text-neutral-300">—</span>
           <input
@@ -138,7 +138,7 @@ function FilterForm({
             placeholder="Max"
             defaultValue={maxPrice}
             onBlur={(e) => updateParam("maxPrice", e.target.value || null)}
-            className="w-full rounded-lg border border-black/10 px-2.5 py-1.5 text-sm outline-none focus:border-[var(--color-primary,#1b5e3a)]"
+            className="w-full rounded-lg border border-black/10 px-2.5 py-1.5 text-sm outline-none focus:border-[var(--color-primary,#9b1c1c)]"
           />
         </div>
       </div>
@@ -147,10 +147,10 @@ function FilterForm({
         <p className="mb-2 text-xs font-semibold text-neutral-700">City</p>
         <input
           type="text"
-          placeholder="e.g. Hyderabad"
+          placeholder="e.g. Visakhapatnam"
           defaultValue={city}
           onBlur={(e) => updateParam("city", e.target.value || null)}
-          className="w-full rounded-lg border border-black/10 px-2.5 py-1.5 text-sm outline-none focus:border-[var(--color-primary,#1b5e3a)]"
+          className="w-full rounded-lg border border-black/10 px-2.5 py-1.5 text-sm outline-none focus:border-[var(--color-primary,#9b1c1c)]"
         />
       </div>
 
@@ -191,7 +191,7 @@ function FilterForm({
                 className={cn(
                   "flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-xs font-medium transition",
                   selectedAmenities.includes(a.id)
-                    ? "border-[var(--color-primary,#1b5e3a)] bg-[var(--color-primary,#1b5e3a)]/10 text-[var(--color-primary,#1b5e3a)]"
+                    ? "border-[var(--color-primary,#9b1c1c)] bg-[var(--color-primary,#9b1c1c)]/10 text-[var(--color-primary,#9b1c1c)]"
                     : "border-black/10 text-neutral-600 hover:border-neutral-300"
                 )}
               >

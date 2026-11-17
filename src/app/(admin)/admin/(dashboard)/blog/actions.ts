@@ -52,7 +52,7 @@ export async function upsertBlogPost(input: {
     content: input.content,
     cover_image: input.cover_image || null,
     status: input.status,
-    author: input.author || "BRK Estates",
+    author: input.author || "BKR Estates",
     tags: input.tags,
     meta_title: input.meta_title || null,
     meta_description: input.meta_description || null,

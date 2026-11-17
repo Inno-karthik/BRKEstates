@@ -38,7 +38,7 @@ export function PropertyMap({ latitude, longitude, precision, title }: Props) {
         map = instance;
 
         olaMaps
-          .addMarker({ color: "#1b5e3a" })
+          .addMarker({ color: "#9b1c1c" })
           .setLngLat([longitude, latitude])
           .addTo(instance);
         instance.resize?.();
@@ -62,7 +62,7 @@ export function PropertyMap({ latitude, longitude, precision, title }: Props) {
         href={`https://www.google.com/maps/search/?api=1&query=${latitude},${longitude}`}
         target="_blank"
         rel="noreferrer"
-        className="flex items-center justify-center gap-2 rounded-2xl border border-black/5 bg-neutral-50 py-10 text-sm font-medium text-[var(--color-primary,#1b5e3a)]"
+        className="flex items-center justify-center gap-2 rounded-2xl border border-black/5 bg-neutral-50 py-10 text-sm font-medium text-[var(--color-primary,#9b1c1c)]"
       >
         <MapPin size={16} /> View {title} on the map
       </a>

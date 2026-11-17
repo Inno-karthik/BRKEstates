@@ -155,7 +155,7 @@ export function NearbyExplorer({
           <Loader2 size={12} className="animate-spin" /> Calculating route…
         </p>
       ) : route ? (
-        <p className="mt-2 text-lg font-bold text-[var(--color-primary,#1b5e3a)]">
+        <p className="mt-2 text-lg font-bold text-[var(--color-primary,#9b1c1c)]">
           {route.distanceKm.toFixed(1)} km
           {route.durationMin && <span className="ml-2 text-sm font-medium text-neutral-500">· ~{route.durationMin} min</span>}
         </p>
@@ -211,7 +211,7 @@ export function NearbyExplorer({
                     key={p.id}
                     className={cn(
                       "rounded-xl border transition",
-                      isSelected ? "border-[var(--color-primary,#1b5e3a)] bg-[var(--color-primary,#1b5e3a)]/5" : "border-black/5 bg-white hover:border-black/10"
+                      isSelected ? "border-[var(--color-primary,#9b1c1c)] bg-[var(--color-primary,#9b1c1c)]/5" : "border-black/5 bg-white hover:border-black/10"
                     )}
                   >
                     <button
@@ -224,12 +224,12 @@ export function NearbyExplorer({
                       }}
                       className="flex w-full items-center gap-2.5 px-3 py-2.5 text-left text-sm"
                     >
-                      <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-[var(--color-primary,#1b5e3a)]/10 text-[var(--color-primary,#1b5e3a)]">
+                      <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-[var(--color-primary,#9b1c1c)]/10 text-[var(--color-primary,#9b1c1c)]">
                         <Icon name={CATEGORY_ICONS[p.category] ?? "map-pin"} size={15} />
                       </span>
                       <span className="min-w-0 flex-1 truncate font-medium text-neutral-800">{p.name}</span>
                       {isSelected && !routing && route && (
-                        <span className="shrink-0 text-xs font-bold text-[var(--color-primary,#1b5e3a)]">
+                        <span className="shrink-0 text-xs font-bold text-[var(--color-primary,#9b1c1c)]">
                           {route.distanceKm.toFixed(1)} km
                         </span>
                       )}
@@ -305,7 +305,7 @@ async function initMap(container: HTMLDivElement, apiKey: string, center: [numbe
     attributionControl: false,
   });
 
-  olaMaps.addMarker({ color: "#1b5e3a" }).setLngLat(center).setPopup(olaMaps.addPopup({}).setHTML(`<b>${title}</b>`)).addTo(map);
+  olaMaps.addMarker({ color: "#9b1c1c" }).setLngLat(center).setPopup(olaMaps.addPopup({}).setHTML(`<b>${title}</b>`)).addTo(map);
   map.resize?.();
   hideMapClutter(map);
   map.on?.("styledata", () => hideMapClutter(map));

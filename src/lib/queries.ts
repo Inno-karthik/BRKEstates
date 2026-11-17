@@ -62,7 +62,7 @@ export const getSiteSettings = cache(async (): Promise<SiteSettings> => {
   return (
     data ?? {
       id: 1,
-      site_name: "BRK Estates",
+      site_name: "BKR Estates",
       logo_url: null,
       favicon_url: null,
       phone: null,

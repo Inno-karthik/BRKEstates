@@ -6,7 +6,7 @@ export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   title: "Terms & Conditions",
-  description: "The terms that govern your use of the BRK Estates website.",
+  description: "The terms that govern your use of the BKR Estates website.",
   alternates: { canonical: "/terms-and-conditions" },
 };
 

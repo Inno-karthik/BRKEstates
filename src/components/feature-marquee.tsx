@@ -17,7 +17,7 @@ export function FeatureMarquee() {
       <div className="flex w-max animate-marquee gap-10">
         {items.map((f, i) => (
           <span key={i} className="flex items-center gap-2.5 whitespace-nowrap text-sm font-medium text-neutral-700">
-            <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[var(--color-primary,#1b5e3a)]/10 text-[var(--color-primary,#1b5e3a)]">
+            <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[var(--color-primary,#9b1c1c)]/10 text-[var(--color-primary,#9b1c1c)]">
               <f.icon size={14} />
             </span>
             {f.text}

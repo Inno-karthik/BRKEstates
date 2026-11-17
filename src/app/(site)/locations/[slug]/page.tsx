@@ -32,7 +32,7 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
             <h1 className="min-w-0 flex-1 text-2xl font-bold text-neutral-900 md:text-3xl">{location.name}</h1>
             <Link
               href={`/locations/${location.slug}/map`}
-              className="flex shrink-0 items-center gap-1.5 rounded-full bg-[var(--color-primary,#1b5e3a)] px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
+              className="flex shrink-0 items-center gap-1.5 rounded-full bg-[var(--color-primary,#9b1c1c)] px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
             >
               <Map size={15} /> Map View
             </Link>
@@ -46,7 +46,7 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
           <div className="flex flex-col items-center justify-center rounded-2xl border border-dashed border-black/10 py-24 text-center">
             <p className="text-lg font-semibold text-neutral-700">No properties here yet</p>
             <p className="mt-1 text-sm text-neutral-500">Check back soon, or browse all listings.</p>
-            <Link href="/listings" className="mt-4 text-sm font-semibold text-[var(--color-primary,#1b5e3a)]">
+            <Link href="/listings" className="mt-4 text-sm font-semibold text-[var(--color-primary,#9b1c1c)]">
               View all listings
             </Link>
           </div>

@@ -11,7 +11,7 @@ export function NavTypesDropdown({ types }: { types: PropertyType[] }) {
 
   return (
     <div className="relative" onMouseEnter={() => setOpen(true)} onMouseLeave={() => setOpen(false)}>
-      <button className="flex items-center gap-1 text-sm font-medium text-neutral-700 hover:text-[var(--color-primary,#1b5e3a)]">
+      <button className="flex items-center gap-1 text-sm font-medium text-neutral-700 hover:text-[var(--color-primary,#9b1c1c)]">
         Property Types <ChevronDown size={15} className={open ? "rotate-180 transition" : "transition"} />
       </button>
       {open && (
@@ -21,11 +21,11 @@ export function NavTypesDropdown({ types }: { types: PropertyType[] }) {
               <Link
                 key={t.id}
                 href={`/listings?type=${t.slug}`}
-                className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm text-neutral-700 hover:bg-neutral-50 hover:text-[var(--color-primary,#1b5e3a)]"
+                className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm text-neutral-700 hover:bg-neutral-50 hover:text-[var(--color-primary,#9b1c1c)]"
               >
                 <span
                   className="flex h-8 w-8 items-center justify-center rounded-lg"
-                  style={{ background: `${t.accent_color ?? "#1b5e3a"}1a`, color: t.accent_color ?? "#1b5e3a" }}
+                  style={{ background: `${t.accent_color ?? "#9b1c1c"}1a`, color: t.accent_color ?? "#9b1c1c" }}
                 >
                   <Icon name={t.icon_name} url={t.icon_url} size={16} />
                 </span>

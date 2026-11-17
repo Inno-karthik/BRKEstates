@@ -11,7 +11,7 @@ export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   title: "Blog",
-  description: "Market insights, buying guides and updates from BRK Estates.",
+  description: "Market insights, buying guides and updates from BKR Estates.",
   alternates: { canonical: "/blog" },
 };
 
@@ -20,11 +20,11 @@ export default async function BlogPage() {
 
   return (
     <PageTheme page="home">
-      <section className="bg-[var(--color-secondary,#0f3d26)] py-14 text-center text-white md:py-20">
+      <section className="bg-[var(--color-secondary,#5c0f12)] py-14 text-center text-white md:py-20">
         <div className="mx-auto max-w-2xl px-4">
           <h1 className="font-[family-name:var(--font-display)] text-3xl font-bold md:text-5xl">Blog</h1>
           <p className="mt-4 text-sm text-white/70 md:text-base">
-            Market insights, buying guides and updates from BRK Estates.
+            Market insights, buying guides and updates from BKR Estates.
           </p>
         </div>
       </section>
@@ -38,7 +38,7 @@ export default async function BlogPage() {
               <Link
                 key={post.id}
                 href={`/blog/${post.slug}`}
-                className="group overflow-hidden rounded-2xl border border-black/5 bg-white shadow-sm transition hover:-translate-y-1 hover:border-[var(--color-primary,#1b5e3a)]/30 hover:shadow-lg"
+                className="group overflow-hidden rounded-2xl border border-black/5 bg-white shadow-sm transition hover:-translate-y-1 hover:border-[var(--color-primary,#9b1c1c)]/30 hover:shadow-lg"
               >
                 <div className="relative aspect-[16/10] bg-neutral-100">
                   {post.cover_image ? (

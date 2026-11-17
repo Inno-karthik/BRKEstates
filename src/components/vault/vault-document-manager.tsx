@@ -91,7 +91,7 @@ export function VaultDocumentManager({
             type="button"
             onClick={() => inputRef.current?.click()}
             disabled={uploading}
-            className="flex items-center justify-center gap-1.5 rounded-lg bg-[#1b5e3a] px-4 py-2 text-sm font-semibold text-white disabled:opacity-50"
+            className="flex items-center justify-center gap-1.5 rounded-lg bg-[#9b1c1c] px-4 py-2 text-sm font-semibold text-white disabled:opacity-50"
           >
             {uploading ? <Loader2 size={14} className="animate-spin" /> : <Upload size={14} />}
             {uploading ? "Uploading…" : "Choose File"}

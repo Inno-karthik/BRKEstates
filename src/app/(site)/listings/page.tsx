@@ -10,7 +10,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const seo = settings.page_seo?.listings;
   return {
     title: seo?.title || "All Listings",
-    description: seo?.description || "Browse all apartments, villas, open plots and farm land listed with BRK Estates.",
+    description: seo?.description || "Browse all apartments, villas, open plots and farm land listed with BKR Estates.",
     alternates: { canonical: "/listings" },
   };
 }
@@ -70,7 +70,7 @@ export default async function ListingsPage({
               <div className="flex flex-col items-center justify-center rounded-2xl border border-dashed border-black/10 py-24 text-center">
                 <p className="text-lg font-semibold text-neutral-700">No properties match your filters</p>
                 <p className="mt-1 text-sm text-neutral-500">Try adjusting or clearing some filters</p>
-                <Link href="/listings" className="mt-4 text-sm font-semibold text-[var(--color-primary,#1b5e3a)]">
+                <Link href="/listings" className="mt-4 text-sm font-semibold text-[var(--color-primary,#9b1c1c)]">
                   Clear all filters
                 </Link>
               </div>
@@ -93,7 +93,7 @@ export default async function ListingsPage({
                           href={`/listings?${params.toString()}`}
                           className={`flex h-9 w-9 items-center justify-center rounded-full text-sm font-medium ${
                             p === page
-                              ? "bg-[var(--color-primary,#1b5e3a)] text-white"
+                              ? "bg-[var(--color-primary,#9b1c1c)] text-white"
                               : "border border-black/10 text-neutral-600 hover:border-neutral-300"
                           }`}
                         >

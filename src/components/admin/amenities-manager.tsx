@@ -22,7 +22,7 @@ export function AmenitiesManager({ amenities, types }: { amenities: Amenity[]; t
     <div>
       <button
         onClick={() => setEditing("new")}
-        className="mb-5 flex items-center gap-2 rounded-full bg-[#1b5e3a] px-4 py-2 text-sm font-semibold text-white"
+        className="mb-5 flex items-center gap-2 rounded-full bg-[#9b1c1c] px-4 py-2 text-sm font-semibold text-white"
       >
         <Plus size={15} /> Add Amenity
       </button>
@@ -111,7 +111,7 @@ function AmenityForm({
                   type="button"
                   onClick={() => toggleType(t.id)}
                   className={`rounded-full border px-3 py-1.5 text-xs font-medium ${
-                    checked ? "border-[#1b5e3a] bg-[#1b5e3a]/10 text-[#1b5e3a]" : "border-black/10 text-neutral-600"
+                    checked ? "border-[#9b1c1c] bg-[#9b1c1c]/10 text-[#9b1c1c]" : "border-black/10 text-neutral-600"
                   }`}
                 >
                   {t.name}
@@ -134,7 +134,7 @@ function AmenityForm({
         <button
           onClick={save}
           disabled={saving || !name}
-          className="w-full rounded-full bg-[#1b5e3a] py-2.5 text-sm font-semibold text-white disabled:opacity-50"
+          className="w-full rounded-full bg-[#9b1c1c] py-2.5 text-sm font-semibold text-white disabled:opacity-50"
         >
           {saving ? "Saving…" : "Save"}
         </button>

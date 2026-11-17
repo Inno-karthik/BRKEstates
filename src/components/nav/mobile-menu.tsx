@@ -44,8 +44,7 @@ export function MobileMenuButton({
           >
             <div className="flex shrink-0 items-center justify-between border-b border-black/5 px-5 py-4">
               <Link href="/" onClick={() => setOpen(false)} className="flex items-center gap-2">
-                <Image src={logoUrl || "/brand/logo.png"} alt={siteName} width={34} height={34} />
-                <span className="text-base font-semibold text-[var(--color-secondary,#0f3d26)]">{siteName}</span>
+                <Image src={logoUrl || "/brand/logo.png"} alt={siteName} width={160} height={51} className="h-10 w-auto object-contain" />
               </Link>
               <button
                 onClick={() => setOpen(false)}
@@ -110,7 +109,7 @@ export function MobileMenuButton({
                       >
                         <span
                           className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg"
-                          style={{ background: `${t.accent_color ?? "#1b5e3a"}1a`, color: t.accent_color ?? "#1b5e3a" }}
+                          style={{ background: `${t.accent_color ?? "#9b1c1c"}1a`, color: t.accent_color ?? "#9b1c1c" }}
                         >
                           <Icon name={t.icon_name} url={t.icon_url} size={14} />
                         </span>
@@ -134,7 +133,7 @@ export function MobileMenuButton({
                         onClick={() => setOpen(false)}
                         className="flex items-center gap-2 rounded-xl border border-black/5 bg-neutral-50 px-2.5 py-2.5 text-sm font-medium text-neutral-800"
                       >
-                        <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-[var(--color-primary,#1b5e3a)]/10 text-[var(--color-primary,#1b5e3a)]">
+                        <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-[var(--color-primary,#9b1c1c)]/10 text-[var(--color-primary,#9b1c1c)]">
                           <MapPin size={14} />
                         </span>
                         <span className="truncate">{l.name}</span>

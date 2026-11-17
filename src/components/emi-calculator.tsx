@@ -33,7 +33,7 @@ export function EmiCalculator({ price }: { price: number | null }) {
         className="flex w-full items-center justify-between gap-2 p-5"
       >
         <h3 className="flex items-center gap-2 text-sm font-semibold text-neutral-900">
-          <Calculator size={16} className="text-[var(--color-primary,#1b5e3a)]" /> EMI Calculator
+          <Calculator size={16} className="text-[var(--color-primary,#9b1c1c)]" /> EMI Calculator
         </h3>
         <ChevronDown size={16} className={cn("text-neutral-400 transition-transform", open && "rotate-180")} />
       </button>
@@ -52,9 +52,9 @@ export function EmiCalculator({ price }: { price: number | null }) {
               <Slider label="Interest Rate" value={rate} onChange={setRate} min={5} max={16} step={0.1} format={(n) => `${n.toFixed(1)}%`} />
               <Slider label="Tenure" value={years} onChange={setYears} min={1} max={30} step={1} format={(n) => `${n} yrs`} />
 
-              <div className="rounded-xl bg-[var(--color-primary,#1b5e3a)]/5 p-4 text-center">
+              <div className="rounded-xl bg-[var(--color-primary,#9b1c1c)]/5 p-4 text-center">
                 <p className="text-xs text-neutral-500">Monthly EMI</p>
-                <p className="text-2xl font-bold text-[var(--color-primary,#1b5e3a)]">{fmt(emi)}</p>
+                <p className="text-2xl font-bold text-[var(--color-primary,#9b1c1c)]">{fmt(emi)}</p>
               </div>
               <div className="grid grid-cols-2 gap-3 text-center text-xs">
                 <div>
@@ -105,7 +105,7 @@ function Slider({
         step={step}
         value={value}
         onChange={(e) => onChange(Number(e.target.value))}
-        className="h-1.5 w-full cursor-pointer appearance-none rounded-full bg-neutral-200 accent-[var(--color-primary,#1b5e3a)]"
+        className="h-1.5 w-full cursor-pointer appearance-none rounded-full bg-neutral-200 accent-[var(--color-primary,#9b1c1c)]"
       />
     </div>
   );

@@ -26,7 +26,7 @@ export function UsersManager({ profiles }: { profiles: Profile[] }) {
     <div>
       <button
         onClick={() => setEditing("new")}
-        className="mb-5 flex items-center gap-2 rounded-full bg-[#1b5e3a] px-4 py-2 text-sm font-semibold text-white"
+        className="mb-5 flex items-center gap-2 rounded-full bg-[#9b1c1c] px-4 py-2 text-sm font-semibold text-white"
       >
         <Plus size={15} /> Add User
       </button>
@@ -34,7 +34,7 @@ export function UsersManager({ profiles }: { profiles: Profile[] }) {
       <div className="overflow-hidden rounded-2xl border border-black/5 bg-white">
         {staff.map((p) => (
           <div key={p.id} className="flex items-center gap-3 border-b border-black/5 px-4 py-3 last:border-0">
-            <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#1b5e3a]/10 text-[#1b5e3a]">
+            <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#9b1c1c]/10 text-[#9b1c1c]">
               <UserCog size={16} />
             </span>
             <div className="min-w-0 flex-1">
@@ -138,7 +138,7 @@ function UserForm({ profile, onClose }: { profile: Profile | null; onClose: () =
                 type="button"
                 onClick={() => toggleSection(s)}
                 className={`rounded-full px-3 py-1.5 text-xs font-semibold ${
-                  sections.includes(s) ? "bg-[#1b5e3a] text-white" : "border border-black/10 text-neutral-600"
+                  sections.includes(s) ? "bg-[#9b1c1c] text-white" : "border border-black/10 text-neutral-600"
                 }`}
               >
                 {SECTION_LABELS[s]}
@@ -156,7 +156,7 @@ function UserForm({ profile, onClose }: { profile: Profile | null; onClose: () =
                   type="button"
                   onClick={() => toggleArea(a)}
                   className={`rounded-full px-3 py-1.5 text-xs font-medium ${
-                    cmsAreas.includes(a) ? "bg-[#1b5e3a]/10 text-[#1b5e3a] border border-[#1b5e3a]/30" : "border border-black/10 text-neutral-600"
+                    cmsAreas.includes(a) ? "bg-[#9b1c1c]/10 text-[#9b1c1c] border border-[#9b1c1c]/30" : "border border-black/10 text-neutral-600"
                   }`}
                 >
                   {AREA_LABELS[a]}
@@ -173,7 +173,7 @@ function UserForm({ profile, onClose }: { profile: Profile | null; onClose: () =
         <button
           onClick={save}
           disabled={saving}
-          className="w-full rounded-full bg-[#1b5e3a] py-2.5 text-sm font-semibold text-white disabled:opacity-50"
+          className="w-full rounded-full bg-[#9b1c1c] py-2.5 text-sm font-semibold text-white disabled:opacity-50"
         >
           {saving ? "Saving…" : "Save"}
         </button>

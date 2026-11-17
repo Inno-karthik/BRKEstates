@@ -17,7 +17,7 @@ export async function generateMetadata(): Promise<Metadata> {
     title: seo?.title || "Contact Us",
     description:
       seo?.description ||
-      "Get in touch with BRK Estates by phone, WhatsApp or email — we're here to help you find your next property.",
+      "Get in touch with BKR Estates by phone, WhatsApp or email — we're here to help you find your next property.",
     alternates: { canonical: "/contact" },
   };
 }
@@ -27,7 +27,7 @@ export default async function ContactPage() {
 
   return (
     <PageTheme page="contact">
-      <section className="bg-[var(--color-secondary,#0f3d26)] py-16 text-center text-white md:py-20">
+      <section className="bg-[var(--color-secondary,#5c0f12)] py-16 text-center text-white md:py-20">
         <div className="mx-auto max-w-2xl px-4">
           <h1 className="font-[family-name:var(--font-display)] text-3xl font-bold md:text-5xl">Get in Touch</h1>
           <p className="mt-4 text-sm text-white/70 md:text-base">
@@ -61,7 +61,7 @@ export default async function ContactPage() {
               <ContactRow icon={Mail} label="Email us" value={settings.email} href={`mailto:${settings.email}`} />
             )}
             {settings.address && <ContactRow icon={MapPin} label="Visit us" value={settings.address} />}
-            <ContactRow icon={Clock} label="Working Hours" value="Mon – Sat, 9:00 AM – 7:00 PM" />
+            <ContactRow icon={Clock} label="Working Hours" value="Mon – Sat, 9:30 AM – 7:00 PM" />
           </div>
 
           <EnquiryForm />
@@ -86,7 +86,7 @@ function ContactRow({
 }) {
   const content = (
     <div className="flex items-start gap-3 rounded-xl border border-black/5 bg-white p-4">
-      <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[var(--color-primary,#1b5e3a)]/10 text-[var(--color-primary,#1b5e3a)]">
+      <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[var(--color-primary,#9b1c1c)]/10 text-[var(--color-primary,#9b1c1c)]">
         <IconC size={18} />
       </span>
       <div>

@@ -6,7 +6,7 @@ export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
-  description: "How BRK Estates collects, uses and protects your information.",
+  description: "How BKR Estates collects, uses and protects your information.",
   alternates: { canonical: "/privacy-policy" },
 };
 

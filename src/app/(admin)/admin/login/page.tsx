@@ -39,12 +39,12 @@ export default function AdminLoginPage() {
   }
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-[#0f3d26] px-4">
+    <div className="flex min-h-screen items-center justify-center bg-[#5c0f12] px-4">
       <div className="w-full max-w-sm rounded-2xl bg-white p-8 shadow-2xl">
         <div className="mb-6 flex flex-col items-center">
-          <Image src="/brand/logo.png" alt="BRK Estates" width={56} height={56} />
+          <Image src="/brand/logo-mark.png" alt="BKR Estates" width={56} height={56} />
           <h1 className="mt-3 text-lg font-semibold text-neutral-900">Admin Sign In</h1>
-          <p className="text-xs text-neutral-500">BRK Estates management console</p>
+          <p className="text-xs text-neutral-500">BKR Estates management console</p>
         </div>
 
         <form onSubmit={onSubmit} className="space-y-3">
@@ -54,7 +54,7 @@ export default function AdminLoginPage() {
             placeholder="Email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="w-full rounded-lg border border-black/10 px-3 py-2.5 text-sm outline-none focus:border-[#1b5e3a]"
+            className="w-full rounded-lg border border-black/10 px-3 py-2.5 text-sm outline-none focus:border-[#9b1c1c]"
           />
           <input
             type="password"
@@ -62,13 +62,13 @@ export default function AdminLoginPage() {
             placeholder="Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            className="w-full rounded-lg border border-black/10 px-3 py-2.5 text-sm outline-none focus:border-[#1b5e3a]"
+            className="w-full rounded-lg border border-black/10 px-3 py-2.5 text-sm outline-none focus:border-[#9b1c1c]"
           />
           {error && <p className="text-xs text-red-600">{error}</p>}
           <button
             type="submit"
             disabled={loading}
-            className="flex w-full items-center justify-center gap-2 rounded-full bg-[#1b5e3a] py-2.5 text-sm font-semibold text-white disabled:opacity-60"
+            className="flex w-full items-center justify-center gap-2 rounded-full bg-[#9b1c1c] py-2.5 text-sm font-semibold text-white disabled:opacity-60"
           >
             {loading ? <Loader2 size={15} className="animate-spin" /> : <Lock size={14} />}
             Sign In

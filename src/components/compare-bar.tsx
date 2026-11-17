@@ -28,14 +28,14 @@ export function CompareBar() {
         exit={{ y: 80, opacity: 0 }}
         className="fixed inset-x-4 bottom-20 z-40 mx-auto flex max-w-md items-center gap-3 rounded-2xl border border-black/5 bg-white/95 p-3 shadow-2xl backdrop-blur md:bottom-6"
       >
-        <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[var(--color-primary,#1b5e3a)]/10 text-[var(--color-primary,#1b5e3a)]">
+        <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[var(--color-primary,#9b1c1c)]/10 text-[var(--color-primary,#9b1c1c)]">
           <Scale size={16} />
         </span>
         <p className="flex-1 text-xs font-medium text-neutral-700">{ids.length} propert{ids.length === 1 ? "y" : "ies"} selected</p>
         <button
           onClick={() => router.push("/compare")}
           disabled={ids.length < 2}
-          className="rounded-full bg-[var(--color-primary,#1b5e3a)] px-4 py-2 text-xs font-semibold text-white disabled:opacity-40"
+          className="rounded-full bg-[var(--color-primary,#9b1c1c)] px-4 py-2 text-xs font-semibold text-white disabled:opacity-40"
         >
           Compare
         </button>

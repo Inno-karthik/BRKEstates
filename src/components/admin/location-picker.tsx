@@ -12,7 +12,7 @@ type Props = {
   onChange: (lat: number, lng: number) => void;
 };
 
-const DEFAULT_CENTER: [number, number] = [78.4867, 17.385]; // Hyderabad — sensible default for this market
+const DEFAULT_CENTER: [number, number] = [83.2185, 17.6868]; // Visakhapatnam
 
 export function LocationPicker({ latitude, longitude, onChange }: Props) {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -42,7 +42,7 @@ export function LocationPicker({ latitude, longitude, onChange }: Props) {
         });
         if (cancelled) return;
 
-        const marker = olaMaps.addMarker({ color: "#1b5e3a", draggable: true }).setLngLat(center).addTo(map);
+        const marker = olaMaps.addMarker({ color: "#9b1c1c", draggable: true }).setLngLat(center).addTo(map);
         mapRef.current = map;
         markerRef.current = marker;
         map.resize?.();

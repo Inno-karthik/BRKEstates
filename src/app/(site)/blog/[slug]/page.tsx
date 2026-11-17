@@ -64,10 +64,10 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     image: post.cover_image ?? undefined,
     datePublished: post.published_at ?? post.created_at,
     dateModified: post.updated_at,
-    author: { "@type": "Organization", name: post.author ?? "BRK Estates" },
+    author: { "@type": "Organization", name: post.author ?? "BKR Estates" },
     publisher: {
       "@type": "Organization",
-      name: "BRK Estates",
+      name: "BKR Estates",
       logo: { "@type": "ImageObject", url: `${siteUrl}/brand/logo.png` },
     },
     mainEntityOfPage: `${siteUrl}/blog/${post.slug}`,

@@ -52,7 +52,7 @@ export function EnquiryForm({
             : "flex flex-col items-center gap-2 rounded-2xl border border-black/5 bg-white p-6 text-center"
         }
       >
-        <CheckCircle2 className="text-[var(--color-primary,#1b5e3a)]" size={32} />
+        <CheckCircle2 className="text-[var(--color-primary,#9b1c1c)]" size={32} />
         <p className="font-semibold text-neutral-900">Thank you!</p>
         <p className="text-sm text-neutral-500">We&apos;ve received your enquiry and will reach out shortly.</p>
       </div>
@@ -79,25 +79,25 @@ export function EnquiryForm({
         name="name"
         required
         placeholder="Your name"
-        className="w-full rounded-lg border border-black/10 px-3 py-2.5 text-sm outline-none focus:border-[var(--color-primary,#1b5e3a)]"
+        className="w-full rounded-lg border border-black/10 px-3 py-2.5 text-sm outline-none focus:border-[var(--color-primary,#9b1c1c)]"
       />
       <input
         name="phone"
         required
         placeholder="Phone number"
-        className="w-full rounded-lg border border-black/10 px-3 py-2.5 text-sm outline-none focus:border-[var(--color-primary,#1b5e3a)]"
+        className="w-full rounded-lg border border-black/10 px-3 py-2.5 text-sm outline-none focus:border-[var(--color-primary,#9b1c1c)]"
       />
       <input
         name="email"
         type="email"
         placeholder="Email (optional)"
-        className="w-full rounded-lg border border-black/10 px-3 py-2.5 text-sm outline-none focus:border-[var(--color-primary,#1b5e3a)]"
+        className="w-full rounded-lg border border-black/10 px-3 py-2.5 text-sm outline-none focus:border-[var(--color-primary,#9b1c1c)]"
       />
       {variants && variants.length > 0 && (
         <select
           value={variant}
           onChange={(e) => setVariant(e.target.value)}
-          className="w-full rounded-lg border border-black/10 bg-white px-3 py-2.5 text-sm outline-none focus:border-[var(--color-primary,#1b5e3a)]"
+          className="w-full rounded-lg border border-black/10 bg-white px-3 py-2.5 text-sm outline-none focus:border-[var(--color-primary,#9b1c1c)]"
         >
           {variants.map((v, i) => (
             <option key={i} value={v.label}>
@@ -112,7 +112,7 @@ export function EnquiryForm({
         rows={3}
         defaultValue={defaultMessage}
         placeholder="Message (optional)"
-        className="w-full rounded-lg border border-black/10 px-3 py-2.5 text-sm outline-none focus:border-[var(--color-primary,#1b5e3a)]"
+        className="w-full rounded-lg border border-black/10 px-3 py-2.5 text-sm outline-none focus:border-[var(--color-primary,#9b1c1c)]"
       />
 
       {state.error && <p className="text-xs text-red-600">{state.error}</p>}
@@ -120,7 +120,7 @@ export function EnquiryForm({
       <button
         type="submit"
         disabled={pending}
-        className="flex w-full items-center justify-center gap-2 rounded-full bg-[var(--color-primary,#1b5e3a)] py-2.5 text-sm font-semibold text-white disabled:opacity-60"
+        className="flex w-full items-center justify-center gap-2 rounded-full bg-[var(--color-primary,#9b1c1c)] py-2.5 text-sm font-semibold text-white disabled:opacity-60"
       >
         {pending && <Loader2 size={15} className="animate-spin" />}
         Send Enquiry

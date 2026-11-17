@@ -20,23 +20,23 @@ const playfair = Playfair_Display({
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://brkestates.com"),
   title: {
-    default: "BRK Estates — Find Your Perfect Property",
-    template: "%s | BRK Estates",
+    default: "BKR Estates — Real Estate in Visakhapatnam | Powered by Prakruti",
+    template: "%s | BKR Estates",
   },
   description:
-    "Browse apartments, villas, open plots and farm land with BRK Estates — trusted real estate listings with transparent pricing and verified properties.",
+    "Verified plots, apartments, villas and farm land in and around Visakhapatnam — BKR Estates, powered by Prakruti, with 20+ years of local expertise and transparent pricing.",
   manifest: "/manifest.webmanifest",
   openGraph: {
     type: "website",
-    siteName: "BRK Estates",
+    siteName: "BKR Estates",
     url: "/",
     locale: "en_IN",
   },
   twitter: {
     card: "summary_large_image",
-    title: "BRK Estates — Find Your Perfect Property",
+    title: "BKR Estates — Real Estate in Visakhapatnam | Powered by Prakruti",
     description:
-      "Browse apartments, villas, open plots and farm land with BRK Estates — trusted real estate listings with transparent pricing and verified properties.",
+      "Verified plots, apartments, villas and farm land in and around Visakhapatnam — BKR Estates, powered by Prakruti, with 20+ years of local expertise and transparent pricing.",
   },
   alternates: {
     canonical: "/",
@@ -53,18 +53,26 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#1b5e3a",
+  themeColor: "#9b1c1c",
 };
 
 const organizationJsonLd = {
   "@context": "https://schema.org",
   "@type": "RealEstateAgent",
-  name: "BRK Estates",
+  name: "BKR Estates",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://brkestates.com",
   logo: `${process.env.NEXT_PUBLIC_SITE_URL ?? "https://brkestates.com"}/brand/logo.png`,
-  areaServed: "IN",
-  // TODO: replace with BRK Estates' real contact number before launch.
-  telephone: "+91 00000 00000",
+  areaServed: "Visakhapatnam, Andhra Pradesh, IN",
+  telephone: "+91 95538 22333",
+  email: "bkrestatesvizag@gmail.com",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "2nd Floor, 47-10-25/1, 2nd Ln, Sagar Nagar, Dwaraka Nagar",
+    addressLocality: "Visakhapatnam",
+    addressRegion: "Andhra Pradesh",
+    postalCode: "530016",
+    addressCountry: "IN",
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

@@ -59,7 +59,7 @@ function SearchSelect({
             }}
             className={cn(
               "flex w-full items-center px-3.5 py-2 text-left text-sm",
-              !value ? "bg-[var(--color-primary,#1b5e3a)]/10 font-medium text-[var(--color-primary,#1b5e3a)]" : "text-neutral-700 hover:bg-neutral-50"
+              !value ? "bg-[var(--color-primary,#9b1c1c)]/10 font-medium text-[var(--color-primary,#9b1c1c)]" : "text-neutral-700 hover:bg-neutral-50"
             )}
           >
             {placeholder}
@@ -74,7 +74,7 @@ function SearchSelect({
               }}
               className={cn(
                 "flex w-full items-center px-3.5 py-2 text-left text-sm",
-                value === o.value ? "bg-[var(--color-primary,#1b5e3a)]/10 font-medium text-[var(--color-primary,#1b5e3a)]" : "text-neutral-700 hover:bg-neutral-50"
+                value === o.value ? "bg-[var(--color-primary,#9b1c1c)]/10 font-medium text-[var(--color-primary,#9b1c1c)]" : "text-neutral-700 hover:bg-neutral-50"
               )}
             >
               {o.label}
@@ -161,7 +161,7 @@ export function HeroSearch({ types, locations = [] }: { types: PropertyType[]; l
 
       <button
         type="submit"
-        className="m-1.5 flex shrink-0 items-center justify-center gap-2 rounded-full bg-[var(--color-primary,#1b5e3a)] px-7 py-3 text-sm font-semibold text-white transition active:scale-[1.04]"
+        className="m-1.5 flex shrink-0 items-center justify-center gap-2 rounded-full bg-[var(--color-primary,#9b1c1c)] px-7 py-3 text-sm font-semibold text-white transition active:scale-[1.04]"
       >
         <Search size={18} /> Search
       </button>

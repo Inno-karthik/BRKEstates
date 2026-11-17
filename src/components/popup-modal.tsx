@@ -50,7 +50,7 @@ export function PopupModal({ popup }: { popup: Popup }) {
           <Image src={popup.image_url} alt={popup.title} fill className="object-cover" unoptimized />
         </div>
       ) : (
-        <div className="flex aspect-[4/3] w-full flex-col items-center justify-center bg-gradient-to-br from-[var(--color-secondary,#0f3d26)] to-[var(--color-primary,#1b5e3a)] p-8 text-center">
+        <div className="flex aspect-[4/3] w-full flex-col items-center justify-center bg-gradient-to-br from-[var(--color-secondary,#5c0f12)] to-[var(--color-primary,#9b1c1c)] p-8 text-center">
           <h3 className="font-[family-name:var(--font-display)] text-2xl font-bold text-white">{popup.title}</h3>
         </div>
       )}

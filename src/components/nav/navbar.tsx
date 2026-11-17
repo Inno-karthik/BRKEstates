@@ -24,44 +24,41 @@ export function Navbar({
   return (
     <header className="sticky top-0 z-40 border-b border-black/5 bg-white/90 backdrop-blur-md">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 md:h-20 md:px-8">
-        <Link href="/" className="flex items-center gap-2 shrink-0">
+        <Link href="/" aria-label={settings.site_name} className="flex shrink-0 items-center">
           <Image
             src={settings.logo_url || "/brand/logo.png"}
             alt={settings.site_name}
-            width={48}
-            height={48}
-            className="h-11 w-11 object-contain md:h-12 md:w-12"
+            width={240}
+            height={77}
+            className="h-10 w-auto object-contain sm:h-11 md:h-14"
             priority
           />
-          <span className="text-base font-semibold tracking-tight text-[var(--color-secondary,#0f3d26)] sm:text-lg">
-            {settings.site_name}
-          </span>
         </Link>
 
         <nav className="hidden items-center gap-5 lg:flex">
-          <Link href="/" className="text-sm font-medium text-neutral-700 hover:text-[var(--color-primary,#1b5e3a)]">
+          <Link href="/" className="text-sm font-medium text-neutral-700 hover:text-[var(--color-primary,#9b1c1c)]">
             Home
           </Link>
           {types.length > 0 && <NavTypesDropdown types={types} />}
           {locations.length > 0 && <NavLocationsDropdown locations={locations} />}
           <Link
             href="/listings"
-            className="text-sm font-medium text-neutral-700 hover:text-[var(--color-primary,#1b5e3a)]"
+            className="text-sm font-medium text-neutral-700 hover:text-[var(--color-primary,#9b1c1c)]"
           >
             All Listings
           </Link>
-          <Link href="/blog" className="text-sm font-medium text-neutral-700 hover:text-[var(--color-primary,#1b5e3a)]">
+          <Link href="/blog" className="text-sm font-medium text-neutral-700 hover:text-[var(--color-primary,#9b1c1c)]">
             Blog
           </Link>
           <Link
             href="/about"
-            className="text-sm font-medium text-neutral-700 hover:text-[var(--color-primary,#1b5e3a)]"
+            className="text-sm font-medium text-neutral-700 hover:text-[var(--color-primary,#9b1c1c)]"
           >
             About
           </Link>
           <Link
             href="/contact"
-            className="text-sm font-medium text-neutral-700 hover:text-[var(--color-primary,#1b5e3a)]"
+            className="text-sm font-medium text-neutral-700 hover:text-[var(--color-primary,#9b1c1c)]"
           >
             Contact
           </Link>
@@ -71,7 +68,7 @@ export function Navbar({
           <FavoritesLink className="hidden lg:flex" />
           <Link
             href="/contact"
-            className="hidden rounded-full bg-[var(--color-primary,#1b5e3a)] px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:opacity-90 lg:block"
+            className="hidden rounded-full bg-[var(--color-primary,#9b1c1c)] px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:opacity-90 lg:block"
           >
             Enquire Now
           </Link>
@@ -79,7 +76,7 @@ export function Navbar({
             <TrackedLink
               href={`tel:${settings.phone}`}
               event="call_click"
-              className="flex h-9 w-9 items-center justify-center rounded-full bg-[var(--color-primary,#1b5e3a)]/10 text-[var(--color-primary,#1b5e3a)] lg:hidden"
+              className="flex h-9 w-9 items-center justify-center rounded-full bg-[var(--color-primary,#9b1c1c)]/10 text-[var(--color-primary,#9b1c1c)] lg:hidden"
             >
               <Phone size={17} />
             </TrackedLink>

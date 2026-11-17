@@ -59,7 +59,7 @@ export function LeadUnlock({
           <button
             type="button"
             onClick={() => setExpanded(true)}
-            className="flex items-center gap-2 rounded-full bg-[var(--color-primary,#1b5e3a)] px-5 py-2.5 text-sm font-semibold text-white shadow-md"
+            className="flex items-center gap-2 rounded-full bg-[var(--color-primary,#9b1c1c)] px-5 py-2.5 text-sm font-semibold text-white shadow-md"
           >
             <Lock size={15} /> Unlock {context}
           </button>
@@ -70,7 +70,7 @@ export function LeadUnlock({
               onChange={(e) => setName(e.target.value)}
               placeholder="Your name"
               required
-              className="w-full rounded-lg border border-black/10 bg-white px-3.5 py-2.5 text-sm outline-none focus:border-[var(--color-primary,#1b5e3a)]"
+              className="w-full rounded-lg border border-black/10 bg-white px-3.5 py-2.5 text-sm outline-none focus:border-[var(--color-primary,#9b1c1c)]"
             />
             <input
               value={phone}
@@ -78,20 +78,20 @@ export function LeadUnlock({
               placeholder="Mobile number"
               type="tel"
               required
-              className="w-full rounded-lg border border-black/10 bg-white px-3.5 py-2.5 text-sm outline-none focus:border-[var(--color-primary,#1b5e3a)]"
+              className="w-full rounded-lg border border-black/10 bg-white px-3.5 py-2.5 text-sm outline-none focus:border-[var(--color-primary,#9b1c1c)]"
             />
             <input
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Email (optional)"
               type="email"
-              className="w-full rounded-lg border border-black/10 bg-white px-3.5 py-2.5 text-sm outline-none focus:border-[var(--color-primary,#1b5e3a)]"
+              className="w-full rounded-lg border border-black/10 bg-white px-3.5 py-2.5 text-sm outline-none focus:border-[var(--color-primary,#9b1c1c)]"
             />
             {error && <p className="text-xs text-red-600">{error}</p>}
             <button
               type="submit"
               disabled={submitting}
-              className="flex w-full items-center justify-center gap-1.5 rounded-full bg-[var(--color-primary,#1b5e3a)] py-2.5 text-sm font-semibold text-white shadow-md disabled:opacity-50"
+              className="flex w-full items-center justify-center gap-1.5 rounded-full bg-[var(--color-primary,#9b1c1c)] py-2.5 text-sm font-semibold text-white shadow-md disabled:opacity-50"
             >
               {submitting ? <Loader2 size={14} className="animate-spin" /> : <Lock size={14} />}
               {submitting ? "Unlocking…" : `Unlock ${context}`}

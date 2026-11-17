@@ -7,6 +7,7 @@ import { PropertyCard } from "@/components/property-card";
 import { RecentlyViewed } from "@/components/recently-viewed";
 import { FeatureMarquee } from "@/components/feature-marquee";
 import { LocationMapView } from "@/components/location-map-view";
+import { AuthorSpotlight } from "@/components/author-spotlight";
 import {
   getActiveLocations,
   getActivePropertyTypes,
@@ -42,28 +43,28 @@ export default async function HomePage() {
   return (
     <PageTheme page="home">
       {/* Hero */}
-      <section className="relative overflow-hidden bg-[var(--color-secondary,#0f3d26)]">
+      <section className="relative overflow-hidden bg-[var(--color-secondary,#5c0f12)]">
         <HeroScenicBg />
         <div className="absolute inset-0 bg-dot-grid opacity-40" />
-        <div className="blob left-[-10%] top-[-15%] h-[28rem] w-[28rem] bg-[var(--color-primary,#1b5e3a)]/60" />
+        <div className="blob left-[-10%] top-[-15%] h-[28rem] w-[28rem] bg-[var(--color-primary,#9b1c1c)]/60" />
         <div
           className="blob right-[-12%] top-[10%] h-[24rem] w-[24rem] bg-[var(--color-accent,#d4af37)]/25"
           style={{ animationDelay: "-6s" }}
         />
-        <div className="blob bottom-[-20%] left-[30%] h-[22rem] w-[22rem] bg-emerald-400/10" style={{ animationDelay: "-11s" }} />
+        <div className="blob bottom-[-20%] left-[30%] h-[22rem] w-[22rem] bg-orange-500/20" style={{ animationDelay: "-11s" }} />
 
         <div className="relative mx-auto max-w-5xl px-4 pb-16 pt-20 text-center md:pb-24 md:pt-32">
           <span className="inline-flex items-center rounded-full border border-white/10 bg-white/10 px-4 py-1.5 text-xs font-medium text-white/80 backdrop-blur">
-            Your Tomorrow Begins Today.
+            Powered by Prakruti · Visakhapatnam
           </span>
           <h1 className="mt-6 font-[family-name:var(--font-display)] text-4xl font-bold leading-[1.1] tracking-tight text-white md:text-6xl">
-            A Better Tomorrow Begins with the{" "}
-            <span className="text-gradient-accent">Right Choice</span> Today.
+            Find the Right Property in{" "}
+            <span className="text-gradient-accent">Visakhapatnam</span> &amp; Around.
           </h1>
           <p className="mx-auto mt-5 max-w-xl text-sm text-white/70 md:text-base">
-            Every opportunity opens a new possibility. At BRK Estates, we bring together properties across budgets
-            and aspirations, with the information and insights you need to explore your options and choose what
-            feels right for your future.
+            From Madhurawada and Rushikonda to Dwaraka Nagar, Anandapuram and the Bheemili coast, BKR Estates brings you
+            verified plots, apartments, villas and farm land — backed by 20+ years of Prakruti experience and
+            honest guidance on where to invest.
           </p>
           <div className="mx-auto mt-9 max-w-2xl">
             <HeroSearch types={types} locations={locations} />
@@ -75,9 +76,9 @@ export default async function HomePage() {
         <div className="relative mx-auto max-w-sm px-4 pb-14 sm:max-w-2xl md:pb-20">
           <div className="grid grid-cols-2 divide-x divide-y divide-white/10 rounded-2xl border border-white/10 bg-white/[0.06] backdrop-blur sm:grid-cols-4 sm:divide-y-0">
             <HeroStat value="100%" label="Verified Listings" />
-            <HeroStat value="100+" label="Customers" />
+            <HeroStat value="115" label="Ventures Associated" />
             <HeroStat value={`${propertiesCount}+`} label="Properties Live" />
-            <HeroStat value="5+" label="Years of Experience" />
+            <HeroStat value="20+" label="Years with Prakruti" />
           </div>
         </div>
       </section>
@@ -110,7 +111,7 @@ export default async function HomePage() {
               </div>
               <Link
                 href="/listings"
-                className="hidden items-center gap-1 text-sm font-semibold text-[var(--color-primary,#1b5e3a)] sm:flex"
+                className="hidden items-center gap-1 text-sm font-semibold text-[var(--color-primary,#9b1c1c)] sm:flex"
               >
                 View all <ArrowRight size={15} />
               </Link>
@@ -123,7 +124,7 @@ export default async function HomePage() {
             <div className="mt-8 text-center sm:hidden">
               <Link
                 href="/listings"
-                className="inline-flex items-center gap-1 text-sm font-semibold text-[var(--color-primary,#1b5e3a)]"
+                className="inline-flex items-center gap-1 text-sm font-semibold text-[var(--color-primary,#9b1c1c)]"
               >
                 View all listings <ArrowRight size={15} />
               </Link>
@@ -148,11 +149,13 @@ export default async function HomePage() {
 
       <RecentlyViewed />
 
+      <AuthorSpotlight />
+
       {/* Trust strip */}
       <section className="border-y border-black/5 bg-white py-16">
         <div className="mx-auto grid max-w-5xl grid-cols-1 gap-5 px-4 sm:grid-cols-3">
           <TrustCard icon={ShieldCheck} title="Verified Listings" desc="Every property reviewed before it goes live" />
-          <TrustCard icon={Users} title="Local Expertise" desc="Deep knowledge of neighborhoods that matter" />
+          <TrustCard icon={Users} title="Local Expertise" desc="Deep knowledge of Vizag's growth corridors and neighbourhoods" />
           <TrustCard icon={Sparkles} title="Transparent Pricing" desc="No hidden surprises, ever" />
         </div>
       </section>
@@ -161,18 +164,18 @@ export default async function HomePage() {
       <section className="relative isolate mx-auto my-16 max-w-5xl overflow-hidden rounded-[2rem] px-4 py-16 text-center md:px-8">
         <div
           className="absolute inset-0 -z-10"
-          style={{ background: "linear-gradient(135deg, var(--color-secondary,#0f3d26), var(--color-primary,#1b5e3a))" }}
+          style={{ background: "linear-gradient(135deg, var(--color-secondary,#5c0f12), var(--color-primary,#9b1c1c))" }}
         />
         <div className="blob left-1/4 top-[-30%] h-72 w-72 bg-[var(--color-accent,#d4af37)]/20" />
         <h2 className="font-[family-name:var(--font-display)] text-2xl font-bold text-white md:text-4xl">
-          Have a property to sell or rent?
+          Looking to buy, sell or invest in Vizag?
         </h2>
         <p className="mx-auto mt-3 max-w-md text-sm text-white/70">
-          Get in touch and our team will help you find the right buyer or tenant.
+          Talk to our team — we&apos;ll help you find the right property, the right buyer or the right investment.
         </p>
         <Link
           href="/contact"
-          className="mt-7 inline-flex items-center gap-2 rounded-full bg-white px-7 py-3 text-sm font-semibold text-[var(--color-secondary,#0f3d26)] shadow-lg transition hover:scale-[1.03]"
+          className="mt-7 inline-flex items-center gap-2 rounded-full bg-white px-7 py-3 text-sm font-semibold text-[var(--color-secondary,#5c0f12)] shadow-lg transition hover:scale-[1.03]"
         >
           Contact Us <ArrowRight size={15} />
         </Link>
@@ -192,8 +195,8 @@ function HeroStat({ value, label }: { value: string; label: string }) {
 
 function TrustCard({ icon: IconC, title, desc }: { icon: typeof ShieldCheck; title: string; desc: string }) {
   return (
-    <div className="group rounded-2xl border border-black/5 p-6 text-center transition hover:-translate-y-1 hover:border-[var(--color-primary,#1b5e3a)]/20 hover:shadow-lg">
-      <span className="mx-auto flex h-12 w-12 items-center justify-center rounded-xl bg-[var(--color-primary,#1b5e3a)]/10 text-[var(--color-primary,#1b5e3a)] transition-transform group-hover:scale-110">
+    <div className="group rounded-2xl border border-black/5 p-6 text-center transition hover:-translate-y-1 hover:border-[var(--color-primary,#9b1c1c)]/20 hover:shadow-lg">
+      <span className="mx-auto flex h-12 w-12 items-center justify-center rounded-xl bg-[var(--color-primary,#9b1c1c)]/10 text-[var(--color-primary,#9b1c1c)] transition-transform group-hover:scale-110">
         <IconC size={22} />
       </span>
       <h3 className="mt-3 font-semibold text-neutral-900">{title}</h3>

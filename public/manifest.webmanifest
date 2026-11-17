@@ -1,11 +1,11 @@
 {
-  "name": "BRK Estates",
-  "short_name": "BRK Estates",
-  "description": "Browse apartments, villas, open plots and farm land with BRK Estates.",
+  "name": "BKR Estates",
+  "short_name": "BKR Estates",
+  "description": "Browse apartments, villas, open plots and farm land with BKR Estates.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
-  "theme_color": "#1b5e3a",
+  "theme_color": "#9b1c1c",
   "orientation": "portrait-primary",
   "icons": [
     { "src": "/brand/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },

@@ -7,7 +7,7 @@ const LANG_TARGET: Record<"te" | "hi", string> = { te: "te-IN", hi: "hi-IN" };
 
 async function translateChunk(text: string, targetLang: "te" | "hi"): Promise<string> {
   if (!text.trim()) return "";
-  const url = `https://api.mymemory.translated.net/get?q=${encodeURIComponent(text)}&langpair=en|${LANG_TARGET[targetLang]}&de=admin@brkestates.com`;
+  const url = `https://api.mymemory.translated.net/get?q=${encodeURIComponent(text)}&langpair=en|${LANG_TARGET[targetLang]}&de=bkrestatesvizag@gmail.com`;
 
   let res: Response;
   try {

@@ -85,7 +85,7 @@ export function MobileSearchOverlay({
                 >
                   <span
                     className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg"
-                    style={{ background: `${t.accent_color ?? "#1b5e3a"}1a`, color: t.accent_color ?? "#1b5e3a" }}
+                    style={{ background: `${t.accent_color ?? "#9b1c1c"}1a`, color: t.accent_color ?? "#9b1c1c" }}
                   >
                     <Icon name={t.icon_name} url={t.icon_url} size={15} />
                   </span>
@@ -96,7 +96,7 @@ export function MobileSearchOverlay({
 
             <button
               onClick={() => go(new URLSearchParams())}
-              className="mt-6 flex w-full items-center justify-center gap-2 rounded-full bg-[var(--color-primary,#1b5e3a)] py-3.5 text-sm font-semibold text-white"
+              className="mt-6 flex w-full items-center justify-center gap-2 rounded-full bg-[var(--color-primary,#9b1c1c)] py-3.5 text-sm font-semibold text-white"
             >
               View All Listings
             </button>

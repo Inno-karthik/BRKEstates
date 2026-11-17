@@ -38,7 +38,7 @@ export function MobileBottomNav({ types = [] }: { types?: PropertyType[] }) {
             const active = href ? (href === "/" ? pathname === "/" : pathname?.startsWith(href)) : false;
             const className = cn(
               "relative flex flex-col items-center gap-1 py-2.5 text-[11px] font-medium",
-              active ? "text-[var(--color-primary,#1b5e3a)]" : "text-neutral-500"
+              active ? "text-[var(--color-primary,#9b1c1c)]" : "text-neutral-500"
             );
             const content = (
               <>

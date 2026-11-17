@@ -14,12 +14,12 @@ export function HeroScenicBg() {
           <stop offset="100%" stopColor="var(--color-accent, #d4af37)" stopOpacity="0" />
         </radialGradient>
         <linearGradient id="hillFar" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="var(--color-primary, #1b5e3a)" stopOpacity="0.35" />
-          <stop offset="100%" stopColor="var(--color-primary, #1b5e3a)" stopOpacity="0.15" />
+          <stop offset="0%" stopColor="var(--color-primary, #9b1c1c)" stopOpacity="0.35" />
+          <stop offset="100%" stopColor="var(--color-primary, #9b1c1c)" stopOpacity="0.15" />
         </linearGradient>
         <linearGradient id="hillNear" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="var(--color-secondary, #0f3d26)" stopOpacity="0.9" />
-          <stop offset="100%" stopColor="var(--color-secondary, #0f3d26)" stopOpacity="1" />
+          <stop offset="0%" stopColor="var(--color-secondary, #5c0f12)" stopOpacity="0.9" />
+          <stop offset="100%" stopColor="var(--color-secondary, #5c0f12)" stopOpacity="1" />
         </linearGradient>
       </defs>
 

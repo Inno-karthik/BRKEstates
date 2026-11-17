@@ -25,7 +25,7 @@ export function AttributesGrid({
 
   const items = entries.map(({ def, value }) => (
     <div key={def.key} className="flex items-start gap-3 rounded-xl border border-black/5 bg-white p-3">
-      <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[var(--color-primary,#1b5e3a)]/10 text-[var(--color-primary,#1b5e3a)]">
+      <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[var(--color-primary,#9b1c1c)]/10 text-[var(--color-primary,#9b1c1c)]">
         <Icon name={def.icon_name} size={16} />
       </span>
       <div className="min-w-0">
@@ -63,7 +63,7 @@ export function AmenitiesGrid({ amenities }: { amenities: Amenity[] }) {
         <Icon name={a.icon_name} url={a.icon_url} size={15} />
       </span>
       <span className="min-w-0 flex-1 text-[13px] leading-snug text-neutral-700">{a.name}</span>
-      <Check size={13} className="mt-1 shrink-0 text-[var(--color-primary,#1b5e3a)]" />
+      <Check size={13} className="mt-1 shrink-0 text-[var(--color-primary,#9b1c1c)]" />
     </div>
   ));
 

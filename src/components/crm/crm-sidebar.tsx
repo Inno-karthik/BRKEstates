@@ -28,7 +28,7 @@ export function CrmSidebar() {
   const content = (
     <nav className="flex h-full flex-col">
       <div className="px-5 py-5">
-        <p className="text-sm font-semibold text-white">BRK Estates</p>
+        <p className="text-sm font-semibold text-white">BKR Estates</p>
         <p className="text-[11px] text-indigo-200">Leads CRM</p>
       </div>
 
@@ -80,7 +80,7 @@ export function CrmSidebar() {
       <aside className="sticky top-0 hidden h-screen w-64 shrink-0 overflow-y-auto bg-indigo-950 md:block">{content}</aside>
 
       <div className="flex items-center justify-between border-b border-black/5 bg-indigo-950 px-4 py-3 md:hidden">
-        <span className="text-sm font-semibold text-white">BRK CRM</span>
+        <span className="text-sm font-semibold text-white">BKR CRM</span>
         <button onClick={() => setMobileOpen(true)} className="text-white">
           <Menu size={22} />
         </button>

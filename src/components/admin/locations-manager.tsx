@@ -17,7 +17,7 @@ export function LocationsManager({ locations, properties }: { locations: Locatio
     <div>
       <button
         onClick={() => setEditing("new")}
-        className="mb-5 flex items-center gap-2 rounded-full bg-[#1b5e3a] px-4 py-2 text-sm font-semibold text-white"
+        className="mb-5 flex items-center gap-2 rounded-full bg-[#9b1c1c] px-4 py-2 text-sm font-semibold text-white"
       >
         <Plus size={15} /> Add Location
       </button>
@@ -25,7 +25,7 @@ export function LocationsManager({ locations, properties }: { locations: Locatio
       <div className="overflow-hidden rounded-2xl border border-black/5 bg-white">
         {locations.map((l) => (
           <div key={l.id} className="flex items-center gap-3 border-b border-black/5 px-4 py-3 last:border-0">
-            <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#1b5e3a]/10 text-[#1b5e3a]">
+            <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#9b1c1c]/10 text-[#9b1c1c]">
               <MapPin size={16} />
             </span>
             <div className="min-w-0 flex-1">
@@ -56,7 +56,7 @@ export function LocationsManager({ locations, properties }: { locations: Locatio
         ))}
         {locations.length === 0 && (
           <p className="py-12 text-center text-sm text-neutral-400">
-            No locations yet. Add one to group properties by area, e.g. &quot;Kokapet&quot; or &quot;Gachibowli&quot;.
+            No locations yet. Add one to group properties by area, e.g. &quot;Rushikonda&quot; or &quot;Madhurawada&quot;.
           </p>
         )}
       </div>
@@ -130,7 +130,7 @@ function LocationForm({
               if (!location) setSlug(e.target.value.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, ""));
             }}
             className={inputClass}
-            placeholder="e.g. Kokapet"
+            placeholder="e.g. Rushikonda"
           />
         </FormField>
         <FormField label="URL Slug">
@@ -168,13 +168,13 @@ function LocationForm({
                   onClick={() => toggleProperty(p.id)}
                   className={cn(
                     "flex w-full items-center gap-2.5 rounded-md px-2.5 py-2 text-left text-sm transition",
-                    checked ? "bg-[#1b5e3a]/10 text-[#1b5e3a]" : "text-neutral-700 hover:bg-neutral-50"
+                    checked ? "bg-[#9b1c1c]/10 text-[#9b1c1c]" : "text-neutral-700 hover:bg-neutral-50"
                   )}
                 >
                   <span
                     className={cn(
                       "flex h-4 w-4 shrink-0 items-center justify-center rounded border",
-                      checked ? "border-[#1b5e3a] bg-[#1b5e3a] text-white" : "border-black/20"
+                      checked ? "border-[#9b1c1c] bg-[#9b1c1c] text-white" : "border-black/20"
                     )}
                   >
                     {checked && <Check size={11} />}
@@ -197,7 +197,7 @@ function LocationForm({
         <button
           onClick={save}
           disabled={saving || !name}
-          className="w-full rounded-full bg-[#1b5e3a] py-2.5 text-sm font-semibold text-white disabled:opacity-50"
+          className="w-full rounded-full bg-[#9b1c1c] py-2.5 text-sm font-semibold text-white disabled:opacity-50"
         >
           {saving ? "Saving…" : "Save Location"}
         </button>

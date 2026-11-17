@@ -9,7 +9,7 @@ const CARDS = [
     section: "cms" as const,
     href: "/admin",
     icon: LayoutDashboard,
-    color: "#1b5e3a",
+    color: "#9b1c1c",
     title: "Content (CMS)",
     desc: "Properties, specifications, amenities, blog and site settings.",
   },
@@ -41,7 +41,7 @@ export default async function ChooseAreaPage() {
     return (
       <div className="flex min-h-screen items-center justify-center bg-neutral-50 px-4 text-center">
         <div>
-          <Image src="/brand/logo.png" alt="BRK Estates" width={52} height={52} className="mx-auto" />
+          <Image src="/brand/logo-mark.png" alt="BKR Estates" width={52} height={52} className="mx-auto" />
           <h1 className="mt-3 text-lg font-semibold text-neutral-900">No access granted yet</h1>
           <p className="mt-1 text-sm text-neutral-500">Ask the account owner to grant you access to a section.</p>
         </div>
@@ -53,7 +53,7 @@ export default async function ChooseAreaPage() {
     <div className="flex min-h-screen items-center justify-center bg-neutral-50 px-4">
       <div className="w-full max-w-4xl">
         <div className="mb-8 flex flex-col items-center text-center">
-          <Image src="/brand/logo.png" alt="BRK Estates" width={52} height={52} />
+          <Image src="/brand/logo-mark.png" alt="BKR Estates" width={52} height={52} />
           <h1 className="mt-3 text-xl font-semibold text-neutral-900">Welcome back</h1>
           <p className="text-sm text-neutral-500">Choose where you want to go</p>
         </div>

@@ -6,7 +6,7 @@ export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   title: "Disclaimer",
-  description: "Important information about the accuracy and verification of listings on BRK Estates.",
+  description: "Important information about the accuracy and verification of listings on BKR Estates.",
   alternates: { canonical: "/disclaimer" },
 };
 
@@ -32,7 +32,7 @@ export default async function DisclaimerPage() {
 
       <h2>Certifications &amp; Approvals</h2>
       <p>
-        Certifications, approvals, registration numbers (such as RERA, HMDA, DTCP or similar) and related
+        Certifications, approvals, registration numbers (such as RERA, VUDA, DTCP or similar) and related
         documents displayed on a property page are based on information provided by the respective developer,
         owner or venture management. {settings.site_name} does not independently certify or guarantee the
         accuracy, authenticity, validity or current status of such information. Buyers are advised to verify all

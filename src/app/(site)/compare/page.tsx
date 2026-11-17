@@ -72,7 +72,7 @@ export default function ComparePage() {
         <div className="mt-10 rounded-2xl border border-dashed border-black/10 py-20 text-center">
           <p className="text-lg font-semibold text-neutral-700">Nothing to compare yet</p>
           <p className="mt-1 text-sm text-neutral-500">Tap the scale icon on any listing to add it here.</p>
-          <Link href="/listings" className="mt-4 inline-block text-sm font-semibold text-[var(--color-primary,#1b5e3a)]">
+          <Link href="/listings" className="mt-4 inline-block text-sm font-semibold text-[var(--color-primary,#9b1c1c)]">
             Browse listings
           </Link>
         </div>
@@ -99,7 +99,7 @@ export default function ComparePage() {
                       <Link href={`/listings/${p.slug}`} className="mt-2 text-sm font-semibold text-neutral-900 hover:underline">
                         {p.title}
                       </Link>
-                      <p className="text-xs font-bold text-[var(--color-primary,#1b5e3a)]">{formatPrice(p.price, p.price_label, false, p.area_unit, p.property_type?.slug)}</p>
+                      <p className="text-xs font-bold text-[var(--color-primary,#9b1c1c)]">{formatPrice(p.price, p.price_label, false, p.area_unit, p.property_type?.slug)}</p>
                     </div>
                   </th>
                 ))}
