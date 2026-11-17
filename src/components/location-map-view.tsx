@@ -79,7 +79,7 @@ export function LocationMapView({
         let activeHide: (() => void) | null = null;
 
         for (const p of withCoords) {
-          const color = p.property_type ? typeColors.get(p.property_type.id)?.color ?? "#9b1c1c" : "#9b1c1c";
+          const color = p.property_type ? typeColors.get(p.property_type.id)?.color ?? "#7f1d1d" : "#7f1d1d";
           const cover = p.cover_image || p.images?.[0]?.url;
           const priceLabel = p.price != null ? formatPrice(p.price, null, false) : "";
 
@@ -250,7 +250,7 @@ export function LocationMapView({
               href={expandHref}
               aria-label="Open full map"
               title="Open full map"
-              className="flex h-10 w-10 items-center justify-center rounded-full bg-white text-neutral-600 shadow-lg hover:text-[var(--color-primary,#9b1c1c)]"
+              className="flex h-10 w-10 items-center justify-center rounded-full bg-white text-neutral-600 shadow-lg hover:text-[var(--color-primary,#7f1d1d)]"
             >
               <Maximize2 size={16} />
             </Link>
@@ -260,7 +260,7 @@ export function LocationMapView({
             onClick={recenter}
             aria-label="Recenter map"
             title="Recenter map"
-            className="flex h-10 w-10 items-center justify-center rounded-full bg-white text-neutral-600 shadow-lg hover:text-[var(--color-primary,#9b1c1c)]"
+            className="flex h-10 w-10 items-center justify-center rounded-full bg-white text-neutral-600 shadow-lg hover:text-[var(--color-primary,#7f1d1d)]"
           >
             <LocateFixed size={18} />
           </button>

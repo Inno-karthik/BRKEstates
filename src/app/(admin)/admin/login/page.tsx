@@ -39,7 +39,7 @@ export default function AdminLoginPage() {
   }
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-[#5c0f12] px-4">
+    <div className="flex min-h-screen items-center justify-center bg-[#3b0b10] px-4">
       <div className="w-full max-w-sm rounded-2xl bg-white p-8 shadow-2xl">
         <div className="mb-6 flex flex-col items-center">
           <Image src="/brand/logo-mark.png" alt="BKR Estates" width={56} height={56} />
@@ -54,7 +54,7 @@ export default function AdminLoginPage() {
             placeholder="Email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="w-full rounded-lg border border-black/10 px-3 py-2.5 text-sm outline-none focus:border-[#9b1c1c]"
+            className="w-full rounded-lg border border-black/10 px-3 py-2.5 text-sm outline-none focus:border-[#7f1d1d]"
           />
           <input
             type="password"
@@ -62,13 +62,13 @@ export default function AdminLoginPage() {
             placeholder="Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            className="w-full rounded-lg border border-black/10 px-3 py-2.5 text-sm outline-none focus:border-[#9b1c1c]"
+            className="w-full rounded-lg border border-black/10 px-3 py-2.5 text-sm outline-none focus:border-[#7f1d1d]"
           />
           {error && <p className="text-xs text-red-600">{error}</p>}
           <button
             type="submit"
             disabled={loading}
-            className="flex w-full items-center justify-center gap-2 rounded-full bg-[#9b1c1c] py-2.5 text-sm font-semibold text-white disabled:opacity-60"
+            className="flex w-full items-center justify-center gap-2 rounded-full bg-[#7f1d1d] py-2.5 text-sm font-semibold text-white disabled:opacity-60"
           >
             {loading ? <Loader2 size={15} className="animate-spin" /> : <Lock size={14} />}
             Sign In

@@ -34,7 +34,7 @@ export function BlogSidebarPropertyCard({ property }: { property: Property }) {
             {[property.location, property.city].filter(Boolean).join(", ")}
           </p>
         )}
-        <p className="mt-1 text-sm font-extrabold text-[var(--color-primary,#9b1c1c)]">
+        <p className="mt-1 text-sm font-extrabold text-[var(--color-primary,#7f1d1d)]">
           {priceParts.amount}
           {priceParts.suffix && <span className="text-xs font-normal text-neutral-400">{priceParts.suffix}</span>}
         </p>

@@ -98,7 +98,7 @@ export function ChangePasswordForm() {
         <button
           type="submit"
           disabled={saving || !currentPassword || !newPassword || !confirmPassword}
-          className="flex items-center gap-1.5 rounded-full bg-[#9b1c1c] px-6 py-2.5 text-sm font-semibold text-white disabled:opacity-60"
+          className="flex items-center gap-1.5 rounded-full bg-[#7f1d1d] px-6 py-2.5 text-sm font-semibold text-white disabled:opacity-60"
         >
           {saving ? <Loader2 size={15} className="animate-spin" /> : saved ? <Check size={15} /> : null}
           {saved ? "Password Changed" : "Change Password"}

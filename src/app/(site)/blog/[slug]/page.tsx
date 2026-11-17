@@ -55,7 +55,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
   const sidebarProperties = await getBlogSidebarProperties(settings.blog_sidebar_property_ids ?? []);
   const hasSidebar = sidebarProperties.length > 0;
 
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://brkestates.com";
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://bkrestates.com";
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",

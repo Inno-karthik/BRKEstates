@@ -35,7 +35,7 @@ export function PopupsManager({ popups, properties }: { popups: Popup[]; propert
     <div>
       <button
         onClick={() => setEditing("new")}
-        className="mb-5 flex items-center gap-2 rounded-full bg-[#9b1c1c] px-4 py-2 text-sm font-semibold text-white"
+        className="mb-5 flex items-center gap-2 rounded-full bg-[#7f1d1d] px-4 py-2 text-sm font-semibold text-white"
       >
         <Plus size={15} /> Add Popup
       </button>
@@ -173,7 +173,7 @@ function PopupForm({
               type="button"
               onClick={() => setMode("global")}
               className={`rounded-full px-3 py-1.5 text-xs font-medium ${
-                mode === "global" ? "bg-[#9b1c1c] text-white" : "border border-black/10 text-neutral-600"
+                mode === "global" ? "bg-[#7f1d1d] text-white" : "border border-black/10 text-neutral-600"
               }`}
             >
               Global (every page)
@@ -182,7 +182,7 @@ function PopupForm({
               type="button"
               onClick={() => setMode("property")}
               className={`rounded-full px-3 py-1.5 text-xs font-medium ${
-                mode === "property" ? "bg-[#9b1c1c] text-white" : "border border-black/10 text-neutral-600"
+                mode === "property" ? "bg-[#7f1d1d] text-white" : "border border-black/10 text-neutral-600"
               }`}
             >
               One specific property
@@ -193,7 +193,7 @@ function PopupForm({
         {mode === "property" && (
           <FormField label="Property">
             {selectedProperty ? (
-              <div className="flex items-center gap-2 rounded-lg border border-[#9b1c1c]/30 bg-[#9b1c1c]/5 px-3 py-2 text-sm text-[#9b1c1c]">
+              <div className="flex items-center gap-2 rounded-lg border border-[#7f1d1d]/30 bg-[#7f1d1d]/5 px-3 py-2 text-sm text-[#7f1d1d]">
                 <span className="min-w-0 flex-1 truncate">{selectedProperty.title}</span>
                 <button type="button" onClick={() => setPropertyId(null)} className="shrink-0 text-neutral-400 hover:text-red-600">
                   <X size={14} />
@@ -235,7 +235,7 @@ function PopupForm({
         <button
           onClick={save}
           disabled={saving || !title}
-          className="w-full rounded-full bg-[#9b1c1c] py-2.5 text-sm font-semibold text-white disabled:opacity-50"
+          className="w-full rounded-full bg-[#7f1d1d] py-2.5 text-sm font-semibold text-white disabled:opacity-50"
         >
           {saving ? "Saving…" : "Save Popup"}
         </button>

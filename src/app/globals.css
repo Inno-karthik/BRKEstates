@@ -3,8 +3,8 @@
 
 :root {
   /* Brand defaults — overridden per-page via inline vars from page_themes (see ThemeStyle). */
-  --color-primary: #9b1c1c;
-  --color-secondary: #5c0f12;
+  --color-primary: #7f1d1d;
+  --color-secondary: #3b0b10;
   --color-accent: #d4af37;
   --color-bg: #ffffff;
   --color-text: #2a1412;

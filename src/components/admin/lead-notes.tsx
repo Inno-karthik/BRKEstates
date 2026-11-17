@@ -43,12 +43,12 @@ export function LeadNotesContent({ lead }: { lead: Lead }) {
           onChange={(e) => setNote(e.target.value)}
           rows={2}
           placeholder="Add a note…"
-          className="w-full rounded-lg border border-black/10 px-3 py-2 text-sm outline-none focus:border-[#9b1c1c]"
+          className="w-full rounded-lg border border-black/10 px-3 py-2 text-sm outline-none focus:border-[#7f1d1d]"
         />
         <button
           type="submit"
           disabled={saving || !note.trim()}
-          className="flex shrink-0 items-center gap-1.5 rounded-lg bg-[#9b1c1c] px-3.5 py-2 text-sm font-semibold text-white disabled:opacity-50"
+          className="flex shrink-0 items-center gap-1.5 rounded-lg bg-[#7f1d1d] px-3.5 py-2 text-sm font-semibold text-white disabled:opacity-50"
         >
           {saving ? <Loader2 size={14} className="animate-spin" /> : "Add"}
         </button>

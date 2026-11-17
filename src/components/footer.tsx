@@ -1,3 +1,4 @@
+import { HERO_BG } from "@/lib/author";
 import Image from "next/image";
 import Link from "next/link";
 import { Phone, Mail, MapPin, ArrowRight } from "lucide-react";
@@ -6,15 +7,17 @@ import type { PropertyType, SiteSettings } from "@/lib/types";
 
 // Placeholders so the footer looks complete before the admin sets real profiles in Settings.
 const DUMMY_SOCIAL = {
-  facebook: "https://facebook.com/brkestates",
-  instagram: "https://instagram.com/brkestates",
-  youtube: "https://youtube.com/@brkestates",
-  twitter: "https://x.com/brkestates",
+  facebook: "https://facebook.com/bkrestates",
+  instagram: "https://instagram.com/bkrestates",
+  youtube: "https://youtube.com/@bkrestates",
+  twitter: "https://x.com/bkrestates",
 };
 
 export function Footer({ types, settings }: { types: PropertyType[]; settings: SiteSettings }) {
   return (
-    <footer className="mt-16 border-t border-black/5 bg-[var(--color-secondary,#5c0f12)] text-white">
+    <footer className="relative isolate mt-16 overflow-hidden border-t-2 border-[var(--color-accent,#d4af37)]/70 bg-[var(--color-secondary,#3b0b10)] text-white">
+      <Image src={HERO_BG} alt="" fill sizes="100vw" className="-z-20 object-cover object-bottom opacity-60" />
+      <div className="absolute inset-0 -z-10 bg-gradient-to-b from-[#3b0b10]/90 via-[#2a080c]/78 to-[#1c0508]/90" />
       {settings.phone && (
         <div className="border-b border-white/10 bg-black/15">
           <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 px-4 py-8 text-center sm:flex-row sm:text-left md:px-8">
@@ -29,7 +32,7 @@ export function Footer({ types, settings }: { types: PropertyType[]; settings: S
             </div>
             <Link
               href="/contact"
-              className="flex shrink-0 items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-[var(--color-secondary,#5c0f12)] shadow-lg transition hover:scale-[1.03]"
+              className="flex shrink-0 items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-[var(--color-secondary,#3b0b10)] shadow-lg transition hover:scale-[1.03]"
             >
               Enquire Now <ArrowRight size={15} />
             </Link>
@@ -57,7 +60,7 @@ export function Footer({ types, settings }: { types: PropertyType[]; settings: S
                 href={settings.facebook_url || DUMMY_SOCIAL.facebook}
                 target="_blank"
                 rel="noreferrer"
-                className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 transition hover:bg-[var(--color-accent,#d4af37)] hover:text-[var(--color-secondary,#5c0f12)]"
+                className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 transition hover:bg-[var(--color-accent,#d4af37)] hover:text-[var(--color-secondary,#3b0b10)]"
               >
                 <FacebookIcon size={16} />
               </a>
@@ -65,7 +68,7 @@ export function Footer({ types, settings }: { types: PropertyType[]; settings: S
                 href={settings.instagram_url || DUMMY_SOCIAL.instagram}
                 target="_blank"
                 rel="noreferrer"
-                className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 transition hover:bg-[var(--color-accent,#d4af37)] hover:text-[var(--color-secondary,#5c0f12)]"
+                className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 transition hover:bg-[var(--color-accent,#d4af37)] hover:text-[var(--color-secondary,#3b0b10)]"
               >
                 <InstagramIcon size={16} />
               </a>
@@ -73,7 +76,7 @@ export function Footer({ types, settings }: { types: PropertyType[]; settings: S
                 href={settings.youtube_url || DUMMY_SOCIAL.youtube}
                 target="_blank"
                 rel="noreferrer"
-                className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 transition hover:bg-[var(--color-accent,#d4af37)] hover:text-[var(--color-secondary,#5c0f12)]"
+                className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 transition hover:bg-[var(--color-accent,#d4af37)] hover:text-[var(--color-secondary,#3b0b10)]"
               >
                 <YoutubeIcon size={16} />
               </a>
@@ -81,7 +84,7 @@ export function Footer({ types, settings }: { types: PropertyType[]; settings: S
                 href={settings.twitter_url || DUMMY_SOCIAL.twitter}
                 target="_blank"
                 rel="noreferrer"
-                className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 transition hover:bg-[var(--color-accent,#d4af37)] hover:text-[var(--color-secondary,#5c0f12)]"
+                className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 transition hover:bg-[var(--color-accent,#d4af37)] hover:text-[var(--color-secondary,#3b0b10)]"
               >
                 <TwitterIcon size={16} />
               </a>

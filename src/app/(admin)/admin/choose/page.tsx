@@ -9,7 +9,7 @@ const CARDS = [
     section: "cms" as const,
     href: "/admin",
     icon: LayoutDashboard,
-    color: "#9b1c1c",
+    color: "#7f1d1d",
     title: "Content (CMS)",
     desc: "Properties, specifications, amenities, blog and site settings.",
   },

@@ -17,7 +17,7 @@ export default async function AdminDashboardPage() {
         <form action={createDraftProperty}>
           <button
             type="submit"
-            className="flex items-center gap-2 rounded-full bg-[#9b1c1c] px-4 py-2 text-sm font-semibold text-white"
+            className="flex items-center gap-2 rounded-full bg-[#7f1d1d] px-4 py-2 text-sm font-semibold text-white"
           >
             <Plus size={15} /> Add Property
           </button>
@@ -50,7 +50,7 @@ export default async function AdminDashboardPage() {
       <div className="mt-6 rounded-2xl border border-black/5 bg-white p-5">
         <div className="mb-3 flex items-center justify-between">
           <h2 className="text-sm font-semibold text-neutral-900">Recent Properties</h2>
-          <Link href="/admin/properties" className="text-xs font-semibold text-[#9b1c1c]">
+          <Link href="/admin/properties" className="text-xs font-semibold text-[#7f1d1d]">
             View all
           </Link>
         </div>
@@ -88,7 +88,7 @@ function StatCard({
 }) {
   return (
     <div className="rounded-2xl border border-black/5 bg-white p-4">
-      <IconC size={18} className="mb-2 text-[#9b1c1c]" />
+      <IconC size={18} className="mb-2 text-[#7f1d1d]" />
       <p className="text-xl font-bold text-neutral-900">{value}</p>
       <p className="text-xs text-neutral-500">{label}</p>
       {sub && <p className="mt-0.5 text-[11px] text-neutral-400">{sub}</p>}

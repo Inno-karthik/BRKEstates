@@ -92,7 +92,7 @@ export function SettingsForm({
             onClick={() => setTab(t)}
             className={cn(
               "rounded-full px-4 py-1.5 text-xs font-semibold transition",
-              tab === t ? "bg-[#9b1c1c] text-white" : "text-neutral-500 hover:bg-neutral-50"
+              tab === t ? "bg-[#7f1d1d] text-white" : "text-neutral-500 hover:bg-neutral-50"
             )}
           >
             {t}
@@ -189,13 +189,13 @@ export function SettingsForm({
                     onClick={() => toggleSidebarProperty(p.id)}
                     className={cn(
                       "flex w-full items-center gap-2.5 rounded-md px-2.5 py-2 text-left text-sm transition",
-                      checked ? "bg-[#9b1c1c]/10 text-[#9b1c1c]" : disabled ? "text-neutral-300" : "text-neutral-700 hover:bg-neutral-50"
+                      checked ? "bg-[#7f1d1d]/10 text-[#7f1d1d]" : disabled ? "text-neutral-300" : "text-neutral-700 hover:bg-neutral-50"
                     )}
                   >
                     <span
                       className={cn(
                         "flex h-4 w-4 shrink-0 items-center justify-center rounded border",
-                        checked ? "border-[#9b1c1c] bg-[#9b1c1c] text-white" : "border-black/20"
+                        checked ? "border-[#7f1d1d] bg-[#7f1d1d] text-white" : "border-black/20"
                       )}
                     >
                       {checked && <Check size={11} />}
@@ -259,7 +259,7 @@ export function SettingsForm({
       <button
         onClick={save}
         disabled={saving}
-        className="flex items-center gap-1.5 rounded-full bg-[#9b1c1c] px-6 py-2.5 text-sm font-semibold text-white disabled:opacity-60"
+        className="flex items-center gap-1.5 rounded-full bg-[#7f1d1d] px-6 py-2.5 text-sm font-semibold text-white disabled:opacity-60"
       >
         {saving ? <Loader2 size={15} className="animate-spin" /> : saved ? <Check size={15} /> : null}
         {saved ? "Saved" : "Save Settings"}

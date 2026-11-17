@@ -54,7 +54,7 @@ export function ImageUploader({
         className={cn(
           "group relative flex items-center justify-center overflow-hidden rounded-2xl border-2 border-dashed bg-neutral-50 transition-colors",
           aspect,
-          dragOver ? "border-[#9b1c1c] bg-[#9b1c1c]/5" : "border-black/10"
+          dragOver ? "border-[#7f1d1d] bg-[#7f1d1d]/5" : "border-black/10"
         )}
       >
         {value ? (
@@ -84,7 +84,7 @@ export function ImageUploader({
             type="button"
             onClick={() => inputRef.current?.click()}
             disabled={uploading}
-            className="flex flex-col items-center gap-2 p-6 text-neutral-400 transition hover:text-[#9b1c1c]"
+            className="flex flex-col items-center gap-2 p-6 text-neutral-400 transition hover:text-[#7f1d1d]"
           >
             {uploading ? (
               <Loader2 size={22} className="animate-spin" />

@@ -10,7 +10,7 @@ export function NavLocationsDropdown({ locations }: { locations: Location[] }) {
 
   return (
     <div className="relative" onMouseEnter={() => setOpen(true)} onMouseLeave={() => setOpen(false)}>
-      <button className="flex items-center gap-1 text-sm font-medium text-neutral-700 hover:text-[var(--color-primary,#9b1c1c)]">
+      <button className="flex items-center gap-1 text-sm font-medium text-neutral-700 hover:text-[var(--color-primary,#7f1d1d)]">
         Locations <ChevronDown size={15} className={open ? "rotate-180 transition" : "transition"} />
       </button>
       {open && (
@@ -20,9 +20,9 @@ export function NavLocationsDropdown({ locations }: { locations: Location[] }) {
               <Link
                 key={l.id}
                 href={`/locations/${l.slug}`}
-                className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm text-neutral-700 hover:bg-neutral-50 hover:text-[var(--color-primary,#9b1c1c)]"
+                className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm text-neutral-700 hover:bg-neutral-50 hover:text-[var(--color-primary,#7f1d1d)]"
               >
-                <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-[var(--color-primary,#9b1c1c)]/10 text-[var(--color-primary,#9b1c1c)]">
+                <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-[var(--color-primary,#7f1d1d)]/10 text-[var(--color-primary,#7f1d1d)]">
                   <MapPin size={16} />
                 </span>
                 {l.name}

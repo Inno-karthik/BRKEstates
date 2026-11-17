@@ -132,7 +132,7 @@ export function NearbyPlacesEditor({
             type="button"
             onClick={() => setCategory(c.key)}
             className={`flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-xs font-medium ${
-              category === c.key ? "border-[#9b1c1c] bg-[#9b1c1c]/10 text-[#9b1c1c]" : "border-black/10 text-neutral-600"
+              category === c.key ? "border-[#7f1d1d] bg-[#7f1d1d]/10 text-[#7f1d1d]" : "border-black/10 text-neutral-600"
             }`}
           >
             <Icon name={c.icon} size={13} />
@@ -148,14 +148,14 @@ export function NearbyPlacesEditor({
             setManualMode((v) => !v);
             setError(null);
           }}
-          className="flex items-center gap-1 text-xs font-semibold text-[#9b1c1c]"
+          className="flex items-center gap-1 text-xs font-semibold text-[#7f1d1d]"
         >
           <Plus size={13} /> {manualMode ? "Cancel manual add" : "Add manually with lat/long"}
         </button>
       </div>
 
       {manualMode && (
-        <div className="mb-3 rounded-lg border border-[#9b1c1c]/20 bg-[#9b1c1c]/5 p-3">
+        <div className="mb-3 rounded-lg border border-[#7f1d1d]/20 bg-[#7f1d1d]/5 p-3">
           <div className="grid grid-cols-1 gap-2 sm:grid-cols-[2fr_1fr_1fr]">
             <input
               value={manualName}
@@ -182,7 +182,7 @@ export function NearbyPlacesEditor({
             type="button"
             onClick={confirmManualAdd}
             disabled={adding || !manualName.trim() || !manualLat || !manualLng}
-            className="mt-2 flex items-center gap-1.5 rounded-lg bg-[#9b1c1c] px-3 py-2 text-xs font-semibold text-white disabled:opacity-50"
+            className="mt-2 flex items-center gap-1.5 rounded-lg bg-[#7f1d1d] px-3 py-2 text-xs font-semibold text-white disabled:opacity-50"
           >
             {adding ? <Loader2 size={13} className="animate-spin" /> : <Plus size={13} />}
             Add
@@ -224,7 +224,7 @@ export function NearbyPlacesEditor({
       </div>
 
       {pending && (
-        <div className="mt-2 rounded-lg border border-[#9b1c1c]/20 bg-[#9b1c1c]/5 p-3">
+        <div className="mt-2 rounded-lg border border-[#7f1d1d]/20 bg-[#7f1d1d]/5 p-3">
           <p className="mb-1.5 text-[11px] text-neutral-500">{pending.secondaryText}</p>
           <div className="flex items-center gap-2">
             <input
@@ -238,7 +238,7 @@ export function NearbyPlacesEditor({
               type="button"
               onClick={confirmAdd}
               disabled={adding || !customName.trim()}
-              className="flex shrink-0 items-center gap-1.5 rounded-lg bg-[#9b1c1c] px-3 py-2 text-xs font-semibold text-white disabled:opacity-50"
+              className="flex shrink-0 items-center gap-1.5 rounded-lg bg-[#7f1d1d] px-3 py-2 text-xs font-semibold text-white disabled:opacity-50"
             >
               {adding ? <Loader2 size={13} className="animate-spin" /> : <Plus size={13} />}
               Add

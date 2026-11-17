@@ -37,7 +37,7 @@ export function BlogPostBody({ post }: { post: BlogPost }) {
   return (
     <>
       <div className="mb-6 flex items-center justify-between gap-3">
-        <Link href="/blog" className="flex items-center gap-1.5 text-sm font-medium text-[var(--color-primary,#9b1c1c)]">
+        <Link href="/blog" className="flex items-center gap-1.5 text-sm font-medium text-[var(--color-primary,#7f1d1d)]">
           <ArrowLeft size={14} /> Back to Blog
         </Link>
 
@@ -50,7 +50,7 @@ export function BlogPostBody({ post }: { post: BlogPost }) {
                 onClick={() => setLang(l.code)}
                 className={cn(
                   "rounded-full px-2.5 py-1 text-[11px] font-semibold transition",
-                  lang === l.code ? "bg-[var(--color-primary,#9b1c1c)] text-white" : "text-neutral-500 hover:bg-neutral-50"
+                  lang === l.code ? "bg-[var(--color-primary,#7f1d1d)] text-white" : "text-neutral-500 hover:bg-neutral-50"
                 )}
               >
                 {l.label}
@@ -96,7 +96,7 @@ export function BlogPostBody({ post }: { post: BlogPost }) {
         </div>
       )}
 
-      <article className="prose prose-neutral mt-8 max-w-none break-words prose-headings:font-semibold prose-a:text-[var(--color-primary,#9b1c1c)] prose-img:max-w-full prose-pre:overflow-x-auto prose-table:block prose-table:overflow-x-auto">
+      <article className="prose prose-neutral mt-8 max-w-none break-words prose-headings:font-semibold prose-a:text-[var(--color-primary,#7f1d1d)] prose-img:max-w-full prose-pre:overflow-x-auto prose-table:block prose-table:overflow-x-auto">
         {/* New posts are saved as rich-text HTML (always starts with a tag); older
             posts predate the rich text editor and are still plain Markdown. */}
         {content.trim().startsWith("<") ? (

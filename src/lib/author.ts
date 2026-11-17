@@ -2,6 +2,8 @@
  *  media bucket under brand/ like every other uploaded file. Edit the copy here. */
 const R2 = process.env.R2_PUBLIC_URL ?? "https://pub-b6bfd758709a42bbbcceb22b5a972143.r2.dev";
 
+export const HERO_BG = `${R2}/brand/hero-bg.jpg`;
+
 export const AUTHOR = {
   title: "Founder, BKR Estates",
   tagline: "Your guide, consultant and investment companion in Visakhapatnam real estate.",

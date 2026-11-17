@@ -115,7 +115,7 @@ export function PropertyMediaManager({
         onClick={() => fileInputRef.current?.click()}
         className={cn(
           "mb-4 flex cursor-pointer flex-col items-center justify-center gap-2 rounded-2xl border-2 border-dashed py-8 text-center transition-colors",
-          dragOver ? "border-[#9b1c1c] bg-[#9b1c1c]/5" : "border-black/10 bg-neutral-50 hover:border-black/20"
+          dragOver ? "border-[#7f1d1d] bg-[#7f1d1d]/5" : "border-black/10 bg-neutral-50 hover:border-black/20"
         )}
       >
         {uploading ? (
@@ -198,10 +198,10 @@ export function PropertyMediaManager({
         <p className="mb-2 text-xs font-medium text-neutral-500">Brochure PDF (for the flipbook viewer)</p>
         {brochureUrl ? (
           <div className="flex items-center gap-2.5 rounded-xl border border-black/10 bg-neutral-50 px-3.5 py-3">
-            <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-[#9b1c1c]/10 text-[#9b1c1c]">
+            <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-[#7f1d1d]/10 text-[#7f1d1d]">
               <FileText size={15} />
             </span>
-            <a href={brochureUrl} target="_blank" rel="noreferrer" className="flex-1 truncate text-sm text-[#9b1c1c] hover:underline">
+            <a href={brochureUrl} target="_blank" rel="noreferrer" className="flex-1 truncate text-sm text-[#7f1d1d] hover:underline">
               {brochureUrl.split("/").pop()}
             </a>
             <button

@@ -12,7 +12,7 @@ export default async function VaultFolderPage({ params }: { params: Promise<{ pr
   ]);
   if (!property) notFound();
 
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://brkestates.com";
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://bkrestates.com";
   const vaultUrl = `${siteUrl}/vault/${propertyId}`;
 
   return (

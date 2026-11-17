@@ -2,7 +2,8 @@ import Link from "next/link";
 import { ArrowRight, ShieldCheck, Sparkles, Users } from "lucide-react";
 import { PageTheme } from "@/components/theme-style";
 import { HeroSearch, TypeTile } from "@/components/hero-search";
-import { HeroScenicBg } from "@/components/hero-scenic-bg";
+import Image from "next/image";
+import { HERO_BG } from "@/lib/author";
 import { PropertyCard } from "@/components/property-card";
 import { RecentlyViewed } from "@/components/recently-viewed";
 import { FeatureMarquee } from "@/components/feature-marquee";
@@ -44,10 +45,17 @@ export default async function HomePage() {
   return (
     <PageTheme page="home">
       {/* Hero */}
-      <section className="relative overflow-hidden bg-[var(--color-secondary,#5c0f12)]">
-        <HeroScenicBg />
+      <section className="relative overflow-hidden bg-[var(--color-secondary,#3b0b10)]">
+        <Image src={HERO_BG} alt="" fill priority sizes="100vw" className="object-cover object-center" />
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(180deg, rgba(40,8,12,0.78) 0%, rgba(59,11,16,0.62) 45%, rgba(30,6,9,0.9) 100%)",
+          }}
+        />
         <div className="absolute inset-0 bg-dot-grid opacity-40" />
-        <div className="blob left-[-10%] top-[-15%] h-[28rem] w-[28rem] bg-[var(--color-primary,#9b1c1c)]/60" />
+        <div className="blob left-[-10%] top-[-15%] h-[28rem] w-[28rem] bg-[var(--color-primary,#7f1d1d)]/40" />
         <div
           className="blob right-[-12%] top-[10%] h-[24rem] w-[24rem] bg-[var(--color-accent,#d4af37)]/25"
           style={{ animationDelay: "-6s" }}
@@ -112,7 +120,7 @@ export default async function HomePage() {
               </div>
               <Link
                 href="/listings"
-                className="hidden items-center gap-1 text-sm font-semibold text-[var(--color-primary,#9b1c1c)] sm:flex"
+                className="hidden items-center gap-1 text-sm font-semibold text-[var(--color-primary,#7f1d1d)] sm:flex"
               >
                 View all <ArrowRight size={15} />
               </Link>
@@ -125,7 +133,7 @@ export default async function HomePage() {
             <div className="mt-8 text-center sm:hidden">
               <Link
                 href="/listings"
-                className="inline-flex items-center gap-1 text-sm font-semibold text-[var(--color-primary,#9b1c1c)]"
+                className="inline-flex items-center gap-1 text-sm font-semibold text-[var(--color-primary,#7f1d1d)]"
               >
                 View all listings <ArrowRight size={15} />
               </Link>
@@ -165,7 +173,7 @@ export default async function HomePage() {
       <section className="relative isolate mx-auto my-16 max-w-5xl overflow-hidden rounded-[2rem] px-4 py-16 text-center md:px-8">
         <div
           className="absolute inset-0 -z-10"
-          style={{ background: "linear-gradient(135deg, var(--color-secondary,#5c0f12), var(--color-primary,#9b1c1c))" }}
+          style={{ background: "linear-gradient(135deg, var(--color-secondary,#3b0b10), var(--color-primary,#7f1d1d))" }}
         />
         <div className="blob left-1/4 top-[-30%] h-72 w-72 bg-[var(--color-accent,#d4af37)]/20" />
         <h2 className="font-[family-name:var(--font-display)] text-2xl font-bold text-white md:text-4xl">
@@ -176,7 +184,7 @@ export default async function HomePage() {
         </p>
         <Link
           href="/contact"
-          className="mt-7 inline-flex items-center gap-2 rounded-full bg-white px-7 py-3 text-sm font-semibold text-[var(--color-secondary,#5c0f12)] shadow-lg transition hover:scale-[1.03]"
+          className="mt-7 inline-flex items-center gap-2 rounded-full bg-white px-7 py-3 text-sm font-semibold text-[var(--color-secondary,#3b0b10)] shadow-lg transition hover:scale-[1.03]"
         >
           Contact Us <ArrowRight size={15} />
         </Link>
@@ -198,8 +206,8 @@ function HeroStat({ value, suffix, label }: { value: number; suffix?: string; la
 
 function TrustCard({ icon: IconC, title, desc }: { icon: typeof ShieldCheck; title: string; desc: string }) {
   return (
-    <div className="group rounded-2xl border border-black/5 p-6 text-center transition hover:-translate-y-1 hover:border-[var(--color-primary,#9b1c1c)]/20 hover:shadow-lg">
-      <span className="mx-auto flex h-12 w-12 items-center justify-center rounded-xl bg-[var(--color-primary,#9b1c1c)]/10 text-[var(--color-primary,#9b1c1c)] transition-transform group-hover:scale-110">
+    <div className="group rounded-2xl border border-black/5 p-6 text-center transition hover:-translate-y-1 hover:border-[var(--color-primary,#7f1d1d)]/20 hover:shadow-lg">
+      <span className="mx-auto flex h-12 w-12 items-center justify-center rounded-xl bg-[var(--color-primary,#7f1d1d)]/10 text-[var(--color-primary,#7f1d1d)] transition-transform group-hover:scale-110">
         <IconC size={22} />
       </span>
       <h3 className="mt-3 font-semibold text-neutral-900">{title}</h3>

@@ -19,7 +19,7 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://brkestates.com"),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://bkrestates.com"),
   title: {
     default: "BKR Estates — Real Estate in Visakhapatnam | Powered by Prakruti",
     template: "%s | BKR Estates",
@@ -54,15 +54,15 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#9b1c1c",
+  themeColor: "#7f1d1d",
 };
 
 const organizationJsonLd = {
   "@context": "https://schema.org",
   "@type": "RealEstateAgent",
   name: "BKR Estates",
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://brkestates.com",
-  logo: `${process.env.NEXT_PUBLIC_SITE_URL ?? "https://brkestates.com"}/brand/logo.png`,
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://bkrestates.com",
+  logo: `${process.env.NEXT_PUBLIC_SITE_URL ?? "https://bkrestates.com"}/brand/logo.png`,
   areaServed: "Visakhapatnam, Andhra Pradesh, IN",
   telephone: "+91 95538 22333",
   email: "bkrestatesvizag@gmail.com",

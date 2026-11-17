@@ -121,9 +121,9 @@ export function AdminSidebar({ profile }: { profile?: Profile | null }) {
 
   return (
     <>
-      <aside className="sticky top-0 hidden h-screen w-64 shrink-0 overflow-y-auto bg-[#5c0f12] md:block">{content}</aside>
+      <aside className="sticky top-0 hidden h-screen w-64 shrink-0 overflow-y-auto bg-[#3b0b10] md:block">{content}</aside>
 
-      <div className="flex items-center justify-between border-b border-black/5 bg-[#5c0f12] px-4 py-3 md:hidden">
+      <div className="flex items-center justify-between border-b border-black/5 bg-[#3b0b10] px-4 py-3 md:hidden">
         <div className="flex items-center gap-2">
           <Image src="/brand/logo-mark.png" alt="" width={28} height={28} className="h-7 w-7" />
           <span className="text-sm font-semibold text-white">BKR Admin</span>
@@ -136,7 +136,7 @@ export function AdminSidebar({ profile }: { profile?: Profile | null }) {
       {mobileOpen && (
         <div className="fixed inset-0 z-50 md:hidden">
           <div className="absolute inset-0 bg-black/40" onClick={() => setMobileOpen(false)} />
-          <div className="absolute inset-y-0 left-0 w-72 bg-[#5c0f12]">
+          <div className="absolute inset-y-0 left-0 w-72 bg-[#3b0b10]">
             <button onClick={() => setMobileOpen(false)} className="absolute right-3 top-4 text-white/70">
               <X size={20} />
             </button>

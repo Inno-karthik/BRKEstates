@@ -97,7 +97,7 @@ export function PropertyCarousel({ images, title }: { images: string[]; title: s
               onClick={() => emblaApi?.scrollTo(i)}
               className={cn(
                 "h-1.5 rounded-full transition-all",
-                i === selected ? "w-5 bg-[var(--color-primary,#9b1c1c)]" : "w-1.5 bg-neutral-300"
+                i === selected ? "w-5 bg-[var(--color-primary,#7f1d1d)]" : "w-1.5 bg-neutral-300"
               )}
               aria-label={`Go to image ${i + 1}`}
             />

@@ -27,7 +27,7 @@ export default async function ContactPage() {
 
   return (
     <PageTheme page="contact">
-      <section className="bg-[var(--color-secondary,#5c0f12)] py-16 text-center text-white md:py-20">
+      <section className="bg-[var(--color-secondary,#3b0b10)] py-16 text-center text-white md:py-20">
         <div className="mx-auto max-w-2xl px-4">
           <h1 className="font-[family-name:var(--font-display)] text-3xl font-bold md:text-5xl">Get in Touch</h1>
           <p className="mt-4 text-sm text-white/70 md:text-base">
@@ -86,7 +86,7 @@ function ContactRow({
 }) {
   const content = (
     <div className="flex items-start gap-3 rounded-xl border border-black/5 bg-white p-4">
-      <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[var(--color-primary,#9b1c1c)]/10 text-[var(--color-primary,#9b1c1c)]">
+      <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[var(--color-primary,#7f1d1d)]/10 text-[var(--color-primary,#7f1d1d)]">
         <IconC size={18} />
       </span>
       <div>

@@ -17,7 +17,7 @@ set options = '["VUDA","APCRDA","DTCP","RERA","Panchayat","Unapproved"]'::jsonb
 where key = 'approval';
 
 update public.page_themes set tokens = jsonb_build_object(
-  'primary', '#9b1c1c', 'secondary', '#5c0f12', 'accent', '#d4a017',
+  'primary', '#7f1d1d', 'secondary', '#3b0b10', 'accent', '#d4a017',
   'background', case page_key when 'listings' then '#fffaf6' else '#ffffff' end,
   'text', '#2a1412');
 alter table public.properties alter column color_scheme set default 'bkr';

@@ -36,29 +36,29 @@ export function Navbar({
         </Link>
 
         <nav className="hidden items-center gap-5 lg:flex">
-          <Link href="/" className="text-sm font-medium text-neutral-700 hover:text-[var(--color-primary,#9b1c1c)]">
+          <Link href="/" className="text-sm font-medium text-neutral-700 hover:text-[var(--color-primary,#7f1d1d)]">
             Home
           </Link>
           {types.length > 0 && <NavTypesDropdown types={types} />}
           {locations.length > 0 && <NavLocationsDropdown locations={locations} />}
           <Link
             href="/listings"
-            className="text-sm font-medium text-neutral-700 hover:text-[var(--color-primary,#9b1c1c)]"
+            className="text-sm font-medium text-neutral-700 hover:text-[var(--color-primary,#7f1d1d)]"
           >
             All Listings
           </Link>
-          <Link href="/blog" className="text-sm font-medium text-neutral-700 hover:text-[var(--color-primary,#9b1c1c)]">
+          <Link href="/blog" className="text-sm font-medium text-neutral-700 hover:text-[var(--color-primary,#7f1d1d)]">
             Blog
           </Link>
           <Link
             href="/about"
-            className="text-sm font-medium text-neutral-700 hover:text-[var(--color-primary,#9b1c1c)]"
+            className="text-sm font-medium text-neutral-700 hover:text-[var(--color-primary,#7f1d1d)]"
           >
             About
           </Link>
           <Link
             href="/contact"
-            className="text-sm font-medium text-neutral-700 hover:text-[var(--color-primary,#9b1c1c)]"
+            className="text-sm font-medium text-neutral-700 hover:text-[var(--color-primary,#7f1d1d)]"
           >
             Contact
           </Link>
@@ -68,7 +68,7 @@ export function Navbar({
           <FavoritesLink className="hidden lg:flex" />
           <Link
             href="/contact"
-            className="hidden rounded-full bg-[var(--color-primary,#9b1c1c)] px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:opacity-90 lg:block"
+            className="hidden rounded-full bg-[var(--color-primary,#7f1d1d)] px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:opacity-90 lg:block"
           >
             Enquire Now
           </Link>
@@ -76,7 +76,7 @@ export function Navbar({
             <TrackedLink
               href={`tel:${settings.phone}`}
               event="call_click"
-              className="flex h-9 w-9 items-center justify-center rounded-full bg-[var(--color-primary,#9b1c1c)]/10 text-[var(--color-primary,#9b1c1c)] lg:hidden"
+              className="flex h-9 w-9 items-center justify-center rounded-full bg-[var(--color-primary,#7f1d1d)]/10 text-[var(--color-primary,#7f1d1d)] lg:hidden"
             >
               <Phone size={17} />
             </TrackedLink>

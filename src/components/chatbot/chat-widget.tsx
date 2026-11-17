@@ -495,7 +495,7 @@ export function ChatWidget() {
         onClick={() => setOpen((v) => !v)}
         aria-label={open ? "Close chat" : "Open chat assistant"}
         className={cn(
-          "fixed right-4 z-[55] flex h-14 w-14 items-center justify-center rounded-full bg-[var(--color-primary,#9b1c1c)] text-white shadow-xl transition hover:scale-105 md:bottom-6",
+          "fixed right-4 z-[55] flex h-14 w-14 items-center justify-center rounded-full bg-[var(--color-primary,#7f1d1d)] text-white shadow-xl transition hover:scale-105 md:bottom-6",
           needsMobileClearance ? "bottom-28" : "bottom-20"
         )}
       >
@@ -511,7 +511,7 @@ export function ChatWidget() {
             transition={{ duration: 0.2 }}
             className="fixed inset-0 z-[55] flex flex-col overflow-hidden bg-white shadow-2xl md:inset-auto md:bottom-24 md:right-4 md:h-[70vh] md:max-h-[560px] md:w-[92vw] md:max-w-sm md:rounded-2xl md:border md:border-black/5"
           >
-            <div className="flex shrink-0 items-center gap-2.5 border-b border-black/5 bg-[var(--color-secondary,#5c0f12)] px-4 py-3.5 text-white">
+            <div className="flex shrink-0 items-center gap-2.5 border-b border-black/5 bg-[var(--color-secondary,#3b0b10)] px-4 py-3.5 text-white">
               <span className="flex h-9 w-9 items-center justify-center rounded-full bg-white/15">
                 <Bot size={18} />
               </span>
@@ -559,12 +559,12 @@ export function ChatWidget() {
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 placeholder="Type a message…"
-                className="w-full rounded-full border border-black/10 px-4 py-2.5 text-sm outline-none focus:border-[var(--color-primary,#9b1c1c)]"
+                className="w-full rounded-full border border-black/10 px-4 py-2.5 text-sm outline-none focus:border-[var(--color-primary,#7f1d1d)]"
               />
               <button
                 type="submit"
                 disabled={!input.trim()}
-                className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[var(--color-primary,#9b1c1c)] text-white disabled:opacity-40"
+                className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[var(--color-primary,#7f1d1d)] text-white disabled:opacity-40"
               >
                 <Send size={16} />
               </button>
@@ -587,7 +587,7 @@ function MessageBubble({
     return (
       <div className="flex justify-end">
         <div className="flex max-w-[80%] items-start gap-2">
-          <p className="rounded-2xl rounded-br-sm bg-[var(--color-primary,#9b1c1c)] px-3.5 py-2.5 text-sm text-white">{message.text}</p>
+          <p className="rounded-2xl rounded-br-sm bg-[var(--color-primary,#7f1d1d)] px-3.5 py-2.5 text-sm text-white">{message.text}</p>
           <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-neutral-200 text-neutral-500">
             <User size={12} />
           </span>
@@ -608,7 +608,7 @@ function MessageBubble({
 
   return (
     <div className="flex items-start gap-2">
-      <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[var(--color-primary,#9b1c1c)]/10 text-[var(--color-primary,#9b1c1c)]">
+      <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[var(--color-primary,#7f1d1d)]/10 text-[var(--color-primary,#7f1d1d)]">
         <Bot size={12} />
       </span>
       <div className="max-w-[85%] space-y-2">
@@ -620,7 +620,7 @@ function MessageBubble({
                 key={q.value}
                 onClick={() => onQuickReply(q.value, q.label)}
                 className={cn(
-                  "flex items-center gap-1.5 rounded-full border border-[var(--color-primary,#9b1c1c)]/30 bg-white px-3 py-1.5 text-xs font-medium text-[var(--color-primary,#9b1c1c)] transition hover:bg-[var(--color-primary,#9b1c1c)]/5"
+                  "flex items-center gap-1.5 rounded-full border border-[var(--color-primary,#7f1d1d)]/30 bg-white px-3 py-1.5 text-xs font-medium text-[var(--color-primary,#7f1d1d)] transition hover:bg-[var(--color-primary,#7f1d1d)]/5"
                 )}
               >
                 {q.icon && <q.icon size={13} />}

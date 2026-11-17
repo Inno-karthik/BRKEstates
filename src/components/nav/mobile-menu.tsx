@@ -109,7 +109,7 @@ export function MobileMenuButton({
                       >
                         <span
                           className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg"
-                          style={{ background: `${t.accent_color ?? "#9b1c1c"}1a`, color: t.accent_color ?? "#9b1c1c" }}
+                          style={{ background: `${t.accent_color ?? "#7f1d1d"}1a`, color: t.accent_color ?? "#7f1d1d" }}
                         >
                           <Icon name={t.icon_name} url={t.icon_url} size={14} />
                         </span>
@@ -133,7 +133,7 @@ export function MobileMenuButton({
                         onClick={() => setOpen(false)}
                         className="flex items-center gap-2 rounded-xl border border-black/5 bg-neutral-50 px-2.5 py-2.5 text-sm font-medium text-neutral-800"
                       >
-                        <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-[var(--color-primary,#9b1c1c)]/10 text-[var(--color-primary,#9b1c1c)]">
+                        <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-[var(--color-primary,#7f1d1d)]/10 text-[var(--color-primary,#7f1d1d)]">
                           <MapPin size={14} />
                         </span>
                         <span className="truncate">{l.name}</span>

@@ -60,7 +60,7 @@ function DocTile({ doc }: { doc: PublicVaultDoc }) {
 
   return (
     <div className="flex h-full flex-col items-center gap-3 rounded-2xl border border-black/5 bg-white p-5 text-center shadow-sm">
-      <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[var(--color-primary,#9b1c1c)]/10 text-[var(--color-primary,#9b1c1c)]">
+      <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[var(--color-primary,#7f1d1d)]/10 text-[var(--color-primary,#7f1d1d)]">
         <FileText size={20} />
       </span>
       <p className="flex-1 text-sm font-semibold text-neutral-900">{doc.title}</p>
@@ -71,7 +71,7 @@ function DocTile({ doc }: { doc: PublicVaultDoc }) {
             href={url}
             target="_blank"
             rel="noreferrer"
-            className="flex w-full items-center justify-center gap-1.5 rounded-full bg-[var(--color-primary,#9b1c1c)] px-4 py-2 text-xs font-semibold text-white"
+            className="flex w-full items-center justify-center gap-1.5 rounded-full bg-[var(--color-primary,#7f1d1d)] px-4 py-2 text-xs font-semibold text-white"
           >
             <ExternalLink size={13} /> Open
           </a>

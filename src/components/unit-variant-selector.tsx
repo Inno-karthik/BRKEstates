@@ -102,8 +102,8 @@ export function UnitVariantSelector({ variants }: { variants: UnitVariant[] }) {
             className={cn(
               "rounded-full border px-4 py-2 text-sm font-semibold transition",
               activeBhk === key
-                ? "border-[var(--color-primary,#9b1c1c)] bg-[var(--color-primary,#9b1c1c)] text-white"
-                : "border-black/10 text-neutral-600 hover:border-[var(--color-primary,#9b1c1c)]/40"
+                ? "border-[var(--color-primary,#7f1d1d)] bg-[var(--color-primary,#7f1d1d)] text-white"
+                : "border-black/10 text-neutral-600 hover:border-[var(--color-primary,#7f1d1d)]/40"
             )}
           >
             {key === "other" ? group[0]?.label || "Other" : `${key} BHK`}
@@ -122,7 +122,7 @@ export function UnitVariantSelector({ variants }: { variants: UnitVariant[] }) {
               className={cn(
                 "rounded-full border px-3 py-1.5 text-xs font-medium transition",
                 facing === activeFacing
-                  ? "border-[var(--color-accent,#d4af37)] bg-[var(--color-accent,#d4af37)]/10 text-[var(--color-secondary,#5c0f12)]"
+                  ? "border-[var(--color-accent,#d4af37)] bg-[var(--color-accent,#d4af37)]/10 text-[var(--color-secondary,#3b0b10)]"
                   : "border-black/10 text-neutral-500 hover:border-black/20"
               )}
             >
@@ -143,7 +143,7 @@ export function UnitVariantSelector({ variants }: { variants: UnitVariant[] }) {
               className={cn(
                 "rounded-full border px-3 py-1.5 text-xs font-medium transition",
                 area === activeArea
-                  ? "border-[var(--color-primary,#9b1c1c)] bg-[var(--color-primary,#9b1c1c)]/10 text-[var(--color-primary,#9b1c1c)]"
+                  ? "border-[var(--color-primary,#7f1d1d)] bg-[var(--color-primary,#7f1d1d)]/10 text-[var(--color-primary,#7f1d1d)]"
                   : "border-black/10 text-neutral-500 hover:border-black/20"
               )}
             >
@@ -155,7 +155,7 @@ export function UnitVariantSelector({ variants }: { variants: UnitVariant[] }) {
 
       {/* Detail card for the active selection */}
       <div
-        className="mt-4 rounded-xl border border-[var(--color-primary,#9b1c1c)]/10 bg-gradient-to-br from-[var(--color-primary,#9b1c1c)]/[0.06] to-[var(--color-accent,#d4af37)]/[0.05] p-4 sm:p-5"
+        className="mt-4 rounded-xl border border-[var(--color-primary,#7f1d1d)]/10 bg-gradient-to-br from-[var(--color-primary,#7f1d1d)]/[0.06] to-[var(--color-accent,#d4af37)]/[0.05] p-4 sm:p-5"
       >
         <div className="flex flex-wrap items-start justify-between gap-3">
           <div>
@@ -165,7 +165,7 @@ export function UnitVariantSelector({ variants }: { variants: UnitVariant[] }) {
           {active.price != null && (
             <div className="rounded-lg bg-white/70 px-3 py-1.5 text-right">
               <p className="text-[10px] font-medium uppercase tracking-wide text-neutral-400">Starting from</p>
-              <p className="text-xl font-extrabold text-[var(--color-primary,#9b1c1c)]">
+              <p className="text-xl font-extrabold text-[var(--color-primary,#7f1d1d)]">
                 {formatPrice(active.price, null, false)}
               </p>
             </div>
@@ -184,10 +184,10 @@ export function UnitVariantSelector({ variants }: { variants: UnitVariant[] }) {
         )}
 
         {facts.length > 0 && (
-          <div className="mt-4 flex flex-wrap gap-x-4 gap-y-2 border-t border-[var(--color-primary,#9b1c1c)]/10 pt-4">
+          <div className="mt-4 flex flex-wrap gap-x-4 gap-y-2 border-t border-[var(--color-primary,#7f1d1d)]/10 pt-4">
             {facts.map((f, i) => (
               <span key={i} className="flex items-center gap-1.5 text-xs text-neutral-600">
-                <f.icon size={13} className="text-[var(--color-primary,#9b1c1c)]/50" />
+                <f.icon size={13} className="text-[var(--color-primary,#7f1d1d)]/50" />
                 {f.text}
               </span>
             ))}
@@ -195,9 +195,9 @@ export function UnitVariantSelector({ variants }: { variants: UnitVariant[] }) {
         )}
 
         {(active.construction_status || active.total_units != null) && (
-          <div className="mt-4 flex flex-wrap gap-2 border-t border-[var(--color-primary,#9b1c1c)]/10 pt-4">
+          <div className="mt-4 flex flex-wrap gap-2 border-t border-[var(--color-primary,#7f1d1d)]/10 pt-4">
             {active.construction_status && (
-              <span className="rounded-full bg-[var(--color-accent,#d4af37)]/15 px-3 py-1 text-[11px] font-medium text-[var(--color-secondary,#5c0f12)]">
+              <span className="rounded-full bg-[var(--color-accent,#d4af37)]/15 px-3 py-1 text-[11px] font-medium text-[var(--color-secondary,#3b0b10)]">
                 {active.construction_status}
               </span>
             )}
