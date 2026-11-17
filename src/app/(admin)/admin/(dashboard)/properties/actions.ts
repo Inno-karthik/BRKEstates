@@ -188,6 +188,18 @@ export async function addPropertyImage(propertyId: string, url: string, kind: "p
   revalidatePath("/", "layout");
 }
 
+/** Persists a drag-and-drop reorder: sort_order becomes each id's position in orderedIds. */
+export async function reorderPropertyImages(propertyId: string, orderedIds: string[]) {
+  const supabase = await createClient();
+  const results = await Promise.all(
+    orderedIds.map((id, i) => supabase.from("property_images").update({ sort_order: i }).eq("id", id).eq("property_id", propertyId))
+  );
+  const failed = results.find((r) => r.error);
+  if (failed?.error) throw new Error(failed.error.message);
+  revalidatePath(`/admin/properties/${propertyId}/edit`);
+  revalidatePath("/", "layout");
+}
+
 export async function deletePropertyImage(id: string, url: string, propertyId: string) {
   const supabase = await createClient();
   await supabase.from("property_images").delete().eq("id", id);

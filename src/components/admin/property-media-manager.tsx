@@ -2,11 +2,25 @@
 
 import { useRef, useState, useTransition } from "react";
 import Image from "next/image";
-import { ImagePlus, Loader2, Trash2, FileText, X, Star, Upload } from "lucide-react";
+import { ImagePlus, Loader2, Trash2, FileText, X, Star, Upload, GripVertical } from "lucide-react";
+import { toast } from "sonner";
+import {
+  DndContext,
+  KeyboardSensor,
+  PointerSensor,
+  TouchSensor,
+  closestCenter,
+  useSensor,
+  useSensors,
+  type DragEndEvent,
+} from "@dnd-kit/core";
+import { SortableContext, arrayMove, rectSortingStrategy, sortableKeyboardCoordinates, useSortable } from "@dnd-kit/sortable";
+import { CSS } from "@dnd-kit/utilities";
 import { uploadFile } from "@/lib/upload-client";
 import {
   addPropertyImage,
   deletePropertyImage,
+  reorderPropertyImages,
   setCoverImage,
   setPropertyBrochure,
 } from "@/app/(admin)/admin/(dashboard)/properties/actions";
@@ -42,6 +56,13 @@ export function PropertyMediaManager({
   const fileInputRef = useRef<HTMLInputElement>(null);
   const brochureInputRef = useRef<HTMLInputElement>(null);
   const [, startTransition] = useTransition();
+  // Local order per kind so a drop reflects instantly; unknown/new ids fall to the end.
+  const [orderOverride, setOrderOverride] = useState<Partial<Record<ImageKind, string[]>>>({});
+  const sensors = useSensors(
+    useSensor(PointerSensor, { activationConstraint: { distance: 6 } }),
+    useSensor(TouchSensor, { activationConstraint: { delay: 200, tolerance: 6 } }),
+    useSensor(KeyboardSensor, { coordinateGetter: sortableKeyboardCoordinates })
+  );
 
   async function handleFiles(files: FileList | File[]) {
     setUploading(true);
@@ -80,7 +101,30 @@ export function PropertyMediaManager({
     floor_plan: images.filter((i) => i.kind === "floor_plan"),
     render: images.filter((i) => i.kind === "render"),
   };
-  const activeImages = byKind[kind];
+  const activeImages = (() => {
+    const base = byKind[kind];
+    const order = orderOverride[kind];
+    if (!order) return base;
+    const rank = new Map(order.map((id, i) => [id, i]));
+    return [...base].sort((a, b) => (rank.get(a.id) ?? 1e9) - (rank.get(b.id) ?? 1e9));
+  })();
+
+  function handleDragEnd(e: DragEndEvent) {
+    const { active, over } = e;
+    if (!over || active.id === over.id) return;
+    const ids = activeImages.map((i) => i.id);
+    const next = arrayMove(ids, ids.indexOf(String(active.id)), ids.indexOf(String(over.id)));
+    setOrderOverride((o) => ({ ...o, [kind]: next }));
+    startTransition(async () => {
+      try {
+        await reorderPropertyImages(propertyId, next);
+        toast.success("Order saved");
+      } catch {
+        toast.error("Could not save the new order");
+        setOrderOverride((o) => ({ ...o, [kind]: undefined }));
+      }
+    });
+  }
 
   return (
     <div className="rounded-2xl border border-black/5 bg-white p-5">
@@ -146,48 +190,66 @@ export function PropertyMediaManager({
       {error && <p className="mb-3 text-xs text-red-600">{error}</p>}
 
       {activeImages.length > 0 ? (
-        <div className="grid grid-cols-3 gap-2.5 sm:grid-cols-4 lg:grid-cols-5">
-          {activeImages.map((img) => (
-            <div key={img.id} className="group relative aspect-[4/3] overflow-hidden rounded-xl bg-neutral-100 ring-1 ring-black/5">
-              <Image src={img.url} alt="" fill className="object-cover" unoptimized />
-              <div className="absolute inset-0 flex flex-col justify-between bg-gradient-to-t from-black/50 via-transparent to-transparent p-1.5 opacity-0 transition group-hover:opacity-100">
-                <div className="flex justify-end gap-1">
-                  {img.kind === "photo" && (
-                    <button
-                      onClick={() => {
-                        onSetCover(img.url);
-                        startTransition(() => setCoverImage(propertyId, img.url));
-                      }}
-                      title="Set as cover"
-                      className={cn(
-                        "flex h-6 w-6 items-center justify-center rounded-full bg-white/90",
-                        coverImage === img.url && "bg-amber-400"
-                      )}
-                    >
-                      <Star size={12} className={coverImage === img.url ? "fill-white text-white" : "text-neutral-600"} />
-                    </button>
-                  )}
-                  <button
-                    onClick={() =>
-                      startTransition(() => {
-                        deletePropertyImage(img.id, img.url, propertyId);
-                        if (coverImage === img.url) onSetCover(null);
-                      })
-                    }
-                    className="flex h-6 w-6 items-center justify-center rounded-full bg-white/90 text-red-600"
-                  >
-                    <Trash2 size={12} />
-                  </button>
-                </div>
+        <>
+          <p className="mb-2 text-[11px] text-neutral-400">Drag the handle to reorder — the first photo leads the gallery.</p>
+          <DndContext sensors={sensors} collisionDetection={closestCenter} onDragEnd={handleDragEnd}>
+            <SortableContext items={activeImages.map((i) => i.id)} strategy={rectSortingStrategy}>
+              <div className="grid grid-cols-3 gap-2.5 sm:grid-cols-4 lg:grid-cols-5">
+                {activeImages.map((img) => (
+                  <SortableTile key={img.id} id={img.id}>
+                    {(handle) => (
+                      <>
+                        <Image src={img.url} alt="" fill className="object-cover" unoptimized />
+                        <button
+                          {...handle}
+                          aria-label="Drag to reorder"
+                          className="absolute bottom-1.5 left-1.5 flex h-6 w-6 cursor-grab touch-none items-center justify-center rounded-full bg-white/90 text-neutral-600 active:cursor-grabbing"
+                        >
+                          <GripVertical size={13} />
+                        </button>
+                        <div className="pointer-events-none absolute inset-0 flex flex-col justify-between bg-gradient-to-t from-black/50 via-transparent to-transparent p-1.5 opacity-0 transition group-hover:opacity-100">
+                          <div className="pointer-events-auto flex justify-end gap-1">
+                            {img.kind === "photo" && (
+                              <button
+                                onClick={() => {
+                                  onSetCover(img.url);
+                                  startTransition(() => setCoverImage(propertyId, img.url));
+                                }}
+                                title="Set as cover"
+                                className={cn(
+                                  "flex h-6 w-6 items-center justify-center rounded-full bg-white/90",
+                                  coverImage === img.url && "bg-amber-400"
+                                )}
+                              >
+                                <Star size={12} className={coverImage === img.url ? "fill-white text-white" : "text-neutral-600"} />
+                              </button>
+                            )}
+                            <button
+                              onClick={() =>
+                                startTransition(() => {
+                                  deletePropertyImage(img.id, img.url, propertyId);
+                                  if (coverImage === img.url) onSetCover(null);
+                                })
+                              }
+                              className="flex h-6 w-6 items-center justify-center rounded-full bg-white/90 text-red-600"
+                            >
+                              <Trash2 size={12} />
+                            </button>
+                          </div>
+                        </div>
+                        {coverImage === img.url && (
+                          <span className="absolute left-1.5 top-1.5 flex items-center gap-1 rounded-full bg-amber-400 px-2 py-0.5 text-[9px] font-semibold text-white shadow">
+                            <Star size={9} className="fill-white" /> Cover
+                          </span>
+                        )}
+                      </>
+                    )}
+                  </SortableTile>
+                ))}
               </div>
-              {coverImage === img.url && (
-                <span className="absolute left-1.5 top-1.5 flex items-center gap-1 rounded-full bg-amber-400 px-2 py-0.5 text-[9px] font-semibold text-white shadow">
-                  <Star size={9} className="fill-white" /> Cover
-                </span>
-              )}
-            </div>
-          ))}
-        </div>
+            </SortableContext>
+          </DndContext>
+        </>
       ) : (
         <p className="py-4 text-center text-xs text-neutral-400">
           No {KIND_TABS.find((t) => t.key === kind)?.label.toLowerCase()} yet.
@@ -233,6 +295,28 @@ export function PropertyMediaManager({
           }}
         />
       </div>
+    </div>
+  );
+}
+
+function SortableTile({
+  id,
+  children,
+}: {
+  id: string;
+  children: (handleProps: React.HTMLAttributes<HTMLButtonElement>) => React.ReactNode;
+}) {
+  const { attributes, listeners, setNodeRef, transform, transition, isDragging } = useSortable({ id });
+  return (
+    <div
+      ref={setNodeRef}
+      style={{ transform: CSS.Transform.toString(transform), transition }}
+      className={cn(
+        "group relative aspect-[4/3] overflow-hidden rounded-xl bg-neutral-100 ring-1 ring-black/5",
+        isDragging && "z-10 shadow-2xl ring-2 ring-[#d4af37]"
+      )}
+    >
+      {children({ ...attributes, ...listeners } as React.HTMLAttributes<HTMLButtonElement>)}
     </div>
   );
 }

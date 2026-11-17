@@ -70,7 +70,7 @@ export default async function HomePage() {
             Find the Right Property in{" "}
             <span className="text-gradient-accent">Visakhapatnam</span> &amp; Around.
           </h1>
-          <p className="mx-auto mt-5 max-w-xl text-sm text-white/70 md:text-base">
+          <p className="mx-auto mt-5 max-w-xl rounded-2xl bg-black/35 px-5 py-4 text-sm text-white/90 backdrop-blur-[2px] md:text-base">
             From Madhurawada and Rushikonda to Dwaraka Nagar, Anandapuram and the Bheemili coast, BKR Estates brings you
             verified plots, apartments, villas and farm land — backed by 20+ years of Prakruti experience and
             honest guidance on where to invest.

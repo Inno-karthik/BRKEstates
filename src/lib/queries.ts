@@ -1,4 +1,5 @@
 import { cache } from "react";
+import { memo } from "@/lib/memo";
 import { createPublicClient } from "@/lib/supabase/public";
 import type {
   Amenity,
@@ -13,7 +14,7 @@ import type {
 
 /** Cached per-request — this is called from the layout, navbar and footer on every page,
  *  so dedupe the identical query instead of hitting Supabase 3-4x per load. */
-export const getActivePropertyTypes = cache(async (): Promise<PropertyType[]> => {
+export const getActivePropertyTypes = cache(memo("getActivePropertyTypes", async (): Promise<PropertyType[]> => {
   const supabase = createPublicClient();
   const { data } = await supabase
     .from("property_types")
@@ -21,7 +22,7 @@ export const getActivePropertyTypes = cache(async (): Promise<PropertyType[]> =>
     .eq("is_active", true)
     .order("sort_order", { ascending: true });
   return data ?? [];
-});
+}));
 
 export async function getAllPropertyTypes(): Promise<PropertyType[]> {
   const supabase = createPublicClient();
@@ -56,7 +57,7 @@ export async function getAttributeDefinitions(propertyTypeId: string): Promise<A
 }
 
 /** Cached per-request — called from PixelScripts, Navbar, Footer and often the page itself. */
-export const getSiteSettings = cache(async (): Promise<SiteSettings> => {
+export const getSiteSettings = cache(memo("getSiteSettings", async (): Promise<SiteSettings> => {
   const supabase = createPublicClient();
   const { data } = await supabase.from("site_settings").select("*").eq("id", 1).single();
   return (
@@ -84,7 +85,7 @@ export const getSiteSettings = cache(async (): Promise<SiteSettings> => {
       page_seo: {},
     }
   );
-});
+}));
 
 /** Admin-curated "Popular Properties"-style sidebar shown on blog posts — preserves the
  *  order the admin picked them in, published only. */
@@ -217,11 +218,11 @@ export async function getPropertiesByIds(ids: string[]): Promise<Property[]> {
 
 /** Cached per-request — read by the navbar/mobile menu to show a Locations dropdown only
  *  when the admin has actually set one up, and by the location pages themselves. */
-export const getActiveLocations = cache(async (): Promise<Location[]> => {
+export const getActiveLocations = cache(memo("getActiveLocations", async (): Promise<Location[]> => {
   const supabase = createPublicClient();
   const { data } = await supabase.from("locations").select("*").eq("is_active", true).order("sort_order", { ascending: true });
   return data ?? [];
-});
+}));
 
 export async function getLocationBySlug(slug: string): Promise<Location | null> {
   const supabase = createPublicClient();
@@ -251,14 +252,14 @@ export async function getAllMappableProperties(): Promise<Property[]> {
 
 /** Cached per-request — backs the real-number "Properties Listed" stat shown on the
  *  homepage and About page, instead of a hand-typed figure admins forget to update. */
-export const getPublishedPropertiesCount = cache(async (): Promise<number> => {
+export const getPublishedPropertiesCount = cache(memo("getPublishedPropertiesCount", async (): Promise<number> => {
   const supabase = createPublicClient();
   const { count } = await supabase
     .from("properties")
     .select("*", { count: "exact", head: true })
     .eq("status", "published");
   return count ?? 0;
-});
+}));
 
 export async function getPublishedBlogPosts(): Promise<BlogPost[]> {
   const supabase = createPublicClient();
