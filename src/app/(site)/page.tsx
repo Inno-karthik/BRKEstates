@@ -51,7 +51,7 @@ export default async function HomePage() {
           className="absolute inset-0"
           style={{
             background:
-              "linear-gradient(180deg, rgba(40,8,12,0.78) 0%, rgba(59,11,16,0.62) 45%, rgba(30,6,9,0.9) 100%)",
+              "linear-gradient(180deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.38) 45%, rgba(0,0,0,0.7) 100%)",
           }}
         />
         <div className="absolute inset-0 bg-dot-grid opacity-40" />

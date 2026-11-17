@@ -16,8 +16,8 @@ const DUMMY_SOCIAL = {
 export function Footer({ types, settings }: { types: PropertyType[]; settings: SiteSettings }) {
   return (
     <footer className="relative isolate mt-16 overflow-hidden border-t-2 border-[var(--color-accent,#d4af37)]/70 bg-[var(--color-secondary,#3b0b10)] text-white">
-      <Image src={HERO_BG} alt="" fill sizes="100vw" className="-z-20 object-cover object-bottom opacity-60" />
-      <div className="absolute inset-0 -z-10 bg-gradient-to-b from-[#3b0b10]/90 via-[#2a080c]/78 to-[#1c0508]/90" />
+      <Image src={HERO_BG} alt="" fill sizes="100vw" className="-z-20 object-cover object-bottom opacity-70" />
+      <div className="absolute inset-0 -z-10 bg-gradient-to-b from-black/85 via-black/80 to-black/92" />
       {settings.phone && (
         <div className="border-b border-white/10 bg-black/15">
           <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 px-4 py-8 text-center sm:flex-row sm:text-left md:px-8">
@@ -155,7 +155,7 @@ export function Footer({ types, settings }: { types: PropertyType[]; settings: S
             © {new Date().getFullYear()} {settings.site_name}. All rights reserved.
           </p>
           <p className="mt-1.5">
-            Powered by{" "}
+            Application by{" "}
             <a href="https://innovalley.in" target="_blank" rel="noreferrer" className="text-white/70 hover:text-white">
               Innovalley
             </a>

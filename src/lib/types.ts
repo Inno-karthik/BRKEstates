@@ -145,6 +145,7 @@ export type LeadStatus =
   | "site_visit_planned"
   | "visited"
   | "negotiation"
+  | "on_hold"
   | "won"
   | "lost"
   | "inactive"
@@ -157,6 +158,7 @@ export const LEAD_STATUSES: LeadStatus[] = [
   "site_visit_planned",
   "visited",
   "negotiation",
+  "on_hold",
   "won",
   "lost",
   "inactive",

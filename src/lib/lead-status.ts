@@ -7,6 +7,7 @@ export const STATUS_COLORS: Record<LeadStatus, string> = {
   site_visit_planned: "bg-amber-100 text-amber-700",
   visited: "bg-teal-100 text-teal-700",
   negotiation: "bg-orange-100 text-orange-700",
+  on_hold: "bg-yellow-100 text-yellow-800",
   won: "bg-emerald-100 text-emerald-700",
   lost: "bg-red-100 text-red-700",
   inactive: "bg-slate-200 text-slate-600",
