@@ -72,10 +72,10 @@ export default async function HomePage() {
             <span className="text-gradient-accent">Visakhapatnam</span> &amp; Around.
           </h1>
           <p className="mx-auto mt-5 w-full max-w-2xl rounded-2xl bg-black/35 px-5 py-4 text-sm text-white/90 backdrop-blur-[2px] md:text-base">
-            BKR Estates is a Visakhapatnam real estate advisory, powered by Prakruti Avenues. With 20+ years of
-            experience and 115+ projects behind us, we guide you to the right plot, apartment, villa or farm land —
-            from the city core at Dwaraka Nagar to the Madhurawada–Anandapuram–Bheemili corridor leading to the new
-            Bhogapuram airport.
+            BKR Estates was born from the experience of Prakruti Avenues — 20+ years and 115+ projects in Visakhapatnam.
+            We carry that experience forward to guide you to the right plot, apartment, villa or farm land, from the
+            city core at Dwaraka Nagar to the Madhurawada–Anandapuram–Bheemili corridor leading to the new Bhogapuram
+            airport.
           </p>
           <div className="mx-auto mt-9 max-w-2xl">
             <HeroSearch types={types} locations={locations} />
