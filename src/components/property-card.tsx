@@ -44,7 +44,7 @@ export function PropertyCard({ property, index = 0 }: { property: Property; inde
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-40px" }}
       transition={{ duration: 0.5, delay: Math.min(index, 6) * 0.06, ease: [0.22, 1, 0.36, 1] }}
-      className="group relative overflow-hidden rounded-[1.75rem] border border-black/[0.06] bg-white shadow-[0_1px_2px_rgba(0,0,0,0.04)] transition-all duration-300 hover:-translate-y-1.5 hover:border-[var(--color-primary,#7f1d1d)]/30 hover:shadow-[0_24px_48px_-12px_rgba(15,61,38,0.18)]"
+      className="group relative overflow-hidden rounded-[1.75rem] border border-black/[0.06] bg-white shadow-[0_1px_2px_rgba(0,0,0,0.04)] transition-all duration-300 hover:-translate-y-1.5 hover:border-[var(--color-primary,#d0191f)]/30 hover:shadow-[0_24px_48px_-12px_rgba(15,61,38,0.18)]"
     >
       <Link href={`/listings/${property.slug}`} className="block">
         <div className="relative aspect-[4/3] overflow-hidden bg-neutral-100">
@@ -68,7 +68,7 @@ export function PropertyCard({ property, index = 0 }: { property: Property; inde
               {property.property_type && (
                 <span
                   className="flex items-center gap-1.5 rounded-full bg-white/95 px-3 py-1 text-xs font-semibold shadow-sm backdrop-blur"
-                  style={{ color: property.property_type.accent_color ?? "#7f1d1d" }}
+                  style={{ color: property.property_type.accent_color ?? "#d0191f" }}
                 >
                   <Icon name={property.property_type.icon_name} url={property.property_type.icon_url} size={13} />
                   {property.property_type.name}
@@ -131,7 +131,7 @@ export function PropertyCard({ property, index = 0 }: { property: Property; inde
               aria-label="Toggle compare"
               className={cn(
                 "flex h-9 w-9 items-center justify-center rounded-full shadow-md backdrop-blur transition hover:scale-110",
-                comparing ? "bg-[var(--color-primary,#7f1d1d)] text-white" : "bg-white/95 text-neutral-600"
+                comparing ? "bg-[var(--color-primary,#d0191f)] text-white" : "bg-white/95 text-neutral-600"
               )}
             >
               {comparing ? <Check size={15} /> : <Scale size={14} />}
@@ -162,7 +162,7 @@ export function PropertyCard({ property, index = 0 }: { property: Property; inde
                 {priceParts.prefix}
               </span>
             )}
-            <span className="block text-xl font-extrabold tracking-tight text-[var(--color-primary,#7f1d1d)]">
+            <span className="block text-xl font-extrabold tracking-tight text-[var(--color-primary,#d0191f)]">
               {priceParts.amount}
               {priceParts.suffix && <span className="text-sm font-normal text-neutral-400">{priceParts.suffix}</span>}
             </span>

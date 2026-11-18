@@ -45,17 +45,17 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: "/brand/icon-32.png", sizes: "32x32", type: "image/png" },
-      { url: "/brand/icon-192.png", sizes: "192x192", type: "image/png" },
+      { url: "/brand/icon-32.png?v=2", sizes: "32x32", type: "image/png" },
+      { url: "/brand/icon-192.png?v=2", sizes: "192x192", type: "image/png" },
     ],
-    apple: "/brand/icon-180.png",
+    apple: "/brand/icon-180.png?v=2",
   },
 };
 
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#7f1d1d",
+  themeColor: "#d0191f",
 };
 
 const organizationJsonLd = {
@@ -63,7 +63,7 @@ const organizationJsonLd = {
   "@type": "RealEstateAgent",
   name: "BKR Estates",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://bkrestates.com",
-  logo: `${process.env.NEXT_PUBLIC_SITE_URL ?? "https://bkrestates.com"}/brand/logo.png`,
+  logo: `${process.env.NEXT_PUBLIC_SITE_URL ?? "https://bkrestates.com"}/brand/logo-v2.png`,
   areaServed: "Visakhapatnam, Andhra Pradesh, IN",
   telephone: "+91 95538 22333",
   email: "bkrestatesvizag@gmail.com",

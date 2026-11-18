@@ -78,7 +78,7 @@ export function LeadDetailView({ lead }: { lead: Lead }) {
 
         <Field label="Property">
           {lead.property ? (
-            <Link href={`/listings/${lead.property.slug}`} target="_blank" className="text-sm font-medium text-[#7f1d1d] hover:underline">
+            <Link href={`/listings/${lead.property.slug}`} target="_blank" className="text-sm font-medium text-[#d0191f] hover:underline">
               {lead.property.title}
             </Link>
           ) : (

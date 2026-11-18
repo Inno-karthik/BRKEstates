@@ -98,7 +98,7 @@ function AttributeFieldsEditor({ propertyTypeId, fields }: { propertyTypeId: str
         </p>
         <button
           onClick={() => setEditingField("new")}
-          className="flex items-center gap-1 text-xs font-semibold text-[#7f1d1d]"
+          className="flex items-center gap-1 text-xs font-semibold text-[#d0191f]"
         >
           <Plus size={13} /> Add Field
         </button>
@@ -227,7 +227,7 @@ function AttributeFieldForm({
         <button
           onClick={save}
           disabled={saving || !label}
-          className="w-full rounded-full bg-[#7f1d1d] py-2.5 text-sm font-semibold text-white disabled:opacity-50"
+          className="w-full rounded-full bg-[#d0191f] py-2.5 text-sm font-semibold text-white disabled:opacity-50"
         >
           {saving ? "Saving…" : "Save Field"}
         </button>

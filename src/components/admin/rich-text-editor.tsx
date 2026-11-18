@@ -193,7 +193,7 @@ function ToolbarButton({
       title={label}
       className={cn(
         "flex h-7 min-w-7 items-center justify-center rounded px-1.5 text-xs font-semibold transition",
-        active ? "bg-[#7f1d1d] text-white" : "text-neutral-600 hover:bg-black/5"
+        active ? "bg-[#d0191f] text-white" : "text-neutral-600 hover:bg-black/5"
       )}
     >
       {children}

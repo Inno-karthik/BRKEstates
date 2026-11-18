@@ -42,7 +42,7 @@ export function LocationPicker({ latitude, longitude, onChange }: Props) {
         });
         if (cancelled) return;
 
-        const marker = olaMaps.addMarker({ color: "#7f1d1d", draggable: true }).setLngLat(center).addTo(map);
+        const marker = olaMaps.addMarker({ color: "#d0191f", draggable: true }).setLngLat(center).addTo(map);
         mapRef.current = map;
         markerRef.current = marker;
         map.resize?.();

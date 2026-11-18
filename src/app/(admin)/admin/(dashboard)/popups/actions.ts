@@ -7,6 +7,8 @@ export async function upsertPopup(input: {
   id?: string;
   title: string;
   image_url: string | null;
+  media_type?: "image" | "video";
+  video_url?: string | null;
   target_url: string | null;
   is_active: boolean;
   starts_at: string | null;
@@ -18,6 +20,8 @@ export async function upsertPopup(input: {
   const payload = {
     title: input.title || "Popup",
     image_url: input.image_url,
+    media_type: input.media_type ?? "image",
+    video_url: input.media_type === "video" ? input.video_url ?? null : null,
     target_url: input.target_url || null,
     is_active: input.is_active,
     starts_at: input.starts_at || null,

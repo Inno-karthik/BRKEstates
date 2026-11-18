@@ -60,7 +60,7 @@ export function AdminSidebar({ profile }: { profile?: Profile | null }) {
     <nav className="flex h-full flex-col">
       <div className="px-4 py-5">
         <div className="rounded-xl bg-white px-3 py-2 shadow-sm">
-          <Image src="/brand/logo.png" alt="BKR Estates" width={200} height={64} className="h-auto w-full object-contain" />
+          <Image src="/brand/logo-v2.png" alt="BKR Estates" width={220} height={59} className="h-auto w-full object-contain" />
         </div>
       </div>
 
@@ -119,11 +119,11 @@ export function AdminSidebar({ profile }: { profile?: Profile | null }) {
 
   return (
     <>
-      <aside className="sticky top-0 hidden h-screen w-64 shrink-0 overflow-y-auto bg-[#3b0b10] md:block">{content}</aside>
+      <aside className="sticky top-0 hidden h-screen w-64 shrink-0 overflow-y-auto bg-[#14307e] md:block">{content}</aside>
 
-      <div className="flex items-center justify-between border-b border-black/5 bg-[#3b0b10] px-4 py-3 md:hidden">
+      <div className="flex items-center justify-between border-b border-black/5 bg-[#14307e] px-4 py-3 md:hidden">
         <div className="rounded-lg bg-white px-2 py-1">
-          <Image src="/brand/logo.png" alt="BKR Estates" width={120} height={38} className="h-8 w-auto object-contain" />
+          <Image src="/brand/logo-v2.png" alt="BKR Estates" width={140} height={37} className="h-9 w-auto object-contain" />
         </div>
         <button onClick={() => setMobileOpen(true)} className="text-white">
           <Menu size={22} />
@@ -133,7 +133,7 @@ export function AdminSidebar({ profile }: { profile?: Profile | null }) {
       {mobileOpen && (
         <div className="fixed inset-0 z-50 md:hidden">
           <div className="absolute inset-0 bg-black/40" onClick={() => setMobileOpen(false)} />
-          <div className="absolute inset-y-0 left-0 w-72 bg-[#3b0b10]">
+          <div className="absolute inset-y-0 left-0 w-72 bg-[#14307e]">
             <button onClick={() => setMobileOpen(false)} className="absolute right-3 top-4 text-white/70">
               <X size={20} />
             </button>

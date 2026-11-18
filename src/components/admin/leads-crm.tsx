@@ -26,7 +26,7 @@ export function LeadsCrm({ leads }: { leads: Lead[] }) {
       <div className="scrollbar-thin mb-4 flex gap-2 overflow-x-auto pb-2 lg:flex-wrap lg:overflow-visible lg:pb-0">
         <button
           onClick={() => setStatusFilter("")}
-          className={`shrink-0 rounded-full px-3 py-1.5 text-xs font-medium ${!statusFilter ? "bg-[#7f1d1d] text-white" : "border border-black/10 text-neutral-600"}`}
+          className={`shrink-0 rounded-full px-3 py-1.5 text-xs font-medium ${!statusFilter ? "bg-[#d0191f] text-white" : "border border-black/10 text-neutral-600"}`}
         >
           All
         </button>
@@ -34,7 +34,7 @@ export function LeadsCrm({ leads }: { leads: Lead[] }) {
           <button
             key={s}
             onClick={() => setStatusFilter(s)}
-            className={`shrink-0 rounded-full px-3 py-1.5 text-xs font-medium capitalize ${statusFilter === s ? "bg-[#7f1d1d] text-white" : "border border-black/10 text-neutral-600"}`}
+            className={`shrink-0 rounded-full px-3 py-1.5 text-xs font-medium capitalize ${statusFilter === s ? "bg-[#d0191f] text-white" : "border border-black/10 text-neutral-600"}`}
           >
             {s.replace(/_/g, " ")}
           </button>
@@ -144,7 +144,7 @@ export function LeadsCrm({ leads }: { leads: Lead[] }) {
                     >
                       <MessageSquareText size={14} />
                       {lead.notes && lead.notes.length > 0 && (
-                        <span className="absolute -right-1.5 -top-1.5 flex h-3.5 w-3.5 items-center justify-center rounded-full bg-[#7f1d1d] text-[8px] font-bold text-white">
+                        <span className="absolute -right-1.5 -top-1.5 flex h-3.5 w-3.5 items-center justify-center rounded-full bg-[#d0191f] text-[8px] font-bold text-white">
                           {lead.notes.length}
                         </span>
                       )}

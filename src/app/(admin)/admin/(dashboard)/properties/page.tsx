@@ -16,7 +16,7 @@ export default async function AdminPropertiesPage() {
         <form action={createDraftProperty}>
           <button
             type="submit"
-            className="flex items-center gap-2 rounded-full bg-[#7f1d1d] px-4 py-2 text-sm font-semibold text-white"
+            className="flex items-center gap-2 rounded-full bg-[#d0191f] px-4 py-2 text-sm font-semibold text-white"
           >
             <Plus size={15} /> Add Property
           </button>

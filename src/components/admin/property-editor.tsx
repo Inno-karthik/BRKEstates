@@ -516,7 +516,7 @@ export function PropertyEditor({
                           }
                           className={`rounded-full border px-3 py-1.5 text-xs font-medium ${
                             checked
-                              ? "border-[#7f1d1d] bg-[#7f1d1d]/10 text-[#7f1d1d]"
+                              ? "border-[#d0191f] bg-[#d0191f]/10 text-[#d0191f]"
                               : "border-black/10 text-neutral-600"
                           }`}
                         >
@@ -755,7 +755,7 @@ export function PropertyEditor({
                                   }
                                   className={cn(
                                     "rounded-full border px-3 py-1.5 text-xs font-medium",
-                                    checked ? "border-[#7f1d1d] bg-[#7f1d1d]/10 text-[#7f1d1d]" : "border-black/10 text-neutral-600"
+                                    checked ? "border-[#d0191f] bg-[#d0191f]/10 text-[#d0191f]" : "border-black/10 text-neutral-600"
                                   )}
                                 >
                                   {o}
@@ -808,7 +808,7 @@ export function PropertyEditor({
           <button
             type="button"
             onClick={addVariant}
-            className="mt-2 flex items-center gap-1.5 rounded-full border border-dashed border-black/10 px-3 py-1.5 text-xs font-medium text-neutral-600 hover:border-[#7f1d1d] hover:text-[#7f1d1d]"
+            className="mt-2 flex items-center gap-1.5 rounded-full border border-dashed border-black/10 px-3 py-1.5 text-xs font-medium text-neutral-600 hover:border-[#d0191f] hover:text-[#d0191f]"
           >
             <Plus size={13} /> Add Variant
           </button>
@@ -860,7 +860,7 @@ export function PropertyEditor({
                       }
                       className={`flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-xs font-medium ${
                         checked
-                          ? "border-[#7f1d1d] bg-[#7f1d1d]/10 text-[#7f1d1d]"
+                          ? "border-[#d0191f] bg-[#d0191f]/10 text-[#d0191f]"
                           : "border-black/10 text-neutral-600"
                       }`}
                     >
@@ -927,7 +927,7 @@ export function PropertyEditor({
           <button
             type="button"
             onClick={addVirtualTour}
-            className="mt-2 flex items-center gap-1.5 rounded-full border border-dashed border-black/10 px-3 py-1.5 text-xs font-medium text-neutral-600 hover:border-[#7f1d1d] hover:text-[#7f1d1d]"
+            className="mt-2 flex items-center gap-1.5 rounded-full border border-dashed border-black/10 px-3 py-1.5 text-xs font-medium text-neutral-600 hover:border-[#d0191f] hover:text-[#d0191f]"
           >
             <Plus size={13} /> Add 360° View / Embed
           </button>
@@ -988,7 +988,7 @@ export function PropertyEditor({
         <button
           type="button"
           onClick={addCertification}
-          className="mt-2 flex items-center gap-1.5 rounded-full border border-dashed border-black/10 px-3 py-1.5 text-xs font-medium text-neutral-600 hover:border-[#7f1d1d] hover:text-[#7f1d1d]"
+          className="mt-2 flex items-center gap-1.5 rounded-full border border-dashed border-black/10 px-3 py-1.5 text-xs font-medium text-neutral-600 hover:border-[#d0191f] hover:text-[#d0191f]"
         >
           <Plus size={13} /> Add Certification
         </button>
@@ -1029,7 +1029,7 @@ export function PropertyEditor({
         <button
           type="button"
           onClick={addGrowthHighlight}
-          className="mt-2 flex items-center gap-1.5 rounded-full border border-dashed border-black/10 px-3 py-1.5 text-xs font-medium text-neutral-600 hover:border-[#7f1d1d] hover:text-[#7f1d1d]"
+          className="mt-2 flex items-center gap-1.5 rounded-full border border-dashed border-black/10 px-3 py-1.5 text-xs font-medium text-neutral-600 hover:border-[#d0191f] hover:text-[#d0191f]"
         >
           <Plus size={13} /> Add Growth Highlight
         </button>
@@ -1088,7 +1088,7 @@ export function PropertyEditor({
         <button
           onClick={save}
           disabled={saving || !title || !typeId}
-          className="flex w-full items-center justify-center gap-2 rounded-full bg-[#7f1d1d] px-6 py-2.5 text-sm font-semibold text-white disabled:opacity-50"
+          className="flex w-full items-center justify-center gap-2 rounded-full bg-[#d0191f] px-6 py-2.5 text-sm font-semibold text-white disabled:opacity-50"
         >
           {saving ? <Loader2 size={15} className="animate-spin" /> : saved ? <Check size={15} /> : null}
           {saving ? "Saving…" : saved ? "Saved" : "Save Changes"}

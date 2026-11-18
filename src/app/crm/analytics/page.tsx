@@ -156,7 +156,7 @@ export default async function AnalyticsPage({ searchParams }: { searchParams: Pr
           <div className="mb-2 flex flex-wrap items-center justify-between gap-2">
             <p className="text-xs font-semibold uppercase tracking-wide text-neutral-500">Traffic &amp; conversions</p>
             <div className="flex flex-wrap gap-3 text-[11px] text-neutral-500">
-              <Legend color="#7f1d1d" label="Page views" />
+              <Legend color="#d0191f" label="Page views" />
               <Legend color="#6366f1" label="Visitors" />
               <Legend color="#d4af37" label="Contact actions" />
               <Legend color="#16a34a" label="Leads" />
@@ -178,7 +178,7 @@ export default async function AnalyticsPage({ searchParams }: { searchParams: Pr
                   </span>
                 </div>
                 <div className="h-2.5 rounded-full bg-neutral-100">
-                  <div className="h-2.5 rounded-full bg-gradient-to-r from-[#7f1d1d] to-[#d4af37]" style={{ width: `${Math.max((s.value / maxStep) * 100, s.value ? 3 : 0)}%` }} />
+                  <div className="h-2.5 rounded-full bg-gradient-to-r from-[#d0191f] to-[#d4af37]" style={{ width: `${Math.max((s.value / maxStep) * 100, s.value ? 3 : 0)}%` }} />
                 </div>
               </div>
             ))}
@@ -194,7 +194,7 @@ export default async function AnalyticsPage({ searchParams }: { searchParams: Pr
         <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
           {actions.map(({ label, value, icon: IconC }) => (
             <div key={label} className="flex items-center gap-3 rounded-xl border border-black/5 bg-neutral-50/60 p-3">
-              <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-white text-[#7f1d1d] shadow-sm ring-1 ring-black/5">
+              <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-white text-[#d0191f] shadow-sm ring-1 ring-black/5">
                 <IconC size={15} />
               </span>
               <div className="min-w-0">

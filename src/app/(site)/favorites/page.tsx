@@ -43,7 +43,7 @@ export default function FavoritesPage() {
           <HeartOff size={32} className="mb-3 text-neutral-300" />
           <p className="text-lg font-semibold text-neutral-700">Your shortlist is empty</p>
           <p className="mt-1 text-sm text-neutral-500">Tap the heart icon on any project to shortlist it here</p>
-          <Link href="/listings" className="mt-4 text-sm font-semibold text-[var(--color-primary,#7f1d1d)]">
+          <Link href="/listings" className="mt-4 text-sm font-semibold text-[var(--color-primary,#d0191f)]">
             Explore projects
           </Link>
         </div>

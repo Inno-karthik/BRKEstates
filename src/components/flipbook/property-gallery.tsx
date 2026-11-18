@@ -37,7 +37,7 @@ export function PropertyGallery({
           <button
             onClick={() => setTab("photos")}
             className={`rounded-full px-4 py-1.5 text-xs font-semibold transition ${
-              tab === "photos" ? "bg-[var(--color-primary,#7f1d1d)] text-white" : "border border-black/10 text-neutral-600"
+              tab === "photos" ? "bg-[var(--color-primary,#d0191f)] text-white" : "border border-black/10 text-neutral-600"
             }`}
           >
             Photos
@@ -46,7 +46,7 @@ export function PropertyGallery({
             <button
               onClick={() => setTab("brochure")}
               className={`flex items-center gap-1.5 rounded-full px-4 py-1.5 text-xs font-semibold transition ${
-                tab === "brochure" ? "bg-[var(--color-primary,#7f1d1d)] text-white" : "border border-black/10 text-neutral-600"
+                tab === "brochure" ? "bg-[var(--color-primary,#d0191f)] text-white" : "border border-black/10 text-neutral-600"
               }`}
             >
               <FileText size={13} /> Brochure
@@ -57,7 +57,7 @@ export function PropertyGallery({
               key={i}
               onClick={() => setTab(i)}
               className={`flex items-center gap-1.5 truncate rounded-full px-4 py-1.5 text-xs font-semibold transition ${
-                tab === i ? "bg-[var(--color-primary,#7f1d1d)] text-white" : "border border-black/10 text-neutral-600"
+                tab === i ? "bg-[var(--color-primary,#d0191f)] text-white" : "border border-black/10 text-neutral-600"
               }`}
             >
               <Compass size={13} /> {v.title}
@@ -76,9 +76,9 @@ export function PropertyGallery({
         // The #toolbar=0&navpanes=0&scrollbar=0 fragment hides the browser's own PDF
         // chrome (page thumbnails panel, zoom/print controls) in favor of our own header.
         <div className="overflow-hidden rounded-2xl border border-black/10 bg-white shadow-sm">
-          <div className="flex items-center justify-between gap-2 bg-gradient-to-r from-[var(--color-primary,#7f1d1d)]/[0.07] to-transparent px-4 py-3">
+          <div className="flex items-center justify-between gap-2 bg-gradient-to-r from-[var(--color-primary,#d0191f)]/[0.07] to-transparent px-4 py-3">
             <div className="flex items-center gap-2 text-sm font-semibold text-neutral-800">
-              <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-[var(--color-primary,#7f1d1d)]/10 text-[var(--color-primary,#7f1d1d)]">
+              <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-[var(--color-primary,#d0191f)]/10 text-[var(--color-primary,#d0191f)]">
                 <FileText size={15} />
               </span>
               Property Brochure
@@ -87,7 +87,7 @@ export function PropertyGallery({
               href={brochureUrl}
               target="_blank"
               rel="noreferrer"
-              className="flex shrink-0 items-center gap-1.5 rounded-full bg-[var(--color-primary,#7f1d1d)] px-3.5 py-1.5 text-xs font-semibold text-white transition hover:opacity-90"
+              className="flex shrink-0 items-center gap-1.5 rounded-full bg-[var(--color-primary,#d0191f)] px-3.5 py-1.5 text-xs font-semibold text-white transition hover:opacity-90"
             >
               <Download size={13} /> Download
             </a>
@@ -106,7 +106,7 @@ export function PropertyGallery({
                   href={brochureUrl}
                   target="_blank"
                   rel="noreferrer"
-                  className="flex items-center gap-1.5 rounded-full bg-[var(--color-primary,#7f1d1d)] px-4 py-2 text-xs font-semibold text-white"
+                  className="flex items-center gap-1.5 rounded-full bg-[var(--color-primary,#d0191f)] px-4 py-2 text-xs font-semibold text-white"
                 >
                   <Download size={13} /> Open Brochure PDF
                 </a>
@@ -119,7 +119,7 @@ export function PropertyGallery({
                 href={brochureUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="flex items-center gap-1.5 rounded-full bg-[var(--color-primary,#7f1d1d)] px-4 py-2 text-xs font-semibold text-white"
+                className="flex items-center gap-1.5 rounded-full bg-[var(--color-primary,#d0191f)] px-4 py-2 text-xs font-semibold text-white"
               >
                 <Download size={13} /> Open Brochure PDF
               </a>
@@ -128,8 +128,8 @@ export function PropertyGallery({
         </div>
       ) : typeof tab === "number" && virtualTours[tab] ? (
         <div className="overflow-hidden rounded-2xl border border-black/10 bg-white shadow-sm">
-          <div className="flex items-center gap-2 bg-gradient-to-r from-[var(--color-primary,#7f1d1d)]/[0.07] to-transparent px-4 py-3">
-            <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-[var(--color-primary,#7f1d1d)]/10 text-[var(--color-primary,#7f1d1d)]">
+          <div className="flex items-center gap-2 bg-gradient-to-r from-[var(--color-primary,#d0191f)]/[0.07] to-transparent px-4 py-3">
+            <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-[var(--color-primary,#d0191f)]/10 text-[var(--color-primary,#d0191f)]">
               <Compass size={15} />
             </span>
             <p className="truncate text-sm font-semibold text-neutral-800">{virtualTours[tab].title}</p>

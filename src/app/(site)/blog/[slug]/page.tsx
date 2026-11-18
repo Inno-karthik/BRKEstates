@@ -68,7 +68,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     publisher: {
       "@type": "Organization",
       name: "BKR Estates",
-      logo: { "@type": "ImageObject", url: `${siteUrl}/brand/logo.png` },
+      logo: { "@type": "ImageObject", url: `${siteUrl}/brand/logo-v2.png` },
     },
     mainEntityOfPage: `${siteUrl}/blog/${post.slug}`,
   };

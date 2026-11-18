@@ -172,14 +172,14 @@ export function BlogEditor({ post }: { post?: BlogPost }) {
             <button
               type="button"
               onClick={() => setTranslationTab("te")}
-              className={`rounded-full px-3 py-1.5 text-xs font-semibold ${translationTab === "te" ? "bg-[#7f1d1d] text-white" : "border border-black/10 text-neutral-600"}`}
+              className={`rounded-full px-3 py-1.5 text-xs font-semibold ${translationTab === "te" ? "bg-[#d0191f] text-white" : "border border-black/10 text-neutral-600"}`}
             >
               Telugu
             </button>
             <button
               type="button"
               onClick={() => setTranslationTab("hi")}
-              className={`rounded-full px-3 py-1.5 text-xs font-semibold ${translationTab === "hi" ? "bg-[#7f1d1d] text-white" : "border border-black/10 text-neutral-600"}`}
+              className={`rounded-full px-3 py-1.5 text-xs font-semibold ${translationTab === "hi" ? "bg-[#d0191f] text-white" : "border border-black/10 text-neutral-600"}`}
             >
               Hindi
             </button>
@@ -188,7 +188,7 @@ export function BlogEditor({ post }: { post?: BlogPost }) {
             type="button"
             onClick={() => autoTranslate(translationTab)}
             disabled={translating || (!title.trim() && !content.trim())}
-            className="flex shrink-0 items-center gap-1.5 rounded-full border border-black/10 px-3 py-1.5 text-xs font-medium text-neutral-600 hover:border-[#7f1d1d] hover:text-[#7f1d1d] disabled:opacity-50"
+            className="flex shrink-0 items-center gap-1.5 rounded-full border border-black/10 px-3 py-1.5 text-xs font-medium text-neutral-600 hover:border-[#d0191f] hover:text-[#d0191f] disabled:opacity-50"
           >
             {translating ? <Loader2 size={12} className="animate-spin" /> : <Languages size={12} />}
             Translate from English
@@ -259,7 +259,7 @@ export function BlogEditor({ post }: { post?: BlogPost }) {
         <button
           onClick={save}
           disabled={saving || !title || !content}
-          className="w-full rounded-full bg-[#7f1d1d] px-6 py-2.5 text-sm font-semibold text-white disabled:opacity-50"
+          className="w-full rounded-full bg-[#d0191f] px-6 py-2.5 text-sm font-semibold text-white disabled:opacity-50"
         >
           {saving ? "Saving…" : "Save Post"}
         </button>

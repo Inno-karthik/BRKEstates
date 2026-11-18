@@ -7,7 +7,7 @@ export type ColorScheme = {
 };
 
 export const COLOR_SCHEMES: ColorScheme[] = [
-  { key: "bkr", label: "BKR Maroon & Gold", primary: "#7f1d1d", secondary: "#3b0b10", accent: "#d4af37" },
+  { key: "bkr", label: "BKR Red, Blue & Gold", primary: "#d0191f", secondary: "#14307e", accent: "#d4af37" },
   { key: "royal-gold", label: "Royal Gold", primary: "#8a6d1f", secondary: "#2b2210", accent: "#f2c14e" },
   { key: "ocean-blue", label: "Ocean Blue", primary: "#1b5e8f", secondary: "#0e3550", accent: "#5cc8e0" },
   { key: "sunset-coral", label: "Sunset Coral", primary: "#c4532e", secondary: "#5c2416", accent: "#f2a65a" },

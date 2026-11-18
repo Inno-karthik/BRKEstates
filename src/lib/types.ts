@@ -323,6 +323,9 @@ export type Popup = {
   id: string;
   title: string;
   image_url: string | null;
+  /** 'image' (default) or 'video' — video popups use video_url. */
+  media_type: "image" | "video";
+  video_url: string | null;
   target_url: string | null;
   is_active: boolean;
   starts_at: string | null;

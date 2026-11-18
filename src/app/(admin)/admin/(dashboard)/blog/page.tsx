@@ -15,7 +15,7 @@ export default async function AdminBlogPage() {
           <h1 className="text-xl font-bold text-neutral-900">Blog</h1>
           <p className="text-sm text-neutral-500">Write and publish articles.</p>
         </div>
-        <Link href="/admin/blog/new" className="flex items-center gap-2 rounded-full bg-[#7f1d1d] px-4 py-2 text-sm font-semibold text-white">
+        <Link href="/admin/blog/new" className="flex items-center gap-2 rounded-full bg-[#d0191f] px-4 py-2 text-sm font-semibold text-white">
           <Plus size={15} /> New Post
         </Link>
       </div>

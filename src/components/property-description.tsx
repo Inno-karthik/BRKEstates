@@ -34,7 +34,7 @@ export function DescriptionPreview({ html }: { html: string }) {
     <div>
       <h2 className="mb-2 text-lg font-semibold text-neutral-900">About this property</h2>
       <div
-        className="prose prose-sm max-w-none text-neutral-600 prose-headings:text-neutral-900 prose-a:text-[var(--color-primary,#7f1d1d)]"
+        className="prose prose-sm max-w-none text-neutral-600 prose-headings:text-neutral-900 prose-a:text-[var(--color-primary,#d0191f)]"
         dangerouslySetInnerHTML={{ __html: preview }}
       />
       {hasMore && !expanded && (
@@ -46,7 +46,7 @@ export function DescriptionPreview({ html }: { html: string }) {
               document.getElementById("full-description")?.scrollIntoView({ behavior: "smooth", block: "start" })
             );
           }}
-          className="mt-2 flex items-center gap-1 text-sm font-semibold text-[var(--color-primary,#7f1d1d)]"
+          className="mt-2 flex items-center gap-1 text-sm font-semibold text-[var(--color-primary,#d0191f)]"
         >
           Read more <ChevronDown size={14} />
         </button>
@@ -74,7 +74,7 @@ export function DescriptionFull({ html }: { html: string }) {
         </button>
       </div>
       <div
-        className="prose prose-sm mt-3 max-w-none text-neutral-600 prose-headings:text-neutral-900 prose-a:text-[var(--color-primary,#7f1d1d)]"
+        className="prose prose-sm mt-3 max-w-none text-neutral-600 prose-headings:text-neutral-900 prose-a:text-[var(--color-primary,#d0191f)]"
         dangerouslySetInnerHTML={{ __html: html }}
       />
     </div>

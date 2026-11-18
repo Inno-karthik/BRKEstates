@@ -3,11 +3,11 @@
 
 :root {
   /* Brand defaults — overridden per-page via inline vars from page_themes (see ThemeStyle). */
-  --color-primary: #7f1d1d;
-  --color-secondary: #3b0b10;
+  --color-primary: #d0191f;
+  --color-secondary: #14307e;
   --color-accent: #d4af37;
   --color-bg: #ffffff;
-  --color-text: #2a1412;
+  --color-text: #1b2233;
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }

@@ -46,7 +46,7 @@ export default async function HomePage() {
   return (
     <PageTheme page="home">
       {/* Hero */}
-      <section className="relative overflow-hidden bg-[var(--color-secondary,#3b0b10)]">
+      <section className="relative overflow-hidden bg-[var(--color-secondary,#14307e)]">
         <Image src={HERO_BG} alt="" fill priority sizes="100vw" className="object-cover object-[72%_50%] md:object-center" />
         <div
           className="absolute inset-0"
@@ -56,7 +56,7 @@ export default async function HomePage() {
           }}
         />
         <div className="absolute inset-0 bg-dot-grid opacity-40" />
-        <div className="blob left-[-10%] top-[-15%] h-[28rem] w-[28rem] bg-[var(--color-primary,#7f1d1d)]/40" />
+        <div className="blob left-[-10%] top-[-15%] h-[28rem] w-[28rem] bg-[var(--color-primary,#d0191f)]/40" />
         <div
           className="blob right-[-12%] top-[10%] h-[24rem] w-[24rem] bg-[var(--color-accent,#d4af37)]/25"
           style={{ animationDelay: "-6s" }}
@@ -124,7 +124,7 @@ export default async function HomePage() {
               </div>
               <Link
                 href="/listings"
-                className="hidden items-center gap-1 text-sm font-semibold text-[var(--color-primary,#7f1d1d)] sm:flex"
+                className="hidden items-center gap-1 text-sm font-semibold text-[var(--color-primary,#d0191f)] sm:flex"
               >
                 View all <ArrowRight size={15} />
               </Link>
@@ -137,7 +137,7 @@ export default async function HomePage() {
             <div className="mt-8 text-center sm:hidden">
               <Link
                 href="/listings"
-                className="inline-flex items-center gap-1 text-sm font-semibold text-[var(--color-primary,#7f1d1d)]"
+                className="inline-flex items-center gap-1 text-sm font-semibold text-[var(--color-primary,#d0191f)]"
               >
                 View all projects <ArrowRight size={15} />
               </Link>
@@ -189,8 +189,8 @@ function HeroStat({ value, suffix, label }: { value: number; suffix?: string; la
 
 function TrustCard({ icon: IconC, title, desc }: { icon: typeof ShieldCheck; title: string; desc: string }) {
   return (
-    <div className="group rounded-2xl border border-black/5 p-6 text-center transition hover:-translate-y-1 hover:border-[var(--color-primary,#7f1d1d)]/20 hover:shadow-lg">
-      <span className="mx-auto flex h-12 w-12 items-center justify-center rounded-xl bg-[var(--color-primary,#7f1d1d)]/10 text-[var(--color-primary,#7f1d1d)] transition-transform group-hover:scale-110">
+    <div className="group rounded-2xl border border-black/5 p-6 text-center transition hover:-translate-y-1 hover:border-[var(--color-primary,#d0191f)]/20 hover:shadow-lg">
+      <span className="mx-auto flex h-12 w-12 items-center justify-center rounded-xl bg-[var(--color-primary,#d0191f)]/10 text-[var(--color-primary,#d0191f)] transition-transform group-hover:scale-110">
         <IconC size={22} />
       </span>
       <h3 className="mt-3 font-semibold text-neutral-900">{title}</h3>

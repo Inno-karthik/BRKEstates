@@ -27,7 +27,7 @@ export default async function AboutPage() {
 
   return (
     <PageTheme page="about">
-      <section className="bg-[var(--color-secondary,#3b0b10)] py-16 text-center text-white md:py-24">
+      <section className="bg-[var(--color-secondary,#14307e)] py-16 text-center text-white md:py-24">
         <div className="mx-auto max-w-3xl px-4">
           <h1 className="font-[family-name:var(--font-display)] text-3xl font-bold md:text-5xl">
             About {settings.site_name}
@@ -66,9 +66,9 @@ export default async function AboutPage() {
       </section>
 
       {/* Founder / author */}
-      <section className="bg-gradient-to-b from-[#fff6ec] to-white py-16">
+      <section className="bg-gradient-to-b from-[#f4f7ff] to-white py-16">
         <div className="mx-auto max-w-6xl px-4 md:px-8">
-          <p className="text-center text-xs font-semibold uppercase tracking-wider text-[var(--color-primary,#7f1d1d)]">Meet the Founder</p>
+          <p className="text-center text-xs font-semibold uppercase tracking-wider text-[var(--color-primary,#d0191f)]">Meet the Founder</p>
           <h2 className="mx-auto mt-2 max-w-2xl text-center font-[family-name:var(--font-display)] text-2xl font-bold text-neutral-900 md:text-4xl">
             {AUTHOR.tagline}
           </h2>
@@ -87,7 +87,7 @@ export default async function AboutPage() {
               <ul className="mt-6 space-y-3">
                 {AUTHOR.journey.map((j) => (
                   <li key={j} className="flex gap-3 text-sm text-neutral-700">
-                    <CheckCircle2 size={18} className="mt-0.5 shrink-0 text-[var(--color-primary,#7f1d1d)]" />
+                    <CheckCircle2 size={18} className="mt-0.5 shrink-0 text-[var(--color-primary,#d0191f)]" />
                     <span>{j}</span>
                   </li>
                 ))}
@@ -97,7 +97,7 @@ export default async function AboutPage() {
                   const Ico = [Compass, Handshake, LineChart][i] ?? Compass;
                   return (
                     <div key={st.title} className="rounded-2xl border border-[var(--color-accent,#d4af37)]/30 bg-white p-4 shadow-sm">
-                      <Ico size={20} className="text-[var(--color-primary,#7f1d1d)]" />
+                      <Ico size={20} className="text-[var(--color-primary,#d0191f)]" />
                       <h3 className="mt-2 text-sm font-semibold text-neutral-900">{st.title}</h3>
                       <p className="mt-1 text-xs leading-relaxed text-neutral-500">{st.desc}</p>
                     </div>
@@ -135,7 +135,7 @@ export default async function AboutPage() {
 function Stat({ icon: IconC, label, value, suffix }: { icon: typeof ShieldCheck; label: string; value: number; suffix?: string }) {
   return (
     <div className="rounded-2xl border border-black/5 bg-white p-5 text-center shadow-sm">
-      <IconC className="mx-auto mb-2 text-[var(--color-primary,#7f1d1d)]" size={24} />
+      <IconC className="mx-auto mb-2 text-[var(--color-primary,#d0191f)]" size={24} />
       <p className="text-xl font-bold text-neutral-900">
         <AnimatedNumber value={value} suffix={suffix} />
       </p>

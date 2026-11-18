@@ -2,7 +2,8 @@
 
 import { useState, useTransition } from "react";
 import Image from "next/image";
-import { Plus, Pencil, Trash2, Eye, EyeOff, ImageIcon, Search, X } from "lucide-react";
+import { Plus, Pencil, Trash2, Eye, EyeOff, ImageIcon, Search, X, Video, Loader2, Upload } from "lucide-react";
+import { uploadFile } from "@/lib/upload-client";
 import { ImageUploader } from "@/components/admin/image-uploader";
 import { Modal, FormField, inputClass } from "@/components/admin/modal";
 import { upsertPopup, deletePopup, togglePopupActive } from "@/app/(admin)/admin/(dashboard)/popups/actions";
@@ -35,7 +36,7 @@ export function PopupsManager({ popups, properties }: { popups: Popup[]; propert
     <div>
       <button
         onClick={() => setEditing("new")}
-        className="mb-5 flex items-center gap-2 rounded-full bg-[#7f1d1d] px-4 py-2 text-sm font-semibold text-white"
+        className="mb-5 flex items-center gap-2 rounded-full bg-[#d0191f] px-4 py-2 text-sm font-semibold text-white"
       >
         <Plus size={15} /> Add Popup
       </button>
@@ -44,7 +45,9 @@ export function PopupsManager({ popups, properties }: { popups: Popup[]; propert
         {popups.map((p) => (
           <div key={p.id} className="flex items-center gap-3 border-b border-black/5 px-4 py-3 last:border-0">
             <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-lg bg-neutral-100">
-              {p.image_url ? (
+              {p.media_type === "video" && p.video_url ? (
+                <video src={p.video_url} muted playsInline preload="metadata" className="h-full w-full object-cover" />
+              ) : p.image_url ? (
                 <Image src={p.image_url} alt="" fill className="object-cover" unoptimized />
               ) : (
                 <div className="flex h-full items-center justify-center text-neutral-300">
@@ -108,6 +111,10 @@ function PopupForm({
 }) {
   const [title, setTitle] = useState(popup?.title ?? "");
   const [imageUrl, setImageUrl] = useState<string | null>(popup?.image_url ?? null);
+  const [mediaType, setMediaType] = useState<"image" | "video">(popup?.media_type ?? "image");
+  const [videoUrl, setVideoUrl] = useState<string | null>(popup?.video_url ?? null);
+  const [uploadingVideo, setUploadingVideo] = useState(false);
+  const [videoError, setVideoError] = useState<string | null>(null);
   const [targetUrl, setTargetUrl] = useState(popup?.target_url ?? "");
   const [isActive, setIsActive] = useState(popup?.is_active ?? true);
   const [startsAt, setStartsAt] = useState(toLocalInput(popup?.starts_at ?? null));
@@ -120,13 +127,35 @@ function PopupForm({
   const selectedProperty = properties.find((p) => p.id === propertyId);
   const filteredProperties = properties.filter((p) => p.title.toLowerCase().includes(propertySearch.toLowerCase()));
 
+  async function onVideoPicked(file: File) {
+    setVideoError(null);
+    if (!/^video\/(mp4|webm|quicktime)$/.test(file.type)) {
+      setVideoError("Please choose an MP4, WebM or MOV video.");
+      return;
+    }
+    if (file.size > 25 * 1024 * 1024) {
+      setVideoError("Video is larger than 25 MB — compress it (a 10–20 second clip at 720p is plenty) and try again.");
+      return;
+    }
+    setUploadingVideo(true);
+    try {
+      setVideoUrl(await uploadFile(file, "popups"));
+    } catch (e) {
+      setVideoError(e instanceof Error ? e.message : "Upload failed");
+    } finally {
+      setUploadingVideo(false);
+    }
+  }
+
   async function save() {
     setSaving(true);
     try {
       await upsertPopup({
         id: popup?.id,
         title,
-        image_url: imageUrl,
+        image_url: mediaType === "image" ? imageUrl : null,
+        media_type: mediaType,
+        video_url: mediaType === "video" ? videoUrl : null,
         target_url: targetUrl,
         is_active: isActive,
         starts_at: startsAt ? new Date(startsAt).toISOString() : null,
@@ -146,9 +175,66 @@ function PopupForm({
         <FormField label="Title (internal label)">
           <input value={title} onChange={(e) => setTitle(e.target.value)} className={inputClass} placeholder="e.g. Diwali Greetings" />
         </FormField>
-        <FormField label="Image (optional)">
-          <ImageUploader value={imageUrl} onChange={setImageUrl} folder="popups" aspect="aspect-[4/5]" />
-          <p className="mt-1 text-[11px] text-neutral-400">Recommended: 800×1000px (4:5 portrait)</p>
+        <FormField label="Popup media">
+          <div className="mb-2 inline-flex rounded-full bg-neutral-100 p-1">
+            {(["image", "video"] as const).map((t) => (
+              <button
+                key={t}
+                type="button"
+                onClick={() => setMediaType(t)}
+                className={`flex items-center gap-1.5 rounded-full px-4 py-1.5 text-xs font-semibold transition ${
+                  mediaType === t ? "bg-white text-neutral-900 shadow-sm" : "text-neutral-500"
+                }`}
+              >
+                {t === "image" ? <ImageIcon size={13} /> : <Video size={13} />}
+                {t === "image" ? "Image" : "Video"}
+              </button>
+            ))}
+          </div>
+
+          {mediaType === "image" ? (
+            <>
+              <ImageUploader value={imageUrl} onChange={setImageUrl} folder="popups" aspect="aspect-[4/5]" />
+              <p className="mt-1 text-[11px] text-neutral-400">
+                Portrait or landscape — it is shown in its own shape, edge to edge, over a blurred page. Crop it exactly as
+                you want it to appear (no extra margins).
+              </p>
+            </>
+          ) : (
+            <>
+              {videoUrl ? (
+                <div className="space-y-2">
+                  <video src={videoUrl} controls muted playsInline className="max-h-64 w-full rounded-xl bg-black" />
+                  <button
+                    type="button"
+                    onClick={() => setVideoUrl(null)}
+                    className="text-xs font-medium text-red-600 hover:underline"
+                  >
+                    Remove video
+                  </button>
+                </div>
+              ) : (
+                <label className="flex cursor-pointer flex-col items-center justify-center gap-2 rounded-xl border-2 border-dashed border-black/10 bg-neutral-50 py-8 text-center hover:border-black/20">
+                  {uploadingVideo ? <Loader2 size={20} className="animate-spin text-neutral-400" /> : <Upload size={20} className="text-neutral-400" />}
+                  <span className="text-sm font-medium text-neutral-600">{uploadingVideo ? "Uploading…" : "Choose a video file"}</span>
+                  <span className="text-[11px] text-neutral-400">MP4 / WebM / MOV, up to 25 MB — portrait or landscape</span>
+                  <input
+                    type="file"
+                    accept="video/mp4,video/webm,video/quicktime"
+                    className="hidden"
+                    disabled={uploadingVideo}
+                    onChange={(e) => {
+                      const f = e.target.files?.[0];
+                      if (f) onVideoPicked(f);
+                      e.target.value = "";
+                    }}
+                  />
+                </label>
+              )}
+              {videoError && <p className="mt-1 text-xs text-red-600">{videoError}</p>}
+              <p className="mt-1 text-[11px] text-neutral-400">Plays automatically (muted, looping) with controls to unmute or pause.</p>
+            </>
+          )}
         </FormField>
         <FormField label="Target URL (optional — opens when clicked)">
           <input
@@ -173,7 +259,7 @@ function PopupForm({
               type="button"
               onClick={() => setMode("global")}
               className={`rounded-full px-3 py-1.5 text-xs font-medium ${
-                mode === "global" ? "bg-[#7f1d1d] text-white" : "border border-black/10 text-neutral-600"
+                mode === "global" ? "bg-[#d0191f] text-white" : "border border-black/10 text-neutral-600"
               }`}
             >
               Global (every page)
@@ -182,7 +268,7 @@ function PopupForm({
               type="button"
               onClick={() => setMode("property")}
               className={`rounded-full px-3 py-1.5 text-xs font-medium ${
-                mode === "property" ? "bg-[#7f1d1d] text-white" : "border border-black/10 text-neutral-600"
+                mode === "property" ? "bg-[#d0191f] text-white" : "border border-black/10 text-neutral-600"
               }`}
             >
               One specific property
@@ -193,7 +279,7 @@ function PopupForm({
         {mode === "property" && (
           <FormField label="Property">
             {selectedProperty ? (
-              <div className="flex items-center gap-2 rounded-lg border border-[#7f1d1d]/30 bg-[#7f1d1d]/5 px-3 py-2 text-sm text-[#7f1d1d]">
+              <div className="flex items-center gap-2 rounded-lg border border-[#d0191f]/30 bg-[#d0191f]/5 px-3 py-2 text-sm text-[#d0191f]">
                 <span className="min-w-0 flex-1 truncate">{selectedProperty.title}</span>
                 <button type="button" onClick={() => setPropertyId(null)} className="shrink-0 text-neutral-400 hover:text-red-600">
                   <X size={14} />
@@ -235,7 +321,7 @@ function PopupForm({
         <button
           onClick={save}
           disabled={saving || !title}
-          className="w-full rounded-full bg-[#7f1d1d] py-2.5 text-sm font-semibold text-white disabled:opacity-50"
+          className="w-full rounded-full bg-[#d0191f] py-2.5 text-sm font-semibold text-white disabled:opacity-50"
         >
           {saving ? "Saving…" : "Save Popup"}
         </button>

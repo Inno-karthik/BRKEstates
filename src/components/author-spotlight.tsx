@@ -7,7 +7,7 @@ import { AUTHOR } from "@/lib/author";
 export function AuthorSpotlight() {
   return (
     <section className="py-10 md:mx-auto md:max-w-6xl md:px-8 md:py-20">
-      <div className="relative isolate overflow-hidden rounded-none bg-gradient-to-br from-[#5a1219] via-[#3b0b10] to-[#1f0508] px-5 py-10 sm:px-8 md:rounded-[2rem] md:p-12 md:shadow-2xl md:ring-1 md:ring-[var(--color-accent,#d4af37)]/40">
+      <div className="relative isolate overflow-hidden rounded-none bg-gradient-to-br from-[#1f45b0] via-[#14307e] to-[#0a1640] px-5 py-10 sm:px-8 md:rounded-[2rem] md:p-12 md:shadow-2xl md:ring-1 md:ring-[var(--color-accent,#d4af37)]/40">
         {/* gold glow + hairlines */}
         <div className="pointer-events-none absolute -right-24 -top-24 -z-10 h-72 w-72 rounded-full bg-[var(--color-accent,#d4af37)]/20 blur-3xl" />
         <div className="pointer-events-none absolute -bottom-28 -left-16 -z-10 h-64 w-64 rounded-full bg-orange-500/10 blur-3xl" />
@@ -27,7 +27,7 @@ export function AuthorSpotlight() {
             <div className="relative h-44 w-44 overflow-hidden rounded-3xl ring-4 ring-[var(--color-accent,#d4af37)] sm:h-52 sm:w-52 md:h-60 md:w-60">
               <Image src={AUTHOR.portrait} alt={AUTHOR.title} fill sizes="240px" className="object-cover" />
             </div>
-            <span className="absolute -bottom-5 left-1/2 flex -translate-x-1/2 items-center gap-1.5 whitespace-nowrap rounded-full bg-gradient-to-r from-[#f3d98b] via-[#d4af37] to-[#b8901f] px-4 py-1.5 text-[11px] font-bold uppercase tracking-wide text-[#3b0b10] shadow-lg">
+            <span className="absolute -bottom-5 left-1/2 flex -translate-x-1/2 items-center gap-1.5 whitespace-nowrap rounded-full bg-gradient-to-r from-[#f3d98b] via-[#d4af37] to-[#b8901f] px-4 py-1.5 text-[11px] font-bold uppercase tracking-wide text-[#14307e] shadow-lg">
               <Award size={13} /> Founder
             </span>
           </div>
@@ -54,7 +54,7 @@ export function AuthorSpotlight() {
               </span>
               <Link
                 href="/about"
-                className="group inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#f3d98b] via-[#d4af37] to-[#b8901f] px-5 py-2.5 text-sm font-semibold text-[#3b0b10] shadow-lg transition hover:brightness-105 active:scale-[0.97]"
+                className="group inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#f3d98b] via-[#d4af37] to-[#b8901f] px-5 py-2.5 text-sm font-semibold text-[#14307e] shadow-lg transition hover:brightness-105 active:scale-[0.97]"
               >
                 Read his story <ArrowRight size={15} className="transition-transform group-hover:translate-x-0.5" />
               </Link>

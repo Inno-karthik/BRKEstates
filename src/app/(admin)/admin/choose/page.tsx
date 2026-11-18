@@ -9,7 +9,7 @@ const CARDS = [
     section: "cms" as const,
     href: "/admin",
     icon: LayoutDashboard,
-    color: "#7f1d1d",
+    color: "#d0191f",
     title: "Content (CMS)",
     desc: "Properties, specifications, amenities, blog and site settings.",
   },
@@ -41,7 +41,7 @@ export default async function ChooseAreaPage() {
     return (
       <div className="flex min-h-screen items-center justify-center bg-neutral-50 px-4 text-center">
         <div>
-          <Image src="/brand/logo.png" alt="BKR Estates" width={200} height={64} className="mx-auto h-auto w-44" />
+          <Image src="/brand/logo-v2.png" alt="BKR Estates" width={260} height={69} className="mx-auto h-auto w-56" />
           <h1 className="mt-3 text-lg font-semibold text-neutral-900">No access granted yet</h1>
           <p className="mt-1 text-sm text-neutral-500">Ask the account owner to grant you access to a section.</p>
         </div>
@@ -53,7 +53,7 @@ export default async function ChooseAreaPage() {
     <div className="flex min-h-screen items-center justify-center bg-neutral-50 px-4">
       <div className="w-full max-w-4xl">
         <div className="mb-8 flex flex-col items-center text-center">
-          <Image src="/brand/logo.png" alt="BKR Estates" width={200} height={64} className="h-auto w-44" />
+          <Image src="/brand/logo-v2.png" alt="BKR Estates" width={260} height={69} className="h-auto w-56" />
           <h1 className="mt-3 text-xl font-semibold text-neutral-900">Welcome back</h1>
           <p className="text-sm text-neutral-500">Choose where you want to go</p>
         </div>

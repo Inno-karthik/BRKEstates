@@ -41,13 +41,13 @@ export default async function PublicVaultPage({ params }: { params: Promise<{ pr
 
       <Link
         href={`/listings/${property.slug}`}
-        className="mt-8 flex flex-col items-start justify-between gap-4 rounded-2xl bg-[var(--color-primary,#7f1d1d)] p-6 text-white sm:flex-row sm:items-center"
+        className="mt-8 flex flex-col items-start justify-between gap-4 rounded-2xl bg-[var(--color-primary,#d0191f)] p-6 text-white sm:flex-row sm:items-center"
       >
         <div>
           <p className="text-xs font-medium uppercase tracking-wide text-white/60">View property</p>
           <p className="mt-0.5 text-lg font-bold">{property.title}</p>
         </div>
-        <span className="flex shrink-0 items-center gap-1.5 rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-[var(--color-primary,#7f1d1d)]">
+        <span className="flex shrink-0 items-center gap-1.5 rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-[var(--color-primary,#d0191f)]">
           View Full Details <ArrowRight size={15} />
         </span>
       </Link>

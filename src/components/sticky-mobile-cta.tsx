@@ -47,7 +47,7 @@ export function StickyMobileCta({
       >
         <button
           onClick={() => setOpen(true)}
-          className="flex items-center justify-center gap-1.5 bg-[var(--color-primary,#7f1d1d)] py-3.5 text-xs font-semibold text-white"
+          className="flex items-center justify-center gap-1.5 bg-[var(--color-primary,#d0191f)] py-3.5 text-xs font-semibold text-white"
         >
           <MessageSquare size={15} /> Enquire
         </button>

@@ -3,7 +3,7 @@
 import { Area, AreaChart, Bar, BarChart, CartesianGrid, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
 import type { Analytics } from "@/lib/analytics-queries";
 
-const BURGUNDY = "#7f1d1d";
+const BURGUNDY = "#d0191f";
 const GOLD = "#d4af37";
 const SLATE = "#6366f1";
 

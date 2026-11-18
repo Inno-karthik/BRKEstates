@@ -17,7 +17,7 @@ export function HomeMapToggle({ enabled }: { enabled: boolean }) {
   return (
     <div className="mb-6 flex items-center justify-between gap-4 rounded-2xl border border-black/5 bg-white p-4">
       <div className="flex items-center gap-3">
-        <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#7f1d1d]/10 text-[#7f1d1d]">
+        <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#d0191f]/10 text-[#d0191f]">
           <Map size={18} />
         </span>
         <div>

@@ -85,7 +85,7 @@ export function MobileSearchOverlay({
                 >
                   <span
                     className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg"
-                    style={{ background: `${t.accent_color ?? "#7f1d1d"}1a`, color: t.accent_color ?? "#7f1d1d" }}
+                    style={{ background: `${t.accent_color ?? "#d0191f"}1a`, color: t.accent_color ?? "#d0191f" }}
                   >
                     <Icon name={t.icon_name} url={t.icon_url} size={15} />
                   </span>
@@ -96,7 +96,7 @@ export function MobileSearchOverlay({
 
             <button
               onClick={() => go(new URLSearchParams())}
-              className="mt-6 flex w-full items-center justify-center gap-2 rounded-full bg-[var(--color-primary,#7f1d1d)] py-3.5 text-sm font-semibold text-white"
+              className="mt-6 flex w-full items-center justify-center gap-2 rounded-full bg-[var(--color-primary,#d0191f)] py-3.5 text-sm font-semibold text-white"
             >
               View All Projects
             </button>
