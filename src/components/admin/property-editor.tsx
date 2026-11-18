@@ -817,14 +817,15 @@ export function PropertyEditor({
 
       <Section title="Notes for visitors">
         <p className="-mt-1 text-xs text-neutral-400">
-          Shown on the public page as a highlighted red-bordered box under the configurations (or under the main details for
-          plots and farm land). Use it for payment plans, offers, registration costs, validity dates — one point per line.
+          Shown on the public page in a red-bordered box under the configurations (or under the main details for plots and
+          farm land). One point per line; write it as &quot;Label: value&quot; and the label is shown in bold (e.g. Price, Booking amount,
+          Payment schedule). You can also wrap words in **double asterisks** to bold them.
         </p>
         <textarea
           value={variantNotes}
           onChange={(e) => setVariantNotes(e.target.value)}
           rows={4}
-          placeholder={"e.g. Prices exclude registration and GST.\nLimited units at the launch price till 31 Dec."}
+          placeholder={"Price: ₹65 L onwards (excl. registration & GST)\nBooking amount: ₹1,00,000\nPayment schedule: 30% on agreement, 40% at slab completion, 30% on handover"}
           className={inputClass}
         />
       </Section>

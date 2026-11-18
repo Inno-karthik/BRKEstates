@@ -44,7 +44,7 @@ export function MobileMenuButton({
           >
             <div className="flex shrink-0 items-center justify-between border-b border-black/5 px-5 py-4">
               <Link href="/" onClick={() => setOpen(false)} className="flex items-center gap-2">
-                <Image src={logoUrl || "/brand/logo.png"} alt={siteName} width={160} height={51} className="h-10 w-auto object-contain" />
+                <Image src={logoUrl || "/brand/logo.png"} alt={siteName} width={160} height={51} className="h-12 w-auto object-contain" />
               </Link>
               <button
                 onClick={() => setOpen(false)}

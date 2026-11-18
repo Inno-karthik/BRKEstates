@@ -30,7 +30,7 @@ export function Navbar({
             alt={settings.site_name}
             width={240}
             height={77}
-            className="h-10 w-auto object-contain sm:h-11 md:h-14"
+            className="h-12 w-auto object-contain sm:h-11 md:h-14"
             priority
           />
         </Link>

@@ -50,7 +50,7 @@ export default async function AboutPage() {
               to registration.
             </p>
             <p className="mt-4 text-sm leading-relaxed text-neutral-600">
-              Whether you&apos;re looking for your first apartment, a villa to call home, an open plot to build
+              Whether you&apos;re looking for an open plot to build on, your first apartment, a villa to call home
               on, or farm land to invest in, our team knows every belt of the city — the core at Dwaraka Nagar, the IT and
               coast corridor of Rushikonda and Madhurawada, the airport road through Anandapuram and Bheemili, and the
               value belt of Pendurthi and Anakapalli.
@@ -79,7 +79,7 @@ export default async function AboutPage() {
                 <Image src={AUTHOR.portrait} alt={AUTHOR.title} fill sizes="(min-width:768px) 320px, 80vw" className="object-cover" priority />
               </div>
               <p className="mt-4 text-center text-sm font-semibold text-neutral-800">{AUTHOR.title}</p>
-              <p className="text-center text-xs text-neutral-500">Regional Deputy Director · Prakruti Avenues</p>
+              <p className="text-center text-xs text-neutral-500">Regional Vice President · Prakruti Avenues</p>
             </div>
 
             <div>

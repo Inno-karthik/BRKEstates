@@ -10,7 +10,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const seo = settings.page_seo?.listings;
   return {
     title: seo?.title || "Our Projects",
-    description: seo?.description || "Browse all apartments, villas, open plots and farm land listed with BKR Estates.",
+    description: seo?.description || "Browse open plots, apartments, villas and farm land with BKR Estates.",
     alternates: { canonical: "/listings" },
   };
 }
