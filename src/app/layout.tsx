@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     template: "%s | BKR Estates",
   },
   description:
-    "Verified plots, apartments, villas and farm land in and around Visakhapatnam — BKR Estates, powered by Prakruti, with 20+ years of local expertise and transparent pricing.",
+    "Plots, apartments, villas and farm land in and around Visakhapatnam — BKR Estates, powered by Prakruti Avenues, with 20+ years of local expertise and transparent pricing.",
   manifest: "/manifest.webmanifest",
   openGraph: {
     type: "website",
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "BKR Estates — Real Estate in Visakhapatnam | Powered by Prakruti",
     description:
-      "Verified plots, apartments, villas and farm land in and around Visakhapatnam — BKR Estates, powered by Prakruti, with 20+ years of local expertise and transparent pricing.",
+      "Plots, apartments, villas and farm land in and around Visakhapatnam — BKR Estates, powered by Prakruti Avenues, with 20+ years of local expertise and transparent pricing.",
   },
   alternates: {
     canonical: "/",

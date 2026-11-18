@@ -9,7 +9,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const settings = await getSiteSettings();
   const seo = settings.page_seo?.listings;
   return {
-    title: seo?.title || "All Listings",
+    title: seo?.title || "Our Projects",
     description: seo?.description || "Browse all apartments, villas, open plots and farm land listed with BKR Estates.",
     alternates: { canonical: "/listings" },
   };
@@ -57,7 +57,7 @@ export default async function ListingsPage({
       <div className="mx-auto max-w-7xl px-4 py-8 md:px-8 md:py-12">
         <div className="mb-6">
           <h1 className="text-2xl font-bold text-neutral-900 md:text-3xl">
-            {selectedType ? selectedType.name : "All Properties"}
+            {selectedType ? selectedType.name : "Our Projects"}
           </h1>
           <p className="mt-1 text-sm text-neutral-500">{total} propert{total === 1 ? "y" : "ies"} found</p>
         </div>

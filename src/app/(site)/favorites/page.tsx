@@ -29,7 +29,7 @@ export default function FavoritesPage() {
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-10 md:px-8 md:py-14">
-      <h1 className="text-2xl font-bold text-neutral-900 md:text-3xl">Saved Properties</h1>
+      <h1 className="text-2xl font-bold text-neutral-900 md:text-3xl">Your Shortlist</h1>
       <p className="mt-1 text-sm text-neutral-500">Properties you&apos;ve favorited, saved on this device</p>
 
       {properties === null ? (
@@ -41,10 +41,10 @@ export default function FavoritesPage() {
       ) : properties.length === 0 ? (
         <div className="mt-10 flex flex-col items-center rounded-2xl border border-dashed border-black/10 py-24 text-center">
           <HeartOff size={32} className="mb-3 text-neutral-300" />
-          <p className="text-lg font-semibold text-neutral-700">No saved properties yet</p>
-          <p className="mt-1 text-sm text-neutral-500">Tap the heart icon on any listing to save it here</p>
+          <p className="text-lg font-semibold text-neutral-700">Your shortlist is empty</p>
+          <p className="mt-1 text-sm text-neutral-500">Tap the heart icon on any project to shortlist it here</p>
           <Link href="/listings" className="mt-4 text-sm font-semibold text-[var(--color-primary,#7f1d1d)]">
-            Browse listings
+            Explore projects
           </Link>
         </div>
       ) : (

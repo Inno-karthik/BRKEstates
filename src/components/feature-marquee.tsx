@@ -1,10 +1,10 @@
 import { Map, Bot, ShieldCheck, FolderLock } from "lucide-react";
 
 const FEATURES = [
-  { icon: Map, text: "Transparent map views with true locations & timings" },
-  { icon: Bot, text: "AI Property Assistant to help you search & decide" },
-  { icon: ShieldCheck, text: "Transparent, verified property data" },
-  { icon: FolderLock, text: "All required documents, shared securely via Vault" },
+  { icon: Map, text: "Project locations on the map, with real travel distances" },
+  { icon: Bot, text: "Instant answers from our AI assistant" },
+  { icon: ShieldCheck, text: "Every project personally evaluated by our team" },
+  { icon: FolderLock, text: "Project documents shared securely through our Vault" },
 ];
 
 export function FeatureMarquee() {

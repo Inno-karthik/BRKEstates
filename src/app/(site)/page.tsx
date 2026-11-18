@@ -64,7 +64,7 @@ export default async function HomePage() {
 
         <div className="relative mx-auto max-w-5xl px-4 pb-16 pt-20 text-center md:pb-24 md:pt-32">
           <span className="inline-flex items-center rounded-full border border-white/10 bg-white/10 px-4 py-1.5 text-xs font-medium text-white/80 backdrop-blur">
-            Powered by{" "}<b className="font-bold text-white">Prakruti Avenues</b>
+            Powered by&nbsp;<b className="font-bold text-white">Prakruti Avenues</b>
           </span>
           <h1 className="mt-6 font-[family-name:var(--font-display)] text-4xl font-bold leading-[1.1] tracking-tight text-white md:text-6xl">
             Find the Right Property in{" "}
@@ -72,7 +72,7 @@ export default async function HomePage() {
           </h1>
           <p className="mx-auto mt-5 w-full max-w-2xl rounded-2xl bg-black/35 px-5 py-4 text-sm text-white/90 backdrop-blur-[2px] md:text-base">
             From Madhurawada and Rushikonda to Dwaraka Nagar, Anandapuram and the Bheemili coast, BKR Estates brings you
-            verified plots, apartments, villas and farm land — backed by 20+ years of Prakruti experience and
+            carefully selected plots, apartments, villas and farm land — backed by 20+ years of Prakruti experience and
             honest guidance on where to invest.
           </p>
           <div className="mx-auto mt-9 max-w-2xl">
@@ -86,7 +86,7 @@ export default async function HomePage() {
           <div className="grid grid-cols-2 divide-x divide-y divide-white/10 rounded-2xl border border-white/10 bg-white/[0.06] backdrop-blur sm:grid-cols-4 sm:divide-y-0">
             <HeroStat value={100} suffix="%" label="Customer Satisfaction" />
             <HeroStat value={115} suffix="+" label="Projects" />
-            <HeroStat value={propertiesCount} suffix="+" label="Properties Live" />
+            <HeroStat value={propertiesCount} suffix="+" label="Active Projects" />
             <HeroStat value={20} suffix="+" label="Years with Prakruti" />
           </div>
         </div>
@@ -98,8 +98,8 @@ export default async function HomePage() {
       {types.length > 0 && (
         <section className="mx-auto max-w-7xl px-4 py-16 md:px-8">
           <div className="mb-8 text-center">
-            <h2 className="text-2xl font-bold text-neutral-900 md:text-3xl">Browse by Property Type</h2>
-            <p className="mt-2 text-sm text-neutral-500">Explore what&apos;s available right now</p>
+            <h2 className="text-2xl font-bold text-neutral-900 md:text-3xl">What We Deal In</h2>
+            <p className="mt-2 text-sm text-neutral-500">Plots, apartments, villas and farm land — chosen and guided by our advisors</p>
           </div>
           <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
             {types.map((t) => (
@@ -109,14 +109,14 @@ export default async function HomePage() {
         </section>
       )}
 
-      {/* Featured listings */}
+      {/* Featured projects */}
       {featured.length > 0 && (
         <section className="bg-neutral-50 py-16">
           <div className="mx-auto max-w-7xl px-4 md:px-8">
             <div className="mb-8 flex items-end justify-between">
               <div>
-                <h2 className="text-2xl font-bold text-neutral-900 md:text-3xl">Featured Properties</h2>
-                <p className="mt-2 text-sm text-neutral-500">Hand-picked listings worth a look</p>
+                <h2 className="text-2xl font-bold text-neutral-900 md:text-3xl">Featured Projects</h2>
+                <p className="mt-2 text-sm text-neutral-500">Handpicked by our team for their location and value</p>
               </div>
               <Link
                 href="/listings"
@@ -135,7 +135,7 @@ export default async function HomePage() {
                 href="/listings"
                 className="inline-flex items-center gap-1 text-sm font-semibold text-[var(--color-primary,#7f1d1d)]"
               >
-                View all listings <ArrowRight size={15} />
+                View all projects <ArrowRight size={15} />
               </Link>
             </div>
           </div>
@@ -147,8 +147,8 @@ export default async function HomePage() {
       {settings.home_map_enabled && mapProperties.length > 0 && (
         <section className="mx-auto max-w-7xl px-4 py-16 md:px-8">
           <div className="mb-8">
-            <h2 className="text-2xl font-bold text-neutral-900 md:text-3xl">Verified &amp; Trusted Properties</h2>
-            <p className="mt-2 text-sm text-neutral-500">Every published listing, across every location, on one map</p>
+            <h2 className="text-2xl font-bold text-neutral-900 md:text-3xl">Our Projects Across Visakhapatnam</h2>
+            <p className="mt-2 text-sm text-neutral-500">Every project we represent, on one map</p>
           </div>
           <div className="relative h-[420px] overflow-hidden rounded-2xl border border-black/5 shadow-sm md:h-[480px]">
             <LocationMapView properties={mapProperties} expandHref="/map" />
@@ -163,7 +163,7 @@ export default async function HomePage() {
       {/* Trust strip */}
       <section className="border-y border-black/5 bg-white py-16">
         <div className="mx-auto grid max-w-5xl grid-cols-1 gap-5 px-4 sm:grid-cols-3">
-          <TrustCard icon={ShieldCheck} title="Verified Listings" desc="Every property reviewed before it goes live" />
+          <TrustCard icon={ShieldCheck} title="Two Decades of Trust" desc="20+ years of Prakruti experience behind every recommendation" />
           <TrustCard icon={Users} title="Local Expertise" desc="Deep knowledge of Vizag's growth corridors and neighbourhoods" />
           <TrustCard icon={Sparkles} title="Transparent Pricing" desc="No hidden surprises, ever" />
         </div>

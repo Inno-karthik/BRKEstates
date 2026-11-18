@@ -6,7 +6,7 @@ export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   title: "Disclaimer",
-  description: "Important information about the accuracy and verification of listings on BKR Estates.",
+  description: "Important information about the accuracy of project and property information on BKR Estates.",
   alternates: { canonical: "/disclaimer" },
 };
 
@@ -16,12 +16,12 @@ export default async function DisclaimerPage() {
   return (
     <LegalPage title="Disclaimer" updated="October 2026">
       <p>
-        {settings.site_name} acts as a listing and facilitation platform connecting buyers, tenants and investors
-        with property owners and developers. Please read this disclaimer carefully before relying on any
+        {settings.site_name} is a real estate advisory and sales-facilitation company representing property owners,
+        developers and ventures, and guiding buyers and investors. Please read this disclaimer carefully before relying on any
         information presented on this website.
       </p>
 
-      <h2>Listing Information</h2>
+      <h2>Project Information</h2>
       <p>
         Property details — including price, area, specifications, amenities, images, floor/layout plans and
         availability — are provided by the respective property owner, developer or venture management, and are

@@ -98,7 +98,7 @@ export function MobileSearchOverlay({
               onClick={() => go(new URLSearchParams())}
               className="mt-6 flex w-full items-center justify-center gap-2 rounded-full bg-[var(--color-primary,#7f1d1d)] py-3.5 text-sm font-semibold text-white"
             >
-              View All Listings
+              View All Projects
             </button>
           </div>
         </motion.div>

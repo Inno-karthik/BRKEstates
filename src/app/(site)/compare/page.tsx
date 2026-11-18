@@ -71,9 +71,9 @@ export default function ComparePage() {
       ) : properties.length === 0 ? (
         <div className="mt-10 rounded-2xl border border-dashed border-black/10 py-20 text-center">
           <p className="text-lg font-semibold text-neutral-700">Nothing to compare yet</p>
-          <p className="mt-1 text-sm text-neutral-500">Tap the scale icon on any listing to add it here.</p>
+          <p className="mt-1 text-sm text-neutral-500">Tap the scale icon on any project to add it here.</p>
           <Link href="/listings" className="mt-4 inline-block text-sm font-semibold text-[var(--color-primary,#7f1d1d)]">
-            Browse listings
+            Explore projects
           </Link>
         </div>
       ) : (

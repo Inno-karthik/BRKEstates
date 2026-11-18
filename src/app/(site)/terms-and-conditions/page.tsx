@@ -22,7 +22,7 @@ export default async function TermsPage() {
 
       <h2>Use of the Website</h2>
       <p>
-        This website is provided to help you browse property listings and get in touch with {settings.site_name}.
+        This website is provided to help you explore the projects and properties we represent and get in touch with {settings.site_name}.
         You agree to use it only for lawful purposes and not to misuse, scrape, or attempt to disrupt the site.
       </p>
 

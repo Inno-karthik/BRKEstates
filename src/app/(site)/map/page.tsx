@@ -9,8 +9,8 @@ import type { Metadata } from "next";
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
-  title: "BKR Estates — Verified & Trusted Properties",
-  description: "Every verified BKR Estates listing, across every location, on one map.",
+  title: "BKR Estates — Our Projects Across Visakhapatnam",
+  description: "Every project BKR Estates represents, across every location, on one map.",
   robots: { index: false, follow: true },
 };
 
@@ -26,7 +26,7 @@ export default async function AllPropertiesMapPage() {
         >
           <ArrowLeft size={15} /> Back
         </Link>
-        <p className="text-sm font-semibold text-neutral-900">BKR Estates — Verified &amp; Trusted Properties</p>
+        <p className="text-sm font-semibold text-neutral-900">BKR Estates — Our Projects Across Visakhapatnam</p>
       </div>
       <div className="flex-1">
         <LocationMapView properties={properties} />

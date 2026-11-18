@@ -45,7 +45,7 @@ export default async function AboutPage() {
             <h2 className="text-2xl font-bold text-neutral-900">Our Story</h2>
             <p className="mt-4 text-sm leading-relaxed text-neutral-600">
               {settings.site_name}, powered by Prakruti, was founded with a simple goal: make finding and buying
-              property in Visakhapatnam honest, transparent and genuinely helpful. We vet every listing, work
+              property in Visakhapatnam honest, transparent and genuinely helpful. We personally evaluate every project we recommend, work
               closely with owners and developers, and guide buyers through every step — from the first site visit
               to registration.
             </p>
@@ -58,7 +58,7 @@ export default async function AboutPage() {
           <div className="grid grid-cols-2 gap-4">
             <Stat icon={ShieldCheck} label="Customer Satisfaction" value={100} suffix="%" />
             <Stat icon={Users} label="Projects" value={115} suffix="+" />
-            <Stat icon={TrendingUp} label="Properties Live" value={propertiesCount} suffix="+" />
+            <Stat icon={TrendingUp} label="Active Projects" value={propertiesCount} suffix="+" />
             <Stat icon={Award} label="Years with Prakruti" value={20} suffix="+" />
           </div>
         </div>

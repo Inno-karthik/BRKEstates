@@ -12,7 +12,7 @@ import type { PropertyType } from "@/lib/types";
 const items = [
   { href: "/", label: "Home", icon: Home },
   { href: null, label: "Search", icon: Search },
-  { href: "/favorites", label: "Saved", icon: Heart },
+  { href: "/favorites", label: "Shortlist", icon: Heart },
   { href: "/contact", label: "Contact", icon: MessageCircle },
 ] as const;
 
@@ -44,7 +44,7 @@ export function MobileBottomNav({ types = [] }: { types?: PropertyType[] }) {
               <>
                 <IconC size={22} strokeWidth={active ? 2.4 : 2} />
                 {label}
-                {label === "Saved" && favCount > 0 && (
+                {label === "Shortlist" && favCount > 0 && (
                   <span className="absolute right-[26%] top-1 flex h-4 w-4 items-center justify-center rounded-full bg-[var(--color-accent,#d4af37)] text-[9px] font-bold text-white">
                     {favCount}
                   </span>

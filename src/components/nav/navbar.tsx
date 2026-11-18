@@ -45,7 +45,7 @@ export function Navbar({
             href="/listings"
             className="text-sm font-medium text-neutral-700 hover:text-[var(--color-primary,#7f1d1d)]"
           >
-            All Listings
+            Our Projects
           </Link>
           <Link href="/blog" className="text-sm font-medium text-neutral-700 hover:text-[var(--color-primary,#7f1d1d)]">
             Blog

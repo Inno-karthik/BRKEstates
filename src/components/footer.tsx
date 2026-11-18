@@ -19,22 +19,31 @@ export function Footer({ types, settings }: { types: PropertyType[]; settings: S
       <Image src={HERO_BG} alt="" fill sizes="100vw" className="-z-20 object-cover object-bottom opacity-70" />
       <div className="absolute inset-0 -z-10 bg-gradient-to-b from-black/85 via-black/80 to-black/92" />
       {settings.phone && (
-        <div className="border-b border-white/10 bg-black/15">
-          <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 px-4 py-8 text-center sm:flex-row sm:text-left md:px-8">
-            <div>
-              <p className="text-xs font-semibold uppercase tracking-wide text-white/50">Have a question?</p>
-              <p className="mt-1 text-2xl font-bold tracking-tight text-white md:text-3xl">
-                Call us at{" "}
-                <a href={`tel:${settings.phone}`} className="text-[var(--color-accent,#d4af37)] hover:underline">
-                  {settings.phone}
-                </a>
-              </p>
+        <div className="relative overflow-hidden border-b border-[#3b0b10]/30 bg-gradient-to-r from-[#f3d98b] via-[#d4af37] to-[#c4961c]">
+          <div className="pointer-events-none absolute -left-10 top-0 h-full w-1/3 -skew-x-12 bg-white/20 blur-2xl" />
+          <div className="relative mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 px-4 py-9 text-center sm:flex-row sm:text-left md:px-8">
+            <div className="flex flex-col items-center gap-4 sm:flex-row sm:gap-5">
+              <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-[#3b0b10] text-[#f3d98b] shadow-lg ring-4 ring-white/30">
+                <Phone size={24} />
+              </span>
+              <div>
+                <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#3b0b10]/70">Have a question?</p>
+                <p className="mt-1 font-[family-name:var(--font-display)] text-2xl font-bold tracking-tight text-[#2a080c] md:text-3xl">
+                  Call us at{" "}
+                  <a
+                    href={`tel:${settings.phone}`}
+                    className="whitespace-nowrap text-[#7f1d1d] underline decoration-[#7f1d1d]/40 decoration-2 underline-offset-4 hover:decoration-[#7f1d1d]"
+                  >
+                    {settings.phone}
+                  </a>
+                </p>
+              </div>
             </div>
             <Link
               href="/contact"
-              className="flex shrink-0 items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-[var(--color-secondary,#3b0b10)] shadow-lg transition hover:scale-[1.03]"
+              className="flex shrink-0 items-center gap-2 rounded-full bg-[#3b0b10] px-7 py-3.5 text-sm font-semibold text-white shadow-xl transition hover:scale-[1.03] hover:bg-[#2a080c] active:scale-[0.97]"
             >
-              Enquire Now <ArrowRight size={15} />
+              Enquire Now <ArrowRight size={15} className="text-[#f3d98b]" />
             </Link>
           </div>
         </div>
@@ -109,10 +118,10 @@ export function Footer({ types, settings }: { types: PropertyType[]; settings: S
           <div>
             <h4 className="text-sm font-semibold uppercase tracking-wide text-white/50">Quick Links</h4>
             <ul className="mt-4 space-y-2.5 text-sm text-white/80">
-              <li><Link href="/listings" className="hover:text-[var(--color-accent,#d4af37)]">All Listings</Link></li>
-              <li><Link href="/map" className="hover:text-[var(--color-accent,#d4af37)]">Map View</Link></li>
+              <li><Link href="/listings" className="hover:text-[var(--color-accent,#d4af37)]">Our Projects</Link></li>
+              <li><Link href="/map" className="hover:text-[var(--color-accent,#d4af37)]">Project Map</Link></li>
               <li><Link href="/blog" className="hover:text-[var(--color-accent,#d4af37)]">Blog</Link></li>
-              <li><Link href="/favorites" className="hover:text-[var(--color-accent,#d4af37)]">Saved Properties</Link></li>
+              <li><Link href="/favorites" className="hover:text-[var(--color-accent,#d4af37)]">Shortlist</Link></li>
             </ul>
           </div>
 

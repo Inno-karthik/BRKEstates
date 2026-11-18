@@ -69,7 +69,7 @@ export function MobileMenuButton({
                   onClick={() => setOpen(false)}
                   className="rounded-xl px-3 py-2.5 text-base font-semibold text-neutral-900 hover:bg-neutral-50"
                 >
-                  All Listings
+                  Our Projects
                 </Link>
                 <Link
                   href="/blog"

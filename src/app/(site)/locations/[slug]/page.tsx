@@ -45,9 +45,9 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
         {properties.length === 0 ? (
           <div className="flex flex-col items-center justify-center rounded-2xl border border-dashed border-black/10 py-24 text-center">
             <p className="text-lg font-semibold text-neutral-700">No properties here yet</p>
-            <p className="mt-1 text-sm text-neutral-500">Check back soon, or browse all listings.</p>
+            <p className="mt-1 text-sm text-neutral-500">Check back soon, or explore all our projects.</p>
             <Link href="/listings" className="mt-4 text-sm font-semibold text-[var(--color-primary,#7f1d1d)]">
-              View all listings
+              View all projects
             </Link>
           </div>
         ) : (

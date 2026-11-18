@@ -7,7 +7,7 @@ update public.site_settings set
   whatsapp = '919553822333',
   email = 'bkrestatesvizag@gmail.com',
   address = '2nd Floor, 47-10-25/1, 2nd Ln, Sagar Nagar, Dwaraka Nagar, Visakhapatnam, Andhra Pradesh 530016',
-  footer_text = 'BKR Estates — trusted real estate advisory in and around Visakhapatnam. Powered by Prakruti.',
+  footer_text = 'BKR Estates — trusted real estate advisory in and around Visakhapatnam. Powered by Prakruti Avenues.',
   whatsapp_default_message = 'Hi BKR Estates, I would like to know more about your properties in Visakhapatnam.'
 where id = 1;
 

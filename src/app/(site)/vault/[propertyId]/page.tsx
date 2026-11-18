@@ -48,7 +48,7 @@ export default async function PublicVaultPage({ params }: { params: Promise<{ pr
           <p className="mt-0.5 text-lg font-bold">{property.title}</p>
         </div>
         <span className="flex shrink-0 items-center gap-1.5 rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-[var(--color-primary,#7f1d1d)]">
-          View Full Listing <ArrowRight size={15} />
+          View Full Details <ArrowRight size={15} />
         </span>
       </Link>
     </div>

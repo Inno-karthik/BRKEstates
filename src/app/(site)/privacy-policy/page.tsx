@@ -30,7 +30,7 @@ export default async function PrivacyPolicyPage() {
       <h2>How We Use Information</h2>
       <ul>
         <li>To respond to enquiries and connect you with the right property or team member.</li>
-        <li>To improve the site and understand which listings and pages are useful.</li>
+        <li>To improve the site and understand which projects and pages are useful.</li>
         <li>To measure the effectiveness of our marketing campaigns.</li>
       </ul>
 

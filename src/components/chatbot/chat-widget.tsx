@@ -295,7 +295,7 @@ export function ChatWidget() {
       setStage("locations");
       await withTyping(() => {
         if (locations.length === 0) {
-          pushBot("We don't have specific location pages set up just yet — but I can still search all our listings for you!", [
+          pushBot("We don't have specific location pages set up just yet — but I can still search all our projects for you!", [
             { label: "Search Properties", value: "search", icon: Search },
           ]);
           return;
@@ -311,7 +311,7 @@ export function ChatWidget() {
     if (value.startsWith("loc:")) {
       const [, slug, name] = value.split(":");
       await withTyping(() => {
-        pushBot(`Opening ${name}'s listings for you in a new view — or I can search across everything if you'd rather stay here.`, [
+        pushBot(`Opening ${name}'s projects for you in a new view — or I can search across everything if you'd rather stay here.`, [
           { label: `View ${name}`, value: `navigate:/locations/${slug}`, icon: MapPin },
           { label: "Search here instead", value: "search", icon: Search },
         ]);
