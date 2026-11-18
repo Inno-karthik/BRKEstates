@@ -54,7 +54,7 @@ export function UnitVariantSelector({ variants }: { variants: UnitVariant[] }) {
     const map = new Map<string, UnitVariant[]>();
     for (const v of facingGroup) {
       const area = areaOf(v);
-      const key = area != null ? formatArea(area, v.area_unit) ?? String(area) : v.label;
+      const key = area != null ? formatArea(area, v.uds === area ? "sqyd" : "sqft") ?? String(area) : v.label;
       if (!map.has(key)) map.set(key, []);
       map.get(key)!.push(v);
     }
@@ -69,13 +69,13 @@ export function UnitVariantSelector({ variants }: { variants: UnitVariant[] }) {
   if (!active) return null;
 
   const areas = [
-    active.carpet_area != null && { label: "Carpet Area", value: formatArea(active.carpet_area, active.area_unit) },
-    active.built_up_area != null && { label: "Built-up Area", value: formatArea(active.built_up_area, active.area_unit) },
+    active.carpet_area != null && { label: "Carpet Area", value: formatArea(active.carpet_area, "sqft") },
+    active.built_up_area != null && { label: "Built-up Area", value: formatArea(active.built_up_area, "sqft") },
     active.super_built_up_area != null && {
       label: "Super Built-up",
-      value: formatArea(active.super_built_up_area, active.area_unit),
+      value: formatArea(active.super_built_up_area, "sqft"),
     },
-    active.uds != null && { label: "UDS", value: formatArea(active.uds, active.area_unit) },
+    active.uds != null && { label: "UDS", value: formatArea(active.uds, "sqyd") },
   ].filter(Boolean) as { label: string; value: string | null }[];
 
   const facts = [

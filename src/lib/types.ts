@@ -49,7 +49,7 @@ export type UnitVariant = {
   built_up_area: number | null;
   /** Apartments only. */
   super_built_up_area: number | null;
-  /** Apartments only — Undivided Share of Land. */
+  /** Apartments and villas — Undivided Share of Land, always in sqyd. */
   uds: number | null;
   balconies: number | null;
   car_parking: number | null;
@@ -121,6 +121,8 @@ export type Property = {
   embed_code: string | null;
   virtual_tours: VirtualTour[];
   growth_highlights: GrowthHighlight[];
+  /** Highlighted note shown under the configurations on the public page. */
+  variant_notes: string | null;
   meta_title: string | null;
   meta_description: string | null;
   total_units: number | null;

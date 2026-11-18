@@ -124,6 +124,7 @@ export function PropertyEditor({
   const [totalUnits, setTotalUnits] = useState(property.total_units?.toString() ?? "");
   const [availableUnits, setAvailableUnits] = useState(property.available_units?.toString() ?? "");
   const [variants, setVariants] = useState<UnitVariant[]>(property.unit_variants ?? []);
+  const [variantNotes, setVariantNotes] = useState(property.variant_notes ?? "");
   const [expandedVariant, setExpandedVariant] = useState<number | null>(null);
   const [certifications, setCertifications] = useState<Certification[]>(property.certifications ?? []);
   const [layoutImages, setLayoutImages] = useState<LayoutImage[]>(property.layout_images ?? []);
@@ -256,7 +257,9 @@ export function PropertyEditor({
         cover_image: coverImage,
         total_units: totalUnits ? Number(totalUnits) : null,
         available_units: availableUnits ? Number(availableUnits) : null,
-        unit_variants: variants.filter((v) => v.label.trim()),
+        // carpet / built-up / super built-up are always sqft and UDS always sqyd — see UnitVariantSelector
+        unit_variants: variants.filter((v) => v.label.trim()).map((v) => ({ ...v, area_unit: "sqft" })),
+        variant_notes: variantNotes,
         certifications: certifications.filter((c) => c.type.trim()),
         layout_images: layoutImages.filter((l) => l.url),
         attributes: attrs,
@@ -623,48 +626,38 @@ export function PropertyEditor({
                           type="number"
                           value={v.carpet_area ?? ""}
                           onChange={(e) => updateVariant(i, { carpet_area: e.target.value ? Number(e.target.value) : null })}
-                          placeholder="Carpet Area"
+                          placeholder="Carpet Area (sqft)"
                           className={inputClass}
                         />
                         <input
                           type="number"
                           value={v.built_up_area ?? ""}
                           onChange={(e) => updateVariant(i, { built_up_area: e.target.value ? Number(e.target.value) : null })}
-                          placeholder="Built-up Area"
+                          placeholder="Built-up Area (sqft)"
                           className={inputClass}
                         />
                         {currentTypeSlug === "apartment" && (
-                          <>
-                            <input
-                              type="number"
-                              value={v.super_built_up_area ?? ""}
-                              onChange={(e) =>
-                                updateVariant(i, { super_built_up_area: e.target.value ? Number(e.target.value) : null })
-                              }
-                              placeholder="Super Built-up"
-                              className={inputClass}
-                            />
-                            <input
-                              type="number"
-                              value={v.uds ?? ""}
-                              onChange={(e) => updateVariant(i, { uds: e.target.value ? Number(e.target.value) : null })}
-                              placeholder="UDS"
-                              className={inputClass}
-                            />
-                          </>
+                          <input
+                            type="number"
+                            value={v.super_built_up_area ?? ""}
+                            onChange={(e) =>
+                              updateVariant(i, { super_built_up_area: e.target.value ? Number(e.target.value) : null })
+                            }
+                            placeholder="Super Built-up (sqft)"
+                            className={inputClass}
+                          />
                         )}
-                        <select
-                          value={v.area_unit ?? "sqft"}
-                          onChange={(e) => updateVariant(i, { area_unit: e.target.value })}
+                        <input
+                          type="number"
+                          value={v.uds ?? ""}
+                          onChange={(e) => updateVariant(i, { uds: e.target.value ? Number(e.target.value) : null })}
+                          placeholder="UDS (sqyd)"
                           className={inputClass}
-                        >
-                          {AREA_UNITS.map((u) => (
-                            <option key={u} value={u}>
-                              {u}
-                            </option>
-                          ))}
-                        </select>
+                        />
                       </div>
+                      <p className="text-[11px] text-neutral-400">
+                        Carpet, built-up and super built-up areas are in <b>sqft</b>; UDS is in <b>sqyd</b>.
+                      </p>
 
                       <p className="pt-1 text-[10px] font-semibold uppercase tracking-wide text-neutral-400">
                         Price &amp; Parking
@@ -821,6 +814,20 @@ export function PropertyEditor({
           </button>
         </Section>
       )}
+
+      <Section title="Notes for visitors">
+        <p className="-mt-1 text-xs text-neutral-400">
+          Shown on the public page as a highlighted red-bordered box under the configurations (or under the main details for
+          plots and farm land). Use it for payment plans, offers, registration costs, validity dates — one point per line.
+        </p>
+        <textarea
+          value={variantNotes}
+          onChange={(e) => setVariantNotes(e.target.value)}
+          rows={4}
+          placeholder={"e.g. Prices exclude registration and GST.\nLimited units at the launch price till 31 Dec."}
+          className={inputClass}
+        />
+      </Section>
 
       <Section title={`Amenities (${amenityIds.length} selected)`}>
         {amenitiesForType.length > 0 ? (

@@ -7,7 +7,7 @@ export const HERO_BG = `${R2}/brand/hero-bg.jpg`;
 export const AUTHOR = {
   title: "Founder, BKR Estates",
   tagline: "Your guide, consultant and investment companion in Visakhapatnam real estate.",
-  portrait: `${R2}/brand/author-portrait-zoom.jpg`,
+  portrait: `${R2}/brand/author-portrait-blur.jpg`,
   group: `${R2}/brand/author-group.jpg`,
   stats: [
     { value: "20+", label: "Years with Prakruti" },

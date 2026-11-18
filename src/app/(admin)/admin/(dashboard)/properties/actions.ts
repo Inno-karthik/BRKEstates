@@ -46,6 +46,7 @@ export type PropertyInput = {
   total_units?: number | null;
   available_units?: number | null;
   unit_variants?: UnitVariant[];
+  variant_notes?: string;
   certifications?: Certification[];
   layout_images?: LayoutImage[];
   growth_highlights?: GrowthHighlight[];
@@ -115,6 +116,7 @@ export async function upsertProperty(input: PropertyInput) {
     total_units: input.total_units ?? null,
     available_units: input.available_units ?? null,
     unit_variants: input.unit_variants ?? [],
+    variant_notes: input.variant_notes?.trim() || null,
     certifications: input.certifications ?? [],
     layout_images: input.layout_images ?? [],
     attributes: input.attributes,

@@ -12,6 +12,7 @@ import { PropertyCard } from "@/components/property-card";
 import { PropertyMap } from "@/components/property-map";
 import { NearbyExplorer } from "@/components/nearby-explorer";
 import { UnitVariantSelector } from "@/components/unit-variant-selector";
+import { VariantNotes } from "@/components/variant-notes";
 import { EmbedBlock } from "@/components/embed-block";
 import { TrackedLink } from "@/components/tracked-link";
 import { WhatsappIcon } from "@/components/social-icons";
@@ -279,6 +280,7 @@ export default async function PropertyDetailPage({ params }: { params: Promise<{
             )}
 
             {property.unit_variants?.length > 0 && <UnitVariantSelector variants={property.unit_variants} />}
+            <VariantNotes notes={property.variant_notes} />
 
             {property.latitude != null && property.longitude != null ? (
               <div id="nearby-map" className="scroll-mt-20 md:scroll-mt-24">
