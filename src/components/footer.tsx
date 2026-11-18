@@ -162,6 +162,8 @@ export function Footer({ types, settings }: { types: PropertyType[]; settings: S
           </div>
           <p>
             © {new Date().getFullYear()} {settings.site_name}. All rights reserved.
+            <span className="mx-2 text-white/30">|</span>
+            Powered by <b className="font-semibold text-[var(--color-accent,#d4af37)]">Prakruti Avenues</b>
           </p>
           <p className="mt-1.5">
             Application by{" "}
