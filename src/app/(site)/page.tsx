@@ -71,9 +71,9 @@ export default async function HomePage() {
             <span className="text-gradient-accent">Visakhapatnam</span> &amp; Around.
           </h1>
           <p className="mx-auto mt-5 w-full max-w-2xl rounded-2xl bg-black/35 px-5 py-4 text-sm text-white/90 backdrop-blur-[2px] md:text-base">
-            From Madhurawada and Rushikonda to Dwaraka Nagar, Anandapuram and the Bheemili coast, BKR Estates brings you
-            carefully selected plots, apartments, villas and farm land — backed by 20+ years of Prakruti experience and
-            honest guidance on where to invest.
+            BKR Estates is a Visakhapatnam real estate advisory, powered by Prakruti Avenues. With 20+ years of
+            experience and 115+ projects behind us, we guide you to the right plot, apartment, villa or farm land —
+            from Madhurawada and Rushikonda to Dwaraka Nagar, Anandapuram and Bheemili.
           </p>
           <div className="mx-auto mt-9 max-w-2xl">
             <HeroSearch types={types} locations={locations} />
