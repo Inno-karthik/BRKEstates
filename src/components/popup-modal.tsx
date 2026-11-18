@@ -44,6 +44,8 @@ export function PopupModal({ popup }: { popup: Popup }) {
   const isVideo = popup.media_type === "video" && !!popup.video_url;
   const isExternal = popup.target_url?.startsWith("http");
 
+  const bubble =
+    "bg-black/35 text-white backdrop-blur-md ring-1 ring-white/30 transition hover:bg-black/55 active:scale-95";
   const mediaClass = "block h-auto max-h-[80vh] w-auto max-w-[92vw] rounded-2xl shadow-2xl sm:max-w-[min(92vw,720px)]";
 
   const imageEl = (
@@ -72,17 +74,17 @@ export function PopupModal({ popup }: { popup: Popup }) {
               target="_blank"
               rel="noreferrer"
               onClick={dismiss}
-              className="absolute bottom-14 left-1/2 flex -translate-x-1/2 items-center gap-1.5 rounded-full bg-white px-4 py-2 text-xs font-semibold text-neutral-900 shadow-lg"
+              className={`absolute bottom-16 right-3 flex items-center gap-1 rounded-full px-3 py-1.5 text-[11px] font-semibold ${bubble}`}
             >
-              Know more <ArrowRight size={13} />
+              Know more <ArrowRight size={12} />
             </a>
           ) : (
             <Link
               href={popup.target_url}
               onClick={dismiss}
-              className="absolute bottom-14 left-1/2 flex -translate-x-1/2 items-center gap-1.5 rounded-full bg-white px-4 py-2 text-xs font-semibold text-neutral-900 shadow-lg"
+              className={`absolute bottom-16 right-3 flex items-center gap-1 rounded-full px-3 py-1.5 text-[11px] font-semibold ${bubble}`}
             >
-              Know more <ArrowRight size={13} />
+              Know more <ArrowRight size={12} />
             </Link>
           ))}
       </div>
@@ -112,7 +114,7 @@ export function PopupModal({ popup }: { popup: Popup }) {
   return (
     <AnimatePresence>
       {visible && (
-        <div className="fixed inset-0 z-[80] flex items-center justify-center p-4 pt-14">
+        <div className="fixed inset-0 z-[80] flex items-center justify-center p-5">
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -132,7 +134,7 @@ export function PopupModal({ popup }: { popup: Popup }) {
             <button
               onClick={dismiss}
               aria-label="Close"
-              className="absolute -top-11 right-0 flex h-9 w-9 items-center justify-center rounded-full bg-white text-neutral-900 shadow-lg transition hover:scale-105 active:scale-95"
+              className={`absolute -right-3 -top-3 z-10 flex h-9 w-9 items-center justify-center rounded-full ${bubble}`}
             >
               <X size={18} strokeWidth={2.5} />
             </button>
