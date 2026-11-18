@@ -6,12 +6,13 @@ import { AUTHOR } from "@/lib/author";
 /** Founder band for the homepage — burgundy with gold accents, photo on the left. */
 export function AuthorSpotlight() {
   return (
-    <section className="mx-auto max-w-6xl px-4 py-14 md:px-8 md:py-20">
-      <div className="relative isolate overflow-hidden rounded-[2rem] bg-gradient-to-br from-[#5a1219] via-[#3b0b10] to-[#1f0508] p-6 shadow-2xl ring-1 ring-[var(--color-accent,#d4af37)]/40 sm:p-8 md:p-12">
+    <section className="px-4 py-14 md:my-6 md:px-0 md:py-0">
+      <div className="relative isolate overflow-hidden rounded-[2rem] bg-gradient-to-br from-[#5a1219] via-[#3b0b10] to-[#1f0508] p-6 shadow-2xl ring-1 ring-[var(--color-accent,#d4af37)]/40 sm:p-8 md:rounded-none md:px-8 md:py-16 md:shadow-none md:ring-0">
         {/* gold glow + hairlines */}
         <div className="pointer-events-none absolute -right-24 -top-24 -z-10 h-72 w-72 rounded-full bg-[var(--color-accent,#d4af37)]/20 blur-3xl" />
         <div className="pointer-events-none absolute -bottom-28 -left-16 -z-10 h-64 w-64 rounded-full bg-orange-500/10 blur-3xl" />
-        <div className="absolute inset-x-8 top-0 h-px bg-gradient-to-r from-transparent via-[var(--color-accent,#d4af37)] to-transparent" />
+        <div className="absolute inset-x-8 top-0 h-px bg-gradient-to-r from-transparent via-[var(--color-accent,#d4af37)] to-transparent md:inset-x-0 md:h-[2px] md:via-[var(--color-accent,#d4af37)]/80" />
+        <div className="absolute inset-x-0 bottom-0 hidden h-[2px] bg-gradient-to-r from-transparent via-[var(--color-accent,#d4af37)]/80 to-transparent md:block" />
         <Quote
           size={120}
           strokeWidth={1}
@@ -19,7 +20,7 @@ export function AuthorSpotlight() {
           aria-hidden
         />
 
-        <div className="flex flex-col items-center gap-8 md:flex-row md:items-center md:gap-12">
+        <div className="mx-auto flex max-w-6xl flex-col items-center gap-8 md:flex-row md:items-center md:gap-14">
           {/* photo with offset gold frame */}
           <div className="relative shrink-0">
             <div className="absolute -bottom-3 -right-3 h-full w-full rounded-3xl border-2 border-[var(--color-accent,#d4af37)]/70" />
