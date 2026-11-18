@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import Link from "next/link";
 import { ArrowRight, X } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
@@ -13,6 +13,25 @@ import type { Popup } from "@/lib/types";
  */
 export function PopupModal({ popup }: { popup: Popup }) {
   const [visible, setVisible] = useState(false);
+
+  // Sound on by default: try to play with audio. Browsers block that until the visitor has interacted
+  // with the page, so if it's refused we start muted and switch the sound on at their first tap/key/scroll.
+  const attachVideo = useCallback((v: HTMLVideoElement | null) => {
+    if (!v) return;
+    v.muted = false;
+    v.play().catch(() => {
+      v.muted = true;
+      v.play().catch(() => {});
+      const events = ["pointerdown", "keydown", "touchstart", "wheel"] as const;
+      const unmute = (e: Event) => {
+        v.muted = false;
+        events.forEach((ev) => window.removeEventListener(ev, unmute));
+        // a first tap that lands on the video would also toggle pause — keep it playing
+        if (e.target instanceof Node && v.contains(e.target)) setTimeout(() => v.paused && v.play().catch(() => {}), 150);
+      };
+      events.forEach((e) => window.addEventListener(e, unmute, { passive: true }));
+    });
+  }, []);
 
   useEffect(() => {
     try {
@@ -60,8 +79,7 @@ export function PopupModal({ popup }: { popup: Popup }) {
         <video
           src={popup.video_url ?? undefined}
           className={mediaClass}
-          autoPlay
-          muted
+          ref={attachVideo}
           loop
           playsInline
           controls

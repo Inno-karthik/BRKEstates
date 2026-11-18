@@ -76,7 +76,7 @@ export function Navbar({
             <TrackedLink
               href={`tel:${settings.phone}`}
               event="call_click"
-              className="flex h-9 w-9 items-center justify-center rounded-full bg-[var(--color-primary,#d0191f)]/10 text-[var(--color-primary,#d0191f)] lg:hidden"
+              className="flex h-9 w-9 items-center justify-center rounded-full bg-[var(--color-secondary,#14307e)] text-white shadow-sm transition active:scale-95 lg:hidden"
             >
               <Phone size={17} />
             </TrackedLink>
