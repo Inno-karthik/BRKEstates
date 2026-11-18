@@ -51,8 +51,9 @@ export default async function AboutPage() {
             </p>
             <p className="mt-4 text-sm leading-relaxed text-neutral-600">
               Whether you&apos;re looking for your first apartment, a villa to call home, an open plot to build
-              on, or farm land to invest in, our team brings deep knowledge of Madhurawada, Rushikonda, Dwaraka Nagar,
-              Anandapuram, Bheemili, Pendurthi and the wider Vizag growth corridors to every conversation.
+              on, or farm land to invest in, our team knows every belt of the city — the core at Dwaraka Nagar, the IT and
+              coast corridor of Rushikonda and Madhurawada, the airport road through Anandapuram and Bheemili, and the
+              value belt of Pendurthi and Anakapalli.
             </p>
           </div>
           <div className="grid grid-cols-2 gap-4">

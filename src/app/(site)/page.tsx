@@ -9,6 +9,7 @@ import { RecentlyViewed } from "@/components/recently-viewed";
 import { FeatureMarquee } from "@/components/feature-marquee";
 import { LocationMapView } from "@/components/location-map-view";
 import { AuthorSpotlight } from "@/components/author-spotlight";
+import { AreasWeCover } from "@/components/areas-we-cover";
 import { AnimatedNumber } from "@/components/ui/animated-number";
 import {
   getActiveLocations,
@@ -73,7 +74,8 @@ export default async function HomePage() {
           <p className="mx-auto mt-5 w-full max-w-2xl rounded-2xl bg-black/35 px-5 py-4 text-sm text-white/90 backdrop-blur-[2px] md:text-base">
             BKR Estates is a Visakhapatnam real estate advisory, powered by Prakruti Avenues. With 20+ years of
             experience and 115+ projects behind us, we guide you to the right plot, apartment, villa or farm land —
-            from Madhurawada and Rushikonda to Dwaraka Nagar, Anandapuram and Bheemili.
+            from the city core at Dwaraka Nagar to the Madhurawada–Anandapuram–Bheemili corridor leading to the new
+            Bhogapuram airport.
           </p>
           <div className="mx-auto mt-9 max-w-2xl">
             <HeroSearch types={types} locations={locations} />
@@ -108,6 +110,8 @@ export default async function HomePage() {
           </div>
         </section>
       )}
+
+      <AreasWeCover />
 
       {/* Featured projects */}
       {featured.length > 0 && (
