@@ -172,27 +172,6 @@ export default async function HomePage() {
           <TrustCard icon={Sparkles} title="Transparent Pricing" desc="No hidden surprises, ever" />
         </div>
       </section>
-
-      {/* CTA */}
-      <section className="relative isolate mx-auto my-16 max-w-5xl overflow-hidden rounded-[2rem] px-4 py-16 text-center md:px-8">
-        <div
-          className="absolute inset-0 -z-10"
-          style={{ background: "linear-gradient(135deg, var(--color-secondary,#3b0b10), var(--color-primary,#7f1d1d))" }}
-        />
-        <div className="blob left-1/4 top-[-30%] h-72 w-72 bg-[var(--color-accent,#d4af37)]/20" />
-        <h2 className="font-[family-name:var(--font-display)] text-2xl font-bold text-white md:text-4xl">
-          Looking to buy, sell or invest in Vizag?
-        </h2>
-        <p className="mx-auto mt-3 max-w-md text-sm text-white/70">
-          Talk to our team — we&apos;ll help you find the right property, the right buyer or the right investment.
-        </p>
-        <Link
-          href="/contact"
-          className="mt-7 inline-flex items-center gap-2 rounded-full bg-white px-7 py-3 text-sm font-semibold text-[var(--color-secondary,#3b0b10)] shadow-lg transition hover:scale-[1.03]"
-        >
-          Contact Us <ArrowRight size={15} />
-        </Link>
-      </section>
     </PageTheme>
   );
 }
