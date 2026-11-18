@@ -17,7 +17,7 @@ export function Footer({ types, settings }: { types: PropertyType[]; settings: S
   return (
     <footer className="relative isolate mt-16 overflow-hidden border-t-2 border-[var(--color-accent,#d4af37)]/70 bg-[var(--color-secondary,#14307e)] text-white">
       <Image src={HERO_BG} alt="" fill sizes="100vw" className="-z-20 object-cover object-bottom opacity-70" />
-      <div className="absolute inset-0 -z-10 bg-gradient-to-b from-black/62 via-black/55 to-black/72" />
+      <div className="absolute inset-0 -z-10 bg-gradient-to-b from-black/70 via-black/63 to-black/80" />
       {settings.phone && (
         <div className="relative overflow-hidden border-b border-[#14307e]/30 bg-gradient-to-r from-[#f3d98b] via-[#d4af37] to-[#c4961c]">
           <div className="pointer-events-none absolute -left-10 top-0 h-full w-1/3 -skew-x-12 bg-white/20 blur-2xl" />
