@@ -35,8 +35,30 @@ async function compressImage(file: File): Promise<File> {
   }
 }
 
+/** Browser → R2 directly via a presigned URL. Returns null when direct upload isn't available. */
+async function directUpload(file: File, folder: string): Promise<string | null> {
+  try {
+    const sign = await fetch("/api/upload/sign", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ filename: file.name, folder }),
+    });
+    if (!sign.ok) return null;
+    const { uploadUrl, publicUrl } = (await sign.json()) as { uploadUrl?: string; publicUrl?: string };
+    if (!uploadUrl || !publicUrl) return null;
+    const put = await fetch(uploadUrl, { method: "PUT", body: file });
+    if (!put.ok) return null;
+    return publicUrl;
+  } catch {
+    return null;
+  }
+}
+
 export async function uploadFile(file: File, folder: string): Promise<string> {
   const toUpload = await compressImage(file);
+
+  const direct = await directUpload(toUpload, folder);
+  if (direct) return direct;
 
   const formData = new FormData();
   formData.append("file", toUpload);

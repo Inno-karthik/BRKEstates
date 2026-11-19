@@ -55,6 +55,21 @@ export async function uploadToR2(file: File, folder: string) {
   return publicUrl(key);
 }
 
+/** Short-lived presigned PUT URL so the browser can upload straight to R2. Uploading through the
+ *  Worker means it must read the whole file in JavaScript, which blows the Free plan's 10 ms CPU
+ *  limit (Error 1102) for anything larger than a small image. */
+export async function presignUpload(filename: string, folder: string) {
+  if (!process.env.R2_ACCESS_KEY_ID || !process.env.R2_SECRET_ACCESS_KEY || !process.env.R2_ACCOUNT_ID || !process.env.R2_BUCKET_NAME) {
+    throw new Error("Direct upload isn't configured");
+  }
+  const ext = (filename.split(".").pop() || "bin").toLowerCase().replace(/[^a-z0-9]/g, "").slice(0, 8) || "bin";
+  const key = `${folder}/${crypto.randomUUID()}.${ext}`;
+  const url = new URL(`${s3Endpoint()}/${key}`);
+  url.searchParams.set("X-Amz-Expires", "600");
+  const signed = await r2Client().sign(new Request(url, { method: "PUT" }), { aws: { signQuery: true } });
+  return { uploadUrl: signed.url, publicUrl: publicUrl(key) };
+}
+
 export async function deleteFromR2(publicFileUrl: string) {
   const key = publicFileUrl.replace(`${process.env.R2_PUBLIC_URL}/`, "");
 
