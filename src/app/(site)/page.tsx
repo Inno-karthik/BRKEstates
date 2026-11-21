@@ -151,7 +151,7 @@ export default async function HomePage() {
       {settings.home_map_enabled && mapProperties.length > 0 && (
         <section className="mx-auto max-w-7xl px-4 py-16 md:px-8">
           <div className="mb-8">
-            <h2 className="text-2xl font-bold text-neutral-900 md:text-3xl">Our Projects Across Visakhapatnam</h2>
+            <h2 className="text-2xl font-bold text-neutral-900 md:text-3xl">Our Projects In &amp; Around Visakhapatnam</h2>
             <p className="mt-2 text-sm text-neutral-500">Every project we represent, on one map</p>
           </div>
           <div className="relative h-[420px] overflow-hidden rounded-2xl border border-black/5 shadow-sm md:h-[480px]">

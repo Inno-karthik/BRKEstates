@@ -75,6 +75,8 @@ function emptyCertification(): Certification {
   return { type: "", number: null, date_issued: null, show_publicly: true };
 }
 
+import { defaultTourTitle, normalizeEmbed, OURPLOTS_URL, isOurPlotsEmbed } from "@/lib/embed";
+
 function emptyVirtualTour(): VirtualTour {
   return { title: "", embed_code: "" };
 }
@@ -250,7 +252,9 @@ export function PropertyEditor({
         map_precision: mapPrecision,
         description,
         embed_code: embedCode,
-        virtual_tours: virtualTours.filter((t) => t.title.trim() && t.embed_code.trim()),
+        virtual_tours: virtualTours
+          .filter((t) => t.embed_code.trim())
+          .map((t) => ({ title: t.title.trim() || defaultTourTitle(t.embed_code), embed_code: normalizeEmbed(t.embed_code) })),
         growth_highlights: growthHighlights.filter((g) => g.title.trim()),
         meta_title: metaTitle,
         meta_description: metaDescription,
@@ -918,8 +922,17 @@ export function PropertyEditor({
                 onChange={(e) => updateVirtualTour(i, { embed_code: e.target.value })}
                 rows={3}
                 className={`${inputClass} font-mono text-xs`}
-                placeholder='<iframe src="..."></iframe>'
+                placeholder='<iframe src="..."></iframe>  — or paste just the link'
               />
+              {isOurPlotsEmbed(t.embed_code) && (
+                <p className="text-[11px] text-neutral-400">
+                  OurPlots embed detected — a &quot;Powered by OurPlots · ourplots.com&quot; link to {OURPLOTS_URL} is shown under it
+                  on the property page.
+                </p>
+              )}
+              {t.embed_code.trim() && !t.title.trim() && (
+                <p className="text-[11px] text-amber-600">No tab title — it will be called &quot;{defaultTourTitle(t.embed_code)}&quot;.</p>
+              )}
             </div>
           ))}
         </div>

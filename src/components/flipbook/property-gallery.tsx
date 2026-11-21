@@ -4,6 +4,8 @@ import { useState } from "react";
 import { FileText, Download, Compass } from "lucide-react";
 import { PropertyCarousel } from "@/components/flipbook/property-carousel";
 import { LeadUnlock } from "@/components/lead-unlock";
+import { EmbedHtml } from "@/components/embed-html";
+import { OURPLOTS_URL, isOurPlotsEmbed } from "@/lib/embed";
 import { useUnlock } from "@/components/unlock-context";
 import type { VirtualTour } from "@/lib/types";
 
@@ -134,10 +136,18 @@ export function PropertyGallery({
             </span>
             <p className="truncate text-sm font-semibold text-neutral-800">{virtualTours[tab].title}</p>
           </div>
-          <div
+          <EmbedHtml
+            html={virtualTours[tab].embed_code}
             className="aspect-[4/5] w-full border-t border-black/5 [&_iframe]:h-full [&_iframe]:w-full md:aspect-[3/4]"
-            dangerouslySetInnerHTML={{ __html: virtualTours[tab].embed_code }}
           />
+          {isOurPlotsEmbed(virtualTours[tab].embed_code) && (
+            <p className="border-t border-black/5 bg-neutral-50 px-4 py-2 text-center text-[11px] text-neutral-500">
+              Interactive plot map powered by{" "}
+              <a href={OURPLOTS_URL} target="_blank" rel="noreferrer" className="font-semibold text-[var(--color-primary,#d0191f)] hover:underline">
+                OurPlots · ourplots.com
+              </a>
+            </p>
+          )}
         </div>
       ) : images.length === 0 ? (
         <div className="flex aspect-[4/5] items-center justify-center rounded-2xl border border-dashed border-black/10 text-neutral-400">
